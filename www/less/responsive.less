@@ -12,7 +12,8 @@
 }
 @media screen and (max-width: 767px) {
     .inner {
-        width: auto!important;
+        width: 70%!important;
+        padding: 0 15px!important;
     }
     .visible-xs {
         display: block!important
@@ -32,7 +33,13 @@
     }
     td, th, tr, thead, tbody, tfoot, table {
         display: block;
-    } 
+    }
+    .main-navigation .inner {
+        width: 80%!important;
+    }
+    .vtp img {
+        width: 80%;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .visible-sm {
@@ -97,5 +104,16 @@
 @media screen and (min-width: 1200px) {
     .hidden-lg {
         display: none!important
+    }
+}
+@media screen and (max-width: 1200px) {
+    .vtp img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 845px){
+    .main-navigation {
+        display: none;
     }
 }
