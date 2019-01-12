@@ -11,9 +11,14 @@
     display: none!important
 }
 @media screen and (max-width: 767px) {
-    .inner {
+    .main-content .inner {
         width: 70%!important;
         padding: 0 15px!important;
+    }
+    .main-content .photo-pic{
+        width: 15%;
+        height: auto;
+        margin: 0 20px!important;
     }
     .visible-xs {
         display: block!important
@@ -39,6 +44,13 @@
     }
     .vtp img {
         width: 80%;
+    }
+    .logo img {
+        width: 100% !important;
+        margin-left: 15%;
+    }
+    .homepage .main-header{
+        height: 700px;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -112,8 +124,11 @@
     }
 }
 
-@media screen and (max-width: 845px){
-    .main-navigation .inner{
+@media screen and (max-width: 992px){
+    .main-header nav .inner{
         display: none;
+    }
+    .btn {
+        display: block!important;
     }
 }
