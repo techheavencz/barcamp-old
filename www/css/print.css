@@ -784,6 +784,11 @@ iframe[seamless] {
 .main-navigation li a:hover {
   background-position: 0 -18px;
 }
+.main-navigation .fa-bars {
+  display: none;
+  font-size: 55px;
+  margin: 2px;
+}
 .main-content .inner {
   width: 40%;
   padding: 0 30%;
@@ -1947,7 +1952,7 @@ iframe[seamless] {
   }
 }
 @media screen and (max-width: 845px) {
-  .main-navigation {
+  .main-navigation .inner {
     display: none;
   }
 }
