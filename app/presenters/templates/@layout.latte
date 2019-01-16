@@ -74,9 +74,9 @@
                 <div class="inner">
                     <ul class="navigation">
                         <li {ifCurrent Homepage:default}class="active"{/ifCurrent}><a class="home" href="{link //Homepage:default}" data-hover="Úvod">Úvod</a></li>
-                        <li {ifCurrent Program:list}class="active"{/ifCurrent}><a href="{link Program:list}" data-hover="Program">Program</a></li>
+                        {*<li {ifCurrent Program:list}class="active"{/ifCurrent}><a href="{link Program:list}" data-hover="Program">Program</a></li>*}
                         <li {ifCurrent Conference:talks}class="active"{/ifCurrent}{ifCurrent Conference:talksRanking}class="active"{/ifCurrent}{ifCurrent Conference:talksDetail}class="active"{/ifCurrent}><a href="{link Conference:talks}" data-hover="Přednášky">Přednášky</a></li>
-                        <li {ifCurrent Conference:visitors}class="active"{/ifCurrent}{ifCurrent Conference:profil}class="active"{/ifCurrent}><a href="{link Conference:visitors}" data-hover="Účastníci">Účastnící</a></li>
+                        {*<li {ifCurrent Conference:visitors}class="active"{/ifCurrent}{ifCurrent Conference:profil}class="active"{/ifCurrent}><a href="{link Conference:visitors}" data-hover="Účastníci">Účastnící</a></li>*}
                         <li {ifCurrent Homepage:partners}class="active"{/ifCurrent}><a href="{link Homepage:partners}" data-hover="Partneří">Partneří</a></li>
                         <li {ifCurrent Homepage:contact}class="active"{/ifCurrent}><a href="{link Homepage:contact}" data-hover="Kontakt">Kontakt</a></li>
                         <li {ifCurrent Homepage:vocabulary}class="active"{/ifCurrent}><a href="{link Homepage:vocabulary}" data-hover="Plzeňština ?"><span class="tooltip pilsen" title="Copa jsou tyhle divoký názvy? To je Koldovo druhej rodnej jazyk…">Plzeňština ?</span></a></li>
@@ -100,15 +100,15 @@
                             <li class="nav-item">
                                 <a class="home nav-link" href="{link //Homepage:default}" data-hover="Úvod">Úvod</a>
                             </li>
-                            <li class="nav-item">
+                            {*<li class="nav-item">
                                 <a class="nav-link" href="{link Program:list}" data-hover="Program">Program</a>
-                            </li>
+                            </li>*}
                             <li class="nav-item">
                                 <a class="nav-link" href="{link Conference:talks}" data-hover="Přednášky">Přednášky</a>
                             </li>
-                            <li class="nav-item">
+                            {*<li class="nav-item">
                                 <a class="nav-link" href="{link Conference:visitors}" data-hover="Účastníci">Účastnící</a>
-                            </li>
+                            </li>*}
                             <li class="nav-item">
                                 <a class="nav-link" href="{link Homepage:partners}" data-hover="Partneří">Partneří</a>
                             </li>
@@ -141,6 +141,7 @@
                 {ifCurrent Homepage:default}
                     <p class="venue"><a href="{link Homepage:default}#kdepa-to-bude">Vědeckotechnický park Plzeň</a></p>
                     <p class="hashtag"><a href="https://twitter.com/search?q=%23barcampCZ&amp;f=realtime" target="_blank">#BarcampCZ</a></p>
+                    <p class="hashtag"><a href="https://twitter.com/search?q=%23plzenskybarcamp&amp;f=realtime" target="_blank">#PlzenskyBarcamp</a></p>
                 {/ifCurrent}
             </div>
         </header>
@@ -162,7 +163,7 @@
             <div class="main-navigation dark">
                 <div class="inner footer">
                     <div class="info-navigation">
-                        <p>Plzeňský Barcamp organizuje TechHeaven</a></p>
+                        <p>Plzeňský Barcamp organizuje <a class="thvn" href="https://thvn.cz/my">TechHeaven</a></p>
                     </div>
 
                     <div class="archive">

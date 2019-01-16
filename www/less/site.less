@@ -128,10 +128,14 @@ iframe[seamless]{
 			font-family: "open_sanslight";
 		}
 
-		.hashtag a {
-			font-size: 2em;
-			font-family: "open_sanslight";
+		.hashtag {
+			margin: 0;
+			a {
+				font-size: 2em;
+				font-family: "open_sanslight";
+			}
 		}
+
 	}
 
 	.info-navigation li {
@@ -167,7 +171,7 @@ iframe[seamless]{
 
 	.inner {
 		position: relative;
-		min-width: 845px;
+		min-width: 900px;
 		top: 30px;
 	}
 
@@ -273,7 +277,7 @@ iframe[seamless]{
 		.dropdown-menu {
 			display: none;
 			width: 100%;
-			height: 360px;
+			height: 260px;
 			background-color: #171a1c;
 			z-index: 1;
 			position: relative;
@@ -867,6 +871,9 @@ iframe[seamless]{
 				&:active {
 					border-width: 2px;
 				}
+			}
+			.thvn {
+				color: @green;
 			}
 		}
 
