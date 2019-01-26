@@ -7,10 +7,12 @@
       <change afterPath="$PROJECT_DIR$/app/presenters/BasePresenter.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/presenters/ConferencePresenter.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/presenters/ProgramPresenter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../base.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/presenters/BasePresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/presenters/BasePresenter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/presenters/HomepagePresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/presenters/HomepagePresenter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/presenters/templates/Homepage/partners.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/presenters/templates/Homepage/partners.latte" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,20 +39,47 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
+                <state relative-caret-position="494">
+                  <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/presenters/HomepagePresenter.php">
               <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
+              <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
-                  <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+                  <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/config/config.neon">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="1" selection-start-line="1" selection-end-line="1" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/config/config.local.neon">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="60">
+                  <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -59,7 +88,7 @@
             <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/partners.latte">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="285">
-                  <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+                  <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -71,8 +100,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/less/site.less">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="700">
-                  <caret line="583" column="31" lean-forward="true" selection-start-line="583" selection-start-column="31" selection-end-line="583" selection-end-column="31" />
+                <state relative-caret-position="643">
+                  <caret line="583" column="31" selection-start-line="583" selection-start-column="31" selection-end-line="583" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -128,7 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
         <option value="$PROJECT_DIR$/app/presenters/BaseConference.php" />
         <option value="$PROJECT_DIR$/app/presenters/ConferencePresenter.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -141,8 +169,10 @@
         <option value="$PROJECT_DIR$/app/presenters/templates/@layout.latte" />
         <option value="$PROJECT_DIR$/www/less/site.less" />
         <option value="$PROJECT_DIR$/app/presenters/templates/Homepage/partners.latte" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte" />
+        <option value="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
+        <option value="$PROJECT_DIR$/app/config/config.local.neon" />
         <option value="$PROJECT_DIR$/app/presenters/HomepagePresenter.php" />
+        <option value="$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte" />
       </list>
     </option>
   </component>
@@ -171,8 +201,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="x" value="163" />
+    <option name="y" value="-14" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -192,6 +224,12 @@
               <item name="barcamp" type="b2602c69:ProjectViewProjectNode" />
               <item name="barcamp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="barcamp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="barcamp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="barcamp" type="b2602c69:ProjectViewProjectNode" />
@@ -256,12 +294,12 @@
       <option name="presentableId" value="Default" />
       <updated>1547237139091</updated>
       <workItem from="1547237141034" duration="37701000" />
-      <workItem from="1548449092687" duration="2243000" />
+      <workItem from="1548449092687" duration="7485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39944000" />
+    <option name="totallyTimeSpent" value="45186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -299,27 +337,10 @@
     <entry file="file://$PROJECT_DIR$/app/presenters/ErrorPresenter.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.local.neon">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -436,8 +457,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/less/site.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="583" column="31" lean-forward="true" selection-start-line="583" selection-start-column="31" selection-end-line="583" selection-end-column="31" />
+        <state relative-caret-position="643">
+          <caret line="583" column="31" selection-start-line="583" selection-start-column="31" selection-end-line="583" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -448,6 +469,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/partners.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.local.neon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/templates/@layout.latte">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
@@ -455,24 +497,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/partners.latte">
+    <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
+        <state relative-caret-position="225">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/HomepagePresenter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        <state relative-caret-position="255">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/contact.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>

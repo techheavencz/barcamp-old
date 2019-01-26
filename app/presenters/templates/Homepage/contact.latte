@@ -14,56 +14,22 @@
                 <img class="photo-pic" src="../media/photos/someone.jpg" alt="{$organizator->full_name}" width="180" height="180">
                 <p>Tel.: <strong><a href="tel:{$organizator->tel}">{$organizator->tel}</a></strong></p>
                 <ul class="networks">
-                    <li n:if="isset($organizator->mail)" class="email"><a href="mailto:{$organizator->mail}" title="{$organizator->mail}"><i>{$organizator->mail}</i></a></li>
-                    <li n:if="isset($organizator->twitter)" class="tw"><a href="https://twitter.com/{$organizator->twitter}" target="_blank" title="@{$organizator->twitter}"><i>@{$organizator->twitter}</i></a></li>
-                    <li n:if="isset($organizator->facebook)" class="fb"><a href="https://www.facebook.com/{$organizator->facebook}" target="_blank" title="{$organizator->facebook}"><i>{$organizator->facebook}</i></a></li>
+                    <li n:if="$organizator->mail!=='NOT'" class="email"><a href="mailto:{$organizator->mail}" title="{$organizator->mail}"><i>{$organizator->mail}</i></a></li>
+                    <li n:if="$organizator->twitter!=='NOT'" class="tw"><a href="https://twitter.com/{$organizator->twitter}" target="_blank" title="@{$organizator->twitter}"><i>@{$organizator->twitter}</i></a></li>
+                    <li n:if="$organizator->facebook!=='NOT'" class="fb"><a href="https://www.facebook.com/{$organizator->facebook}" target="_blank" title="{$organizator->facebook}"><i>{$organizator->facebook}</i></a></li>
                 </ul>
             </div>
             {/foreach}
-            <div class="organizer">
-                <h3>Péťa Plachá</h3>
-                <img class="photo-pic" src="../media/photos/someone.jpg" alt="Péťa Plachá" width="180" height="180">
-                <p>Tel.: <strong><a href="tel:775771500">775 77 15 00</a></strong></p>
-                    <ul class="networks">
-                        <li class="email"><a href="mailto:vojta@techheaven.org" title="@vojta@techheaven.org"><i>vojta@techheaven.org</i></a></li>
-                        <li class="tw"><a href="https://twitter.com/jirikolda" target="_blank" title="@JiriKolda"><i>@JiriKolda</i></a></li>
-                        <li class="fb"><a href="https://www.facebook.com/JiriKolda" target="_blank" title="JiriKolda"><i>JiriKolda</i></a></li>
-                    </ul>
-            </div>
-            <div class="organizer">
-                <h3>Verča Landsmanojc</h3>
-                <img class="photo-pic" src="../media/photos/someone.jpg" alt="Verča Landsmanojc" width="180" height="180">
-                <p>Tel.: <strong><a href="tel:775552303">775 552 303</a></strong></p>
-                <ul class="networks">
-                    <li class="email"><a href="mailto:veronika@landsmanova.cz" title="veronika@landsmanova.cz"><i>veronika@landsmanova.cz</i></a></li>
-                    <li class="tw"><a href="https://twitter.com/veru_gr" target="_blank" title="@veru_gr"><i>@veru_gr</i></a></li>
-                    <li class="fb"><a href="https://www.facebook.com/veronika.grekova" target="_blank" title="veronika.grekova"><i>veronika.grekova</i></a></li>
-                </ul>
-            </div>
-
-            <div class="organizer">
-                <h3>Jakub Bouček</h3>
-                <img class="photo-pic" src="../media/photos/someone.jpg" alt="Jakub Bouček" width="180" height="180">
-                <p>Tel.: <strong><a href="tel:608259497">608 259 497</a></strong></p>
-                <ul class="networks">
-                    <li class="email"><a href="mailto:pan@jakubboucek.cz" title="pan@jakubboucek.cz"><i>pan@jakubboucek.cz</i></a></li>
-                    <li class="tw"><a href="https://twitter.com/JakubBoucek" target="_blank" title="@JakubBoucek"><i>@JakubBoucek</i></a></li>
-                    <li class="fb"><a href="https://www.facebook.com/jakub.boucek" target="_blank" title="jakub.boucek"><i>jakub.boucek</i></a></li>
-                </ul>
-            </div>
         </div>
 
         <div class="assistants">
             <h2 id="dekujeme">Naši pomocnící</h2>
+            {foreach $asistants as $asistant}
             <div class="assistant">
-                <img class="photo-pic" src="../media/photos/someone.jpg" alt="Jakub Bouček" width="70" height="70">
-                <a href="https://www.jakub-boucek.cz/" target="_blank">Jakub Bouček</a>
+                <img class="photo-pic" src="../media/photos/someone.jpg" alt="{$asistant->full_name}" width="70" height="70">
+                <a href="https://www.facebook.com/{$asistant->facebook}" target="_blank">{$asistant->full_name}</a>
             </div>
-
-            <div class="assistant">
-                <img class="photo-pic" src="../media/photos/someone.jpg" alt="Michal Smazal" width="70" height="70">
-                <a href="https://www.facebook.com/michal.smazal" target="_blank">Michal Smazal</a>
-            </div>
+            {/foreach}
         </div>
 
 

@@ -8,25 +8,14 @@ use Nette;
 final class HomepagePresenter extends BasePresenter
 {
     public function renderContact() {
-        $v = [
-            "full_name" => "Vojta Pšenák",
-            "tel" => "721930266",
-            "mail" => "vojta@techheaven.org",
-            "facebook" => "psenak.vojtech",
-            "twitter" => "VPsenak",
-        ];
-        $vojta = (object) $v;
+        $orgs = $this->db->table("people")->where("category", "org")->order("num_order");
 
 
+        $this->template->organizators = $orgs;
 
-        $organizators = [
-            $vojta,
-        ];
+        $asist = $this->db->table("people")->where("category", "asist")->order("num_order");
 
-
-
-        $this->template->organizators = (object) $organizators;
-
+        $this->template->asistants = $asist;
     }
     public function renderDefault() {
 
