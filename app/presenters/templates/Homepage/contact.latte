@@ -11,7 +11,7 @@
             {foreach $organizators as $organizator}
             <div class="organizer">
                 <h3>{$organizator->full_name}</h3>
-                <img class="photo-pic" src="../media/photos/someone.jpg" alt="{$organizator->full_name}" width="180" height="180">
+                <img class="photo-pic" {if strpos($organizator->img, ":")} src="{$organizator->img}" {else} src="../media/photos/{$organizator->img}" {/if} alt="{$organizator->full_name}" width="180" height="180">
                 <p>Tel.: <strong><a href="tel:{$organizator->tel}">{$organizator->tel}</a></strong></p>
                 <ul class="networks">
                     <li n:if="$organizator->mail!=='NOT'" class="email"><a href="mailto:{$organizator->mail}" title="{$organizator->mail}"><i>{$organizator->mail}</i></a></li>
