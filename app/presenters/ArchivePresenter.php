@@ -10,7 +10,7 @@ use Nette\Http\IResponse;
 /**
  * Homepage presenter.
  */
-class ArchivePresenter extends BasePresenter
+final class ArchivePresenter extends BasePresenter
 {
 
     /**
