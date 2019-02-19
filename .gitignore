@@ -1,3 +1,9 @@
+!.gitignore
+!.htaccess
+!web.config
 .idea/
+.DS_Store
 app/config/config.local.neon
-vendor/
+log/*
+temp/*
+vendor/*
