@@ -25,7 +25,13 @@ final class RouterFactory
         $router[] = new Route('2016[/<path .+>]', 'Archive:2016');
         $router[] = new Route('2017[/<path .+>]', 'Archive:2017');
         $router[] = new Route('2018[/<path .+>]', 'Archive:2018');
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
+
+        $router[] = new Route('2019', 'Homepage:default', Route::ONE_WAY);
+        $router[] = new Route('[2019/]kontakt', 'Homepage:contact');
+        $router[] = new Route('[!2019/]partneri', 'Homepage:partners');
+        $router[] = new Route('[2019/]plzenakovo-slovnicek-pojmu', 'Homepage:vocabulary');
+        
+        $router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
 	}
 }
