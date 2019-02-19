@@ -1,5 +1,9 @@
 parameters:
 
+database:
+	dsn: 'mysql:host=plzenskybarcampweb_mysqldb_1;dbname=plzenskybarcamp'
+	user: root
+	password: plzenskybarcamp
 
 application:
 	errorPresenter: Error
