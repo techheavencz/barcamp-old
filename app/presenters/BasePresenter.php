@@ -10,7 +10,11 @@ class BasePresenter extends Nette\Application\UI\Presenter
     /** @var Nette\Database\Context */
     public $db;
 
-    public function __construct(Nette\Database\Context $database)
+
+    /**
+     * @param Nette\Database\Context $database
+     */
+    public function injectDatabase(Nette\Database\Context $database): void
     {
         $this->db = $database;
     }

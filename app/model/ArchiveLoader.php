@@ -2,43 +2,66 @@
 
 namespace App\Model;
 
-use App\Aws\S3Storage,
-    Nette\Caching\Cache,
-    Nette\Caching\IStorage;
+use Nette\Caching\Cache;
+use Nette\Caching\IStorage;
 
-class ArchiveLoader {
+class ArchiveLoader
+{
 
-    private $s3;
+    /**
+     * @var Cache
+     */
     private $cache;
+    /**
+     * @var GithubLoader
+     */
+    private $githubLoader;
 
 
-    public function __construct( S3Storage $s3, IStorage $cacheStorage ) {
-        $this->s3 = $s3;
+    /**
+     * @param GithubLoader $githubLoader
+     * @param IStorage $cacheStorage
+     */
+    public function __construct(GithubLoader $githubLoader, IStorage $cacheStorage)
+    {
         $this->cache = new Cache($cacheStorage, 'archive-loader');
+        $this->githubLoader = $githubLoader;
     }
 
-    public function load( $path ) {
-        $awsPath = '/archive' . $path;
 
-        $content = $this->cache->load($awsPath, function(& $cacheParams) use ($awsPath) {
+    /**
+     * @param $path
+     * @return array
+     */
+    public function load($path): array
+    {
+        /** @var array $content */
+        $content = $this->cache->load($path, function (& $cacheParams) use ($path) {
             $cacheParams = [Cache::EXPIRE => '1 month'];
-            return $this->loadArchiveStorage( $awsPath );
+            return $this->loadArchiveStorage($path);
         });
+
         return $content;
     }
 
-    private function loadArchiveStorage( $path ) {
-        if($this->s3->isObjectExist( $path )) {
-            $object = $this->s3->getObject( $path );
+
+    /**
+     * @param $path
+     * @return array
+     */
+    private function loadArchiveStorage($path): array
+    {
+        try {
+            $content = $this->githubLoader->load($path);
             return [
                 'status' => 200,
-                'content' => $object->Body->getContents(),
+                'content' => $content,
+            ];
+        } catch (NotFoundException $e) {
+            return [
+                'status' => 404,
+                'content' => null,
             ];
         }
-
-        return [
-            'status' => 404,
-            'content' => NULL,
-        ];
     }
 }

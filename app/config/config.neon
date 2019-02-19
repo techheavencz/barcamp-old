@@ -1,4 +1,5 @@
 parameters:
+	archiveUrlPrefix: https://raw.githubusercontent.com/plzenskybarcamp/plzenskybarcamp-archive/master/archive/
 
 
 application:
@@ -13,3 +14,5 @@ session:
 
 services:
 	router: App\RouterFactory::createRouter
+	- App\Model\ArchiveLoader
+	- App\Model\GithubLoader(%archiveUrlPrefix%)
