@@ -82,6 +82,9 @@
                         <li {ifCurrent Homepage:vocabulary}class="active"{/ifCurrent}><a href="{link Homepage:vocabulary}" data-hover="Plzeňština ?"><span class="tooltip pilsen" title="Copa jsou tyhle divoký názvy? To je Koldovo druhej rodnej jazyk…">Plzeňština ?</span></a></li>
                     </ul>
                     <ul class="info-navigation">
+                        {if time() <= 1550703600 OR 1 == 1}
+                            <li><a href="{link Registrace:default}" id="login-button" class="track-click">Zaregistrovat se</a></li>
+                        {/if}
                         {*{if !$user->isLoggedIn()}<li><a href="{link Sign:in}" id="login-button" class="track-click">Přihlásit</a></li>{/if}*}
                         {if $user->isLoggedIn()}<li><a href="{link Sign:out}" id="logout-button">Odhlásit</a></li>{/if}
                         {if $user->isLoggedIn()}
@@ -172,6 +175,7 @@
                             <li><a href="{link Archive:2015}" data-hover="Archiv ročníku 2015">2015</a></li>
                             <li><a href="{link Archive:2016}" data-hover="Archiv ročníku 2016">2016</a></li>
                             <li><a href="{link Archive:2017}" data-hover="Archiv ročníku 2017">2017</a></li>
+                            <li><a href="{link Archive:2018}" data-hover="Archiv ročníku 2018">2018</a></li>
                             {* TODO *}
                         </ul>
                         <span>Předchozí ročníky:</span>
