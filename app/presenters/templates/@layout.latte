@@ -50,7 +50,7 @@
         <script>
             function dropdownNav() {
                 document.getElementById("dropdown-menu").classList.toggle("show");
-                window.addEventListener("click", function(event) {
+                window.addEventListener("touch", function(event) {
                     if (!event.target.matches('.btn')) {
                         var dropdowns = document.getElementsByClassName("dropdown-menu");
                         var i;
