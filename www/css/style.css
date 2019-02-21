@@ -797,12 +797,8 @@ iframe[seamless] {
 }
 .main-navigation .dropdown .btn {
   position: relative;
-  font-size: 55px;
-  margin: 10px 25px;
-  border: none;
-  box-shadow: none;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0);
+  font-size: 60px;
+  margin: 25px 30px;
   cursor: pointer;
 }
 .main-navigation .dropdown .btn i {
@@ -811,7 +807,7 @@ iframe[seamless] {
 .main-navigation .dropdown .dropdown-menu {
   display: none;
   width: 100%;
-  height: 260px;
+  height: 300px;
   background-color: #171a1c;
   z-index: 1;
   position: relative;
@@ -831,7 +827,7 @@ iframe[seamless] {
   text-decoration: none;
   display: block;
   font-family: open_sansregular;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: normal;
   font-style: normal;
 }
@@ -1885,9 +1881,6 @@ iframe[seamless] {
   font-weight: normal;
   font-family: "open_sanssemibold";
 }
-@-ms-viewport {
-  width: device-width;
-}
 .visible-xs,
 .visible-xs-inline-block,
 .visible-sm,
@@ -1896,10 +1889,6 @@ iframe[seamless] {
   display: none !important;
 }
 @media screen and (max-width: 767px) {
-  .main-content .inner {
-    width: 70%!important;
-    padding: 0 15px!important;
-  }
   .main-content .photo-pic {
     width: 15%;
     height: auto;
@@ -1930,15 +1919,11 @@ iframe[seamless] {
   table {
     display: block;
   }
-  .main-navigation .inner {
-    width: 80%!important;
-  }
   .vtp img {
     width: 80%;
   }
   .logo img {
-    width: 100% !important;
-    margin-left: 15%;
+    margin: 10%;
   }
   .homepage .main-header {
     height: 700px;
@@ -2023,6 +2008,21 @@ iframe[seamless] {
   }
   .footer {
     min-width: 0!important;
+    width: 70% !important;
+  }
+  .logo img {
+    width: 100% !important;
+  }
+  .main-content .inner {
+    width: 80%!important;
+    padding: 0 15px!important;
+    font-size: 1.3em;
+  }
+  .social-media li {
+    width: 50%!important;
+  }
+  .main-navigation .inner {
+    width: 90%!important;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */

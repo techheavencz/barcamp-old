@@ -1,8 +1,6 @@
 // MEDIA QUERIES
 
-@-ms-viewport {
-    width: device-width;
-}
+
 .visible-xs,
 .visible-xs-inline-block,
 .visible-sm,
@@ -11,10 +9,6 @@
     display: none!important
 }
 @media screen and (max-width: 767px) {
-    .main-content .inner {
-        width: 70%!important;
-        padding: 0 15px!important;
-    }
     .main-content .photo-pic{
         width: 15%;
         height: auto;
@@ -39,16 +33,12 @@
     td, th, tr, thead, tbody, tfoot, table {
         display: block;
     }
-    .main-navigation .inner {
-        width: 80%!important;
-    }
     .vtp img {
         width: 80%;
     }
     .logo img {
-        width: 100% !important;
-        margin-left: 15%;
-    }
+         margin: 10%;
+     }
     .homepage .main-header{
         height: 700px;
     }
@@ -133,5 +123,20 @@
     }
     .footer {
         min-width: 0!important;
+        width: 70% !important;
+    }
+    .logo img {
+        width: 100% !important;
+    }
+    .main-content .inner {
+        width: 80%!important;
+        padding: 0 15px!important;
+        font-size: 1.3em;
+    }
+    .social-media li{
+        width: 50%!important;
+    }
+    .main-navigation .inner {
+        width: 90%!important;
     }
 }
