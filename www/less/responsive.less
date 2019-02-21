@@ -36,9 +36,6 @@
     .vtp img {
         width: 80%;
     }
-    .logo img {
-         margin: 10%;
-     }
     .homepage .main-header{
         height: 700px;
     }
@@ -125,18 +122,23 @@
         min-width: 0!important;
         width: 70% !important;
     }
-    .logo img {
-        width: 100% !important;
-    }
-    .main-content .inner {
+    .inner {
+        .main-content {
+            padding: 0 15px!important;
+            font-size: 1.3em;
+        }
         width: 80%!important;
-        padding: 0 15px!important;
-        font-size: 1.3em;
+        .info-navigation, .archive {
+            width: 100%!important;
+            text-align: center!important;
+        }
+    }
+    .archive ul {
+        margin: auto!important;
+        width: 270px;
+        float: initial!important;
     }
     .social-media li{
         width: 50%!important;
-    }
-    .main-navigation .inner {
-        width: 90%!important;
     }
 }
