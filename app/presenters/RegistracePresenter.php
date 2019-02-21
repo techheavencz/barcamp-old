@@ -35,7 +35,7 @@ final class RegistracePresenter extends BasePresenter
             'email' => $values->email,
             'bio' => $values->bio,
             'newsletter_barcamp' => $values->newsletter_barcamp,
-            'newsletter_techheaven' => $values->newsletter_barcamp,
+            'newsletter_techheaven' => $values->newsletter_techheaven,
             'ip_address' => $_SERVER['REMOTE_ADDR'],
             'created_at' => date ("Y-m-d H:i:s", time()),
             ];
