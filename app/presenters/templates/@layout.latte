@@ -30,6 +30,7 @@
         <meta name="google-site-verification" content="X6TDzyeXmaAgvKo48Ce7DVYd3zyyPBrmE-p2wqX-m1Y">
 
         <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css">
+        <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/form.css">
         <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
         <link rel="shortcut icon" href="{$basePath}/favicon.ico">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -82,9 +83,7 @@
                         <li {ifCurrent Homepage:vocabulary}class="active"{/ifCurrent}><a href="{link Homepage:vocabulary}" data-hover="Plzeňština ?"><span class="tooltip pilsen" title="Copa jsou tyhle divoký názvy? To je Koldovo druhej rodnej jazyk…">Plzeňština ?</span></a></li>
                     </ul>
                     <ul class="info-navigation">
-                        {if time() <= 1550703600 OR 1 == 1}
                             <li><a href="{link Registrace:default}" id="login-button" class="track-click">Zaregistrovat se</a></li>
-                        {/if}
                         {*{if !$user->isLoggedIn()}<li><a href="{link Sign:in}" id="login-button" class="track-click">Přihlásit</a></li>{/if}*}
                         {if $user->isLoggedIn()}<li><a href="{link Sign:out}" id="logout-button">Odhlásit</a></li>{/if}
                         {if $user->isLoggedIn()}
@@ -103,9 +102,10 @@
                             <li class="nav-item">
                                 <a class="home nav-link" href="{link //Homepage:default}" data-hover="Úvod">Úvod</a>
                             </li>
+                            <li><a class="home nav-link" href="{link Registrace:default}" id="login-button" class="track-click">Zaregistrovat se</a></li>
                             {*<li class="nav-item">
                                 <a class="nav-link" href="{link Program:list}" data-hover="Program">Program</a>
-                            </li>*}
+                            </li>*
                             <li class="nav-item">
                                 <a class="nav-link" href="{link Conference:talks}" data-hover="Přednášky">Přednášky</a>
                             </li>
