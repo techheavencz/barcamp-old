@@ -14,9 +14,41 @@
                     <input type="text" n:name="email"><br>
                 <label  class="popisek" for="bio">Něco o Tobě:</label>
                     <textarea n:name="bio" id="frm-registrationForm-bio"></textarea><br>
+                <label class="popisek" for="position">Jsi:</label>
+
+                <select name="position" onchange="if(this.options[this.selectedIndex].value=='customOption'){ toggleField(this,this.nextSibling); this.selectedIndex='0'; }">
+                    <option>Vyber</option>
+                    <option value="Vývojář">Vývojář</option>
+                    <option value="Webař">Webař</option>
+                    <option value="Markeťák">Markeťák</option>
+                    <option value="Byznysák">Byznysák</option>
+                    <option value="customOption">Jiné</option>
+                </select><input name="position" style="display:none;" disabled="disabled" onblur="if(this.value==''){ toggleField(this,this.previousSibling); }"><br>
+
                 <label for="newsletter_barcamp"><input type="checkbox" n:name="newsletter_barcamp">Přeješ si dostávat novinky z Barcampu?</label><br>
                 <label for="newsletter_techheaven"><input type="checkbox" n:name="newsletter_techheaven">Přeješ si dostávat novinky z TechHeaven?</label><br>
     <input type="submit" n:name="register" value="Registrovat" class="tlacitko">
             </form>
     </div>
 </section>
+<script>
+    function toggleField(hideObj,showObj){
+        hideObj.disabled=true;
+        hideObj.style.display='none';
+        showObj.disabled=false;
+        showObj.style.display='inline';
+        showObj.focus();
+    }
+
+    $('#input-tags').selectize({
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+
+</script>
