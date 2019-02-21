@@ -6,17 +6,92 @@
     <div class="inner">
         <h2>Šestý ročník Plzeňského Barcampu</h2>
             <form n:name="registrationForm">
-                <label class="popisek" for="first_name">Jméno:</label>
+                <label class="popisek" for="first_name">Jméno:*</label>
                     <input type="text" n:name="first_name" class="text"><br>
-                <label  class="popisek" for="last_name">Příjmení:</label>
+                <label  class="popisek" for="last_name">Příjmení:*</label>
                     <input type="text" n:name="last_name"><br>
-                <label  class="popisek" for="email">E-mail:</label>
+                <label  class="popisek" for="pass">Heslo:*</label>
+                <input n:name="pass"><br>
+                <label  class="popisek" for="pass">Heslo znovu:*</label>
+                <input n:name="pass_repeat"><br>
+                <label  class="popisek" for="email">E-mail:*</label>
                     <input type="text" n:name="email"><br>
                 <label  class="popisek" for="bio">Něco o Tobě:</label>
                     <textarea n:name="bio" id="frm-registrationForm-bio"></textarea><br>
+                <label class="popisek" for="position">Jsi:</label>
+
+                <select name="position" onchange="if(this.options[this.selectedIndex].value=='customOption'){ toggleField(this,this.nextSibling); this.selectedIndex='0'; }">
+                    <option>Vyber</option>
+                    <option value="Vývojář">Vývojář</option>
+                    <option value="Webař">Webař</option>
+                    <option value="Markeťák">Markeťák</option>
+                    <option value="Byznysák">Byznysák</option>
+                    <option value="customOption">Jiné</option>
+                </select><input name="position" style="display:none;" disabled="disabled" onblur="if(this.value==''){ toggleField(this,this.previousSibling); }"><br>
+
+                <input type="radio" name="job" id="freelancer_r" value="Freelancer"> Freelancer<br>
+                <input type="radio" name="job" id="zamestnanec_r" value="Zaměstnanec"> Zaměstnanec<br>
+                <input type="radio" name="job" id="student_r" value="Student"> Student<br>
+                <input type="radio" name="job" id="jine_r" value="Jiné"> Jiné<br>
+
+
+                {* TODO Copywriting *}
+                <span id="zamestnanec">A ve které firmě pracuješ?</span>
+                <span id="student">A kde studuješ?</span>
+                <span id="jine">A co tedy?</span>
+                <input id="job_desc" type="text" name="job_desc" value=""><br>
+
                 <label for="newsletter_barcamp"><input type="checkbox" n:name="newsletter_barcamp">Přeješ si dostávat novinky z Barcampu?</label><br>
                 <label for="newsletter_techheaven"><input type="checkbox" n:name="newsletter_techheaven">Přeješ si dostávat novinky z TechHeaven?</label><br>
     <input type="submit" n:name="register" value="Registrovat" class="tlacitko">
             </form>
     </div>
 </section>
+<script>
+    function toggleField(hideObj,showObj){
+        hideObj.disabled=true;
+        hideObj.style.display='none';
+        showObj.disabled=false;
+        showObj.style.display='inline';
+        showObj.focus();
+    }
+    var job_desc = $( "#job_desc" ); //document.getElementById('job_desc');
+    var zamestnanec = $( "#zamestnanec" ); //document.getElementById('zamestnanec');
+    var student = $( "#student" ); //document.getElementById('student');
+    var jine = $( "#jine" ); //document.getElementById('jine');
+
+    job_desc.hide();
+    zamestnanec.hide();
+    student.hide();
+    jine.hide();
+
+    $( "#freelancer_r" ).on( "click", function( event ) {
+        job_desc.hide();
+        zamestnanec.hide();
+        student.hide();
+        jine.hide();
+    });
+
+    $( "#zamestnanec_r" ).on( "click", function( event ) {
+        job_desc.show();
+        zamestnanec.show();
+        student.hide();
+        jine.hide();
+    });
+
+    $( "#student_r" ).on( "click", function( event ) {
+        job_desc.show();
+        zamestnanec.hide();
+        student.show();
+        jine.hide();
+    });
+
+    $( "#jine_r" ).on( "click", function( event ) {
+        job_desc.show();
+        zamestnanec.hide();
+        student.hide();
+        jine.show();
+    });
+
+
+</script>

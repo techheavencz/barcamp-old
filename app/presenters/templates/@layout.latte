@@ -37,6 +37,7 @@
 
         {block scripts}
         <script src="{$basePath}/js/main.min.js" async></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             dataLayer = [];
         </script>
@@ -50,7 +51,7 @@
         <script>
             function dropdownNav() {
                 document.getElementById("dropdown-menu").classList.toggle("show");
-                window.addEventListener("click", function(event) {
+                window.addEventListener("touch", function(event) {
                     if (!event.target.matches('.btn')) {
                         var dropdowns = document.getElementsByClassName("dropdown-menu");
                         var i;

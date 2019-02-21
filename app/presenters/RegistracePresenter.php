@@ -14,8 +14,15 @@ final class RegistracePresenter extends BasePresenter
             ->setRequired('Zadejte prosím jméno');
         $form->addText('last_name', 'Příjmení:')
             ->setRequired('Zadejte prosím příjmení');
+        $form->addPassword('pass', 'Heslo:')
+            ->setRequired('Zadejte prosím heslo');
+        $form->addPassword('pass_repeat', 'Heslo znovu:')
+            ->setRequired('Zadejte prosím heslo znovu');
         $form->addText('email', 'E-mail:')
         ->setRequired('Zadejte prosím email');
+        $form->addText('position', 'Pozice:');
+        $form->addText('job', "Co děláš:");
+        $form->addText('job_desc', "Kde to děláš");
 
         $form->addTextArea('bio', 'Něco o tobě:');
 
@@ -30,6 +37,13 @@ final class RegistracePresenter extends BasePresenter
     {
         $values;
         $toDb = $values;
+        if($values->pass == $values->pass_repeat) {
+            $pass = $values->pass;
+        }
+        else {
+            $pass = "Chyba";
+            //TODO Chyba
+        }
         $toDb = [
             'full_name' => $values->first_name . " " . $values->last_name,
             'email' => $values->email,
@@ -38,6 +52,10 @@ final class RegistracePresenter extends BasePresenter
             'newsletter_techheaven' => $values->newsletter_barcamp,
             'ip_address' => $_SERVER['REMOTE_ADDR'],
             'created_at' => date ("Y-m-d H:i:s", time()),
+            'position' => $values->position,
+            'password' => $pass,
+            'job' => $values->job . "|||" . $values->job_desc,
+
             ];
         $this->db->table('participants')->insert($toDb);
         $this->redirect('Registrace:success');
