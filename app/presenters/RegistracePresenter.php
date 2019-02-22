@@ -18,7 +18,8 @@ final class RegistracePresenter extends BasePresenter
         $form->addPassword('pass', 'Heslo:')
             ->setRequired('Zadejte prosím heslo');
         $form->addPassword('pass_repeat', 'Heslo znovu:')
-            ->setRequired('Zadejte prosím heslo znovu');
+            ->setRequired('Zadejte prosím heslo znovu')
+            ->addRule(UI\Form::EQUAL, 'Hesla se neshodují', $form['pass']);
         $form->addText('email', 'E-mail:')
         ->setRequired('Zadejte prosím email');
         $form->addText('position', 'Pozice:');
@@ -36,15 +37,6 @@ final class RegistracePresenter extends BasePresenter
 
     public function registrationFormSucceeded(UI\Form $form, \stdClass $values)
     {
-        $values;
-        $toDb = $values;
-        if($values->pass == $values->pass_repeat) {
-            $pass = Passwords::hash($values->pass);
-        }
-        else {
-            $this->flashMessage("Hesla se neshodují.");
-            $this->redirect('Registrace:default');
-        }
         $toDb = [
             'full_name' => $values->first_name . " " . $values->last_name,
             'email' => $values->email,
@@ -54,7 +46,7 @@ final class RegistracePresenter extends BasePresenter
             'ip_address' => $_SERVER['REMOTE_ADDR'],
             'created_at' => date ("Y-m-d H:i:s", time()),
             'position' => $values->position,
-            'password' => $pass,
+            'password' => Passwords::hash($values->pass),
             'job' => $values->job . "|||" . $values->job_desc,
 
             ];
