@@ -871,6 +871,7 @@ iframe[seamless] {
 }
 .main-content .photos img {
   margin: 0 40px;
+  max-width: 180px;
 }
 .main-content .list-inline {
   width: 500px;
@@ -1957,11 +1958,6 @@ iframe[seamless] {
   display: none !important;
 }
 @media screen and (max-width: 767px) {
-  .main-content .photo-pic {
-    width: 15%;
-    height: auto;
-    margin: 0 20px!important;
-  }
   .visible-xs {
     display: block !important;
   }
@@ -2102,6 +2098,15 @@ iframe[seamless] {
   }
   .newsletter {
     margin: 20px 0!important;
+  }
+  .main-content .photo-pic {
+    width: 30%;
+    height: auto;
+    margin: 0 20px !important;
+  }
+  .main-content .photos {
+    width: 100%;
+    margin: 0;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
