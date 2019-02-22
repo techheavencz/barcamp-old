@@ -4,6 +4,7 @@ namespace App\Presenters;
 
 use Nette;
 use Nette\Application\UI;
+use Nette\Security\Passwords;
 
 final class RegistracePresenter extends BasePresenter
 {
