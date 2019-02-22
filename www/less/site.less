@@ -10,9 +10,8 @@ html {
 .form.prehidden { display: none; }
 
 .inner {
-	width: 50%;
+	width: 60%;
 	margin: auto;
-	//background: orange;
 }
 
 .cleaner {
@@ -90,23 +89,22 @@ iframe[seamless]{
 	.background-size(cover);
 
 	height: 550px;
-	.inner {
-		//width: 100%;
+
+	.logo {
+		display: inline-block;
+		margin: auto;
+		position: relative;
+		width: 100%;
+		img {
+			width: 100%;
+			max-width: 537px;
+		}
 	}
 
 	.inner.information {
 		position: relative;
 		top: 214px;
 		text-align: center;
-
-		.logo {
-			display: inline-block;
-			margin: auto;
-			position: absolute;
-			top: 0;
-			left: 50%;
-			margin-left: -268.5px;
-		}
 
 		h1 {
 			visibility: hidden;
@@ -117,7 +115,7 @@ iframe[seamless]{
 
 		time {
 			display: inline-block;
-			margin-top: 125px;
+			margin-top: 60px;
 			font-size: 2.8em;
 			.boldOpen();
 		}
@@ -153,10 +151,6 @@ iframe[seamless]{
 }
 .homepage .main-header {
 	height: 616px;
-
-	.inner.information time {
-		margin-top: 176px;
-	}
 }
 
 .main-navigation {
@@ -171,14 +165,13 @@ iframe[seamless]{
 
 	.inner {
 		position: relative;
-		min-width: 900px;
+		//min-width: 900px;
 		top: 30px;
 	}
 
 	.navigation,
 	.info-navigation {
 		display: inline-block;
-		overflow: hidden;
 		width: 75%;
 		padding: 0;
 	}
@@ -307,7 +300,6 @@ iframe[seamless]{
 
 .main-content .inner {
 	width: 40%;
-	min-width: 400px;
 
 }
 .wide .main-content .inner {
@@ -841,19 +833,20 @@ iframe[seamless]{
 
 	.main-navigation {
 		position: relative;
-		height: 150px;
+		height: 200px;
 		background-color: #0f0f0f;
 
 		.inner {
 			text-align: right;
 			position: relative;
 			top: 58px;
-			width: 50%;
+			width: 60%;
 		}
 
 		.info-navigation {
 			width: 32%;
 			text-align: left;
+			display: inline-block;
 
 			p {
 				margin: 9px 0;
@@ -880,7 +873,6 @@ iframe[seamless]{
 			display: inline-block;
 
 			span {
-				float: right;
 				margin-bottom: 10px;
 			}
 
@@ -888,10 +880,8 @@ iframe[seamless]{
 				padding: 0;
 				margin: 0;
 				float: right;
-
 				li {
-					padding-left: 18px;
-					padding-right: 0;
+					padding: 0 8px;
 					float: left;
 					list-style: none;
 					text-transform: uppercase;

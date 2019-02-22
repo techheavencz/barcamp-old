@@ -545,7 +545,7 @@ html {
   display: none;
 }
 .inner {
-  width: 50%;
+  width: 60%;
   margin: auto;
 }
 .cleaner {
@@ -618,18 +618,20 @@ iframe[seamless] {
   background-size: cover;
   height: 550px;
 }
+.main-header .logo {
+  display: inline-block;
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+.main-header .logo img {
+  width: 100%;
+  max-width: 537px;
+}
 .main-header .inner.information {
   position: relative;
   top: 214px;
   text-align: center;
-}
-.main-header .inner.information .logo {
-  display: inline-block;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: -268.5px;
 }
 .main-header .inner.information h1 {
   visibility: hidden;
@@ -639,7 +641,7 @@ iframe[seamless] {
 }
 .main-header .inner.information time {
   display: inline-block;
-  margin-top: 125px;
+  margin-top: 60px;
   font-size: 2.8em;
   font-weight: normal;
   font-family: "open_sanssemibold";
@@ -670,9 +672,6 @@ iframe[seamless] {
 .homepage .main-header {
   height: 616px;
 }
-.homepage .main-header .inner.information time {
-  margin-top: 176px;
-}
 .main-navigation {
   display: block;
   position: absolute;
@@ -685,13 +684,11 @@ iframe[seamless] {
 }
 .main-navigation .inner {
   position: relative;
-  min-width: 900px;
   top: 30px;
 }
 .main-navigation .navigation,
 .main-navigation .info-navigation {
   display: inline-block;
-  overflow: hidden;
   width: 75%;
   padding: 0;
 }
@@ -832,7 +829,6 @@ iframe[seamless] {
 }
 .main-content .inner {
   width: 40%;
-  min-width: 400px;
 }
 .wide .main-content .inner {
   padding-left: 0;
@@ -1340,18 +1336,19 @@ iframe[seamless] {
 }
 .main-footer .main-navigation {
   position: relative;
-  height: 150px;
+  height: 200px;
   background-color: #0f0f0f;
 }
 .main-footer .main-navigation .inner {
   text-align: right;
   position: relative;
   top: 58px;
-  width: 50%;
+  width: 60%;
 }
 .main-footer .main-navigation .info-navigation {
   width: 32%;
   text-align: left;
+  display: inline-block;
 }
 .main-footer .main-navigation .info-navigation p {
   margin: 9px 0;
@@ -1374,7 +1371,6 @@ iframe[seamless] {
   display: inline-block;
 }
 .main-footer .main-navigation .archive span {
-  float: right;
   margin-bottom: 10px;
 }
 .main-footer .main-navigation .archive ul {
@@ -1383,8 +1379,7 @@ iframe[seamless] {
   float: right;
 }
 .main-footer .main-navigation .archive ul li {
-  padding-left: 18px;
-  padding-right: 0;
+  padding: 0 8px;
   float: left;
   list-style: none;
   text-transform: uppercase;
@@ -1918,9 +1913,6 @@ iframe[seamless] {
   .vtp img {
     width: 80%;
   }
-  .logo img {
-    margin: 10%;
-  }
   .homepage .main-header {
     height: 700px;
   }
@@ -2006,19 +1998,25 @@ iframe[seamless] {
     min-width: 0!important;
     width: 70% !important;
   }
-  .logo img {
-    width: 100% !important;
-  }
-  .main-content .inner {
+  .inner {
     width: 80%!important;
+  }
+  .inner .main-content {
     padding: 0 15px!important;
     font-size: 1.3em;
   }
+  .inner .info-navigation,
+  .inner .archive {
+    width: 100%!important;
+    text-align: center!important;
+  }
+  .archive ul {
+    margin: auto!important;
+    width: 270px;
+    float: initial!important;
+  }
   .social-media li {
     width: 50%!important;
-  }
-  .main-navigation .inner {
-    width: 90%!important;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
