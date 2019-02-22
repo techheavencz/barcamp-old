@@ -38,11 +38,11 @@ final class RegistracePresenter extends BasePresenter
         $values;
         $toDb = $values;
         if($values->pass == $values->pass_repeat) {
-            $pass = $values->pass;
+            $pass = Passwords::hash($values->pass);
         }
         else {
-            $pass = "Chyba";
-            //TODO Chyba
+            $this->flashMessage("Hesla se neshodují.");
+            $this->redirect('Registrace:default');
         }
         $toDb = [
             'full_name' => $values->first_name . " " . $values->last_name,
