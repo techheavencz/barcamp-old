@@ -1872,6 +1872,79 @@ iframe[seamless] {
   font-weight: normal;
   font-family: "open_sanssemibold";
 }
+.registration {
+  margin: auto;
+}
+.registration .segment {
+  display: inline-block;
+  width: 45%;
+  height: auto;
+  margin-top: 20px;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+.registration .segment input,
+.registration .segment select,
+.registration .segment textarea {
+  width: 100%;
+  border-style: solid;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.registration .in_rad {
+  width: 90%;
+  font-size: 16px;
+}
+.registration .in_rad input {
+  width: 30px!important;
+}
+.registration .req {
+  border-color: #2e9d3c;
+}
+.registration .check {
+  margin: 5px;
+}
+.registration .newsletter {
+  margin-left: 20%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.registration .star {
+  font-size: 10px;
+  color: red;
+  padding: 0;
+  line-height: initial;
+  display: inline;
+}
+.registration .popisek {
+  margin-top: 1%;
+  font-size: large;
+}
+.registration .tlacitko {
+  background-color: #2f9d3d;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #2f9d3d;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 13px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  margin: auto;
+  display: block;
+}
+.registration .tlacitko:hover {
+  background-color: #5cbf2a;
+}
+.registration .tlacitko:active {
+  position: relative;
+  top: 1px;
+}
 .visible-xs,
 .visible-xs-inline-block,
 .visible-sm,
@@ -2012,11 +2085,19 @@ iframe[seamless] {
   }
   .archive ul {
     margin: auto!important;
-    width: 270px;
+    width: 320px;
     float: initial!important;
+    font-size: 1.3em;
   }
   .social-media li {
     width: 50%!important;
+  }
+  .segment {
+    width: 100%!important;
+    margin: 5px 0;
+  }
+  .newsletter {
+    margin: 20px 0!important;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
