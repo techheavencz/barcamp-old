@@ -30,13 +30,13 @@
         <meta name="google-site-verification" content="X6TDzyeXmaAgvKo48Ce7DVYd3zyyPBrmE-p2wqX-m1Y">
 
         <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/style.css?{=filemtime($wwwDir . '/css/style.css')}">
-        <link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
-        <link rel="shortcut icon" href="{$basePath}/favicon.ico">
+        <link rel="stylesheet" media="print" href="{$basePath}/css/print.css?{=filemtime($wwwDir . '/css/print.css')}">
+        <link rel="shortcut icon" href="{$basePath}/favicon.ico?{=filemtime($wwwDir . '/favicon.ico')}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
         {block scripts}
-        <script src="{$basePath}/js/main.min.js" async></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+        <script src="{$basePath}/js/main.min.js?{=filemtime($wwwDir . '/js/main.min.js')}" defer></script>
         <script>
             dataLayer = [];
         </script>
