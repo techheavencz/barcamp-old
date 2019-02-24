@@ -19,10 +19,11 @@ class BasePresenter extends Nette\Application\UI\Presenter
         $this->db = $database;
     }
 
-    public function beforeRender()
+  protected function beforeRender()
     {
         parent::beforeRender();
         $parameters = $this->context->getParameters();
         $this->template->wwwDir = $parameters['wwwDir'];
     }
+
 }
