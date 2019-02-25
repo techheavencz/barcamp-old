@@ -8,6 +8,8 @@ use Nette\Security\Passwords;
 
 final class RegistracePresenter extends BasePresenter
 {
+
+    //TODO Formuláře jinam než do presenteru
     protected function createComponentRegistrationForm()
     {
         $form = new UI\Form;
@@ -53,4 +55,14 @@ final class RegistracePresenter extends BasePresenter
         $this->db->table('participants')->insert($toDb);
         $this->redirect('Registrace:success');
     }
+
+    //TODO "Password reset" formulář
+
+
+    //TODO Prezentace formulář
+
+    /*
+     * Pokud je uživatel přihlášen, předvyplnit údaje? Nebo se na ně vůbec neptat a umožnit jen přihlašeným?
+     * Fotka
+     */
 }
