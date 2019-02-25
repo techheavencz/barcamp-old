@@ -39,6 +39,12 @@ final class RegistracePresenter extends BasePresenter
 
     public function registrationFormSucceeded(UI\Form $form, \stdClass $values)
     {
+
+        $row = $this->db->table('participants')->where("email", $values->email)->count();
+        if($row > 0) {
+            $form->addError("S tímto e-mailem už zaregistrovaný jste.");
+            return;
+        }
         $toDb = [
             'full_name' => $values->first_name . " " . $values->last_name,
             'email' => $values->email,
