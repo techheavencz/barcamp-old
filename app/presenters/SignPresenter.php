@@ -3,6 +3,7 @@
 namespace App\Presenters;
 
 use Nette;
+use Nette\Application\UI;
 
 
 final class SignPresenter extends BasePresenter
@@ -18,7 +19,7 @@ final class SignPresenter extends BasePresenter
             ->setRequired('Zadejte prosím email');
         $form->addPassword('pass', 'Heslo:')
             ->setRequired('Zadejte prosím heslo');
-        $form->addSubmit('sigin', 'Přihlásit se');
+        $form->addSubmit('sign', 'Přihlásit se');
         $form->onSuccess[] = [$this, 'signInFormSucceeded'];
         return $form;
     }
