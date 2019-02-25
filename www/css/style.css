@@ -2572,4 +2572,7 @@ body:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+.form_error_item {
+  color: red!important;
+}
 /*# sourceMappingURL=style.css.map */
