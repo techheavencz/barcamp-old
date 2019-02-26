@@ -8,19 +8,18 @@
                 <div class="choose-network">
 
                     <form n:name="newPasswordForm" class="new_password">
-                        {* Pravděpodobně hází chybu
                         <ul class="errors" n:if="$form->hasErrors()">
                             <li n:foreach="$form->errors as $error">{$error}</li>
-                        </ul> *}
+                        </ul>
                         <div class="segment">
-                            <label class="popisek" for="pass">Heslo:</label>
+                            <label n:name="pass" class="popisek">Heslo:</label>
                             <input n:name="pass" id="pass" class="req" autocomplete="new-password">
                         </div>
                         <div class="segment">
-                            <label class="popisek" for="pass_repeat">Heslo znovu:</label>
+                            <label n:name="pass_repeat" class="popisek">Heslo znovu:</label>
                             <input n:name="pass_repeat" id="pass_repeat" class="req" autocomplete="new-password">
                         </div>
-                        <input type="submit" n:name="submit" value="Registrovat" class="tlacitko">
+                        <input n:name="submit" class="tlacitko">
                     </form>
                 </div>
             </div>
