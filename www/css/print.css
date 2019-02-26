@@ -1955,6 +1955,22 @@ iframe[seamless] {
   position: relative;
   top: 1px;
 }
+.talks {
+  margin-top: 3%;
+  text-align: center;
+}
+.talks .table {
+  width: 100%;
+}
+.talks .talk-title {
+  width: 20%;
+}
+.talks .talk-anotation {
+  width: 70%;
+}
+.talks .talk-name {
+  width: 10%;
+}
 .visible-xs,
 .visible-xs-inline-block,
 .visible-sm,
