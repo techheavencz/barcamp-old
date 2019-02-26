@@ -62,13 +62,30 @@ final class RegistracePresenter extends BasePresenter
         $this->redirect('Registrace:success');
     }
 
-    //TODO "Password reset" formulář
+
 
 
     //TODO Prezentace formulář
 
-    /*
-     * Pokud je uživatel přihlášen, předvyplnit údaje? Nebo se na ně vůbec neptat a umožnit jen přihlašeným?
-     * Fotka
-     */
+    protected function createComponentNewTalkForm()
+    {
+        $form = new UI\Form;
+        $form->addText('title', 'Název přednášky');
+        $form->addText('for_who', "Komu je přednáška určena"); //TODO tady asi výběr z kategorií? Vývojář/markeťák/byznysák? Nebo je to blbost?
+        //Možná nějaká fotka?
+
+
+
+        $form->addTextArea('anotation', 'Anotace tvé přednášky');
+
+
+        $form->addSubmit('register', 'Registrovat');
+        $form->onSuccess[] = [$this, 'newTalkFormSucceeded'];
+        return $form;
+    }
+
+    public function newTalkFormSucceeded(UI\Form $form, \stdClass $values)
+    {
+        //TODO
+    }
 }
