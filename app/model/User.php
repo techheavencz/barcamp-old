@@ -133,13 +133,6 @@ class User
         }
 
         // Check token hash
-        $isValid = Passwords::verify($token, $hash);
-
-        // Reset token can be used once only
-        if($isValid === true) {
-            $this->removeResetPasswordToken($user);
-        }
-
-        return $isValid;
+        return Passwords::verify($token, $hash);
     }
 }
