@@ -2,40 +2,69 @@
 
 namespace App\Presenters;
 
-use Nette;
+use App\Model\Contact;
 
 
 final class HomepagePresenter extends BasePresenter
 {
-    public function renderContact() {
-        $orgs = $this->db->table("people")->where("category", "org")->order("num_order");
+    /**
+     * @var Contact
+     */
+    private $contactModel;
 
 
-        $this->template->organizators = $orgs;
-
-        $asist = $this->db->table("people")->where("category", "asist")->order("num_order");
-
-        $this->template->asistants = $asist;
+    public function __construct(Contact $contactModel)
+    {
+        parent::__construct();
+        $this->contactModel = $contactModel;
     }
-    public function renderDefault() {
 
-    }
-    public function renderInfo(){
 
+    public function renderContact(): void
+    {
+        $this->template->organizators = $this->contactModel->getOrganisators();
+        $this->template->asistants = $this->contactModel->getAsistents();
     }
-    public function renderPartners(){
 
-    }
-    public function renderPrivacyPolicy(){
 
-    }
-    public function renderTerms(){
-
-    }
-    public function renderVocabulary(){
+    public function renderDefault()
+    {
 
     }
-    public function renderWritten(){
+
+
+    public function renderInfo()
+    {
+
+    }
+
+
+    public function renderPartners()
+    {
+
+    }
+
+
+    public function renderPrivacyPolicy()
+    {
+
+    }
+
+
+    public function renderTerms()
+    {
+
+    }
+
+
+    public function renderVocabulary()
+    {
+
+    }
+
+
+    public function renderWritten()
+    {
 
     }
 }
