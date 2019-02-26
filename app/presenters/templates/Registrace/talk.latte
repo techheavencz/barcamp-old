@@ -5,7 +5,12 @@
 <section class="main-content">
     <div class="inner">
         <h2>Šestý ročník Plzeňského Barcampu</h2>
-        <p>{* TODO dodělat *}Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In convallis. Proin in tellus sit amet nibh dignissim sagittis. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Maecenas aliquet accumsan leo. Integer vulputate sem a nibh rutrum consequat.</p>
+        <p>{* TODO dodělat *}
+            Máš co říct? TADY DODĚLAT
+        </p>
+        <p>
+            Vyplň název přednášky a krátkou anotaci (ideálně 2 odstavce), ať víme, o čem mluvíš. Přihlášení účastníci budou hlasovat a vybrané přednášky si v sobotu 13.4. poslechneme ve Vědeckotechnickém parku.
+        </p>
         {*
         <form class="registration">
             <div class="talk">
@@ -23,19 +28,24 @@
             <input type="submit" value="Registrovat přednášku" class="tlacitko">
         </form>
         *}
-        <form n:name="newTalkForm">
-            Název přednášky: <input n:name="title"><br>
+        <form class="new_talk" n:name="newTalkForm">
+            <div class="segment">
+                <label class="popisek" for="title">Název přednášky:</label><span class="star"> *</span><input n:name="title" class="req pole">
+            </div>
+            <div class="segment">
+                Komu je přednáška určena?<br>
+                <ul>
+                    <li><input n:name="for_developer"><label class="popisek popisek_check" for="for_developer"> Vývojářům</label></li>
+                    <li><input n:name="for_web"><label class="popisek popisek_check" for="for_web"> Webařům</label></li>
+                    <li><input n:name="for_marketing"><label class="popisek popisek_check" for="for_marketing"> Markeťákům</label></li>
+                    <li><input n:name="for_business"><label class="popisek popisek_check" for="for_business"> Byznysákům</label></li>
+                    <li><input n:name="for_other"><label class="popisek popisek_check" for="for_other"> Jiné</label></li>
+                </ul>
+            </div>
 
-            Komu je přednáška určena?<br>
-            <ul>
-                <li><input n:name="for_developer"> Vývojářům</li>
-                <li><input n:name="for_web"> Webařům</li>
-                <li><input n:name="for_marketing"> Markeťákům</li>
-                <li><input n:name="for_business"> Byznysákům</li>
-                <li><input n:name="for_other"> Jiné</li>
-            </ul>
-            Anotace:<br>
-            <textarea n:name="anotation"></textarea>
+
+            <label for="anotation" class="popisek">Anotace:</label><span class="star"> *</span><br>
+            <textarea n:name="anotation" id="anotation" class="req pole"></textarea>
             <input class="tlacitko" n:name="submit">
 
         </form>
