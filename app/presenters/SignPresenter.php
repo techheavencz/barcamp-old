@@ -40,6 +40,18 @@ final class SignPresenter extends BasePresenter
 
 
     /**
+     * @throws Nette\InvalidStateException
+     */
+    protected function beforeRender(): void
+    {
+        parent::beforeRender();
+
+        // Start sign-in form to generate Csrf token before send HTTP headers
+        $this->session->start();
+    }
+
+
+    /**
      *
      */
     public function actionOut(): void
@@ -94,9 +106,12 @@ final class SignPresenter extends BasePresenter
     }
 
 
+    /**
+     * @param string|null $email
+     */
     public function renderReset(?string $email): void
     {
-        if($email !== null) {
+        if ($email !== null) {
             /** @var UI\Form $form */
             $form = $this['resetPasswordForm'];
 
@@ -106,6 +121,7 @@ final class SignPresenter extends BasePresenter
             $emailInput->setDefaultValue($email);
         }
     }
+
 
     /**
      * @param string $email
