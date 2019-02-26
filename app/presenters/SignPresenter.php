@@ -58,6 +58,7 @@ final class SignPresenter extends BasePresenter
         $form->addPassword('pass', 'Heslo:')
             ->setRequired('Zadejte prosím heslo');
         $form->addSubmit('sign', 'Přihlásit se');
+        $form->addProtection('Z důvodu bezpečnosti prosím odešlete tento formulář ještě jednou');
         $form->onSuccess[] = [$this, 'signInFormSucceeded'];
         return $form;
     }
@@ -87,6 +88,19 @@ final class SignPresenter extends BasePresenter
         $this->redirect('Homepage:default');
     }
 
+
+    public function renderReset(?string $email)
+    {
+        if($email !== null) {
+            /** @var UI\Form $form */
+            $form = $this['resetPasswordForm'];
+
+            /** @var HiddenField $emailInput */
+            $emailInput = $form['email'];
+
+            $emailInput->setDefaultValue($email);
+        }
+    }
 
     /**
      * @param string $email
@@ -128,6 +142,8 @@ final class SignPresenter extends BasePresenter
         $form->addEmail('email', 'E-mail:')
             ->setRequired('Zadej prosím Váš e-mail, kterým jsi se registroval(a).');
         $form->addSubmit('submit', 'Resetovat');
+
+        $form->addProtection('Z důvodu bezpečnosti prosím odešlete tento formulář ještě jednou');
 
         $form->onSuccess[] = [$this, 'resetFormSuccess'];
 
@@ -179,6 +195,8 @@ final class SignPresenter extends BasePresenter
 
         $form->addHidden('email');
         $form->addHidden('token');
+
+        $form->addProtection('Z důvodu bezpečnosti prosím odešlete tento formulář ještě jednou');
 
         $form->onSuccess[] = [$this, 'newPasswordFormSuccess'];
 

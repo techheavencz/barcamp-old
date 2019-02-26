@@ -164,4 +164,14 @@ class User
             self::PASSWORD => $hash,
         ]);
     }
+
+
+    /**
+     * @param array $data
+     * @return ActiveRow
+     */
+    public function insert(array $data): ActiveRow
+    {
+        return $this->db->table(self::TABLE)->insert($data);
+    }
 }

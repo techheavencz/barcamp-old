@@ -2,15 +2,28 @@
 
 namespace App\Presenters;
 
-use Nette;
+use App\Model\User;
+use DateTime;
 use Nette\Application\UI;
 use Nette\Security\Passwords;
 
 final class RegistracePresenter extends BasePresenter
 {
+    /**
+     * @var User
+     */
+    private $userModel;
+
+
+    public function __construct(User $userModel)
+{
+    parent::__construct();
+    $this->userModel = $userModel;
+}
+
 
     //TODO Formuláře jinam než do presenteru
-    protected function createComponentRegistrationForm()
+    protected function createComponentRegistrationForm(): UI\Form
     {
         $form = new UI\Form;
         $form->addText('first_name', 'Jméno:')
@@ -23,28 +36,34 @@ final class RegistracePresenter extends BasePresenter
             ->setRequired('Zadejte prosím heslo znovu')
             ->addRule(UI\Form::EQUAL, 'Hesla se neshodují', $form['pass']);
         $form->addText('email', 'E-mail:')
-        ->setRequired('Zadejte prosím email');
+            ->setRequired('Zadejte prosím email');
         $form->addText('position', 'Pozice:');
-        $form->addText('job', "Co děláš:");
-        $form->addText('job_desc', "Kde to děláš");
+        $form->addText('job', 'Co děláš:');
+        $form->addText('job_desc', 'Kde to děláš');
 
         $form->addTextArea('bio', 'Něco o tobě:');
 
         $form->addCheckbox('newsletter_barcamp', 'Přeješ si dostávat novinky z Barcampu?');
         $form->addCheckbox('newsletter_techheaven', 'Přeješ si dostávat novinky z TechHeaven?');
         $form->addSubmit('register', 'Registrovat');
+
+        $form->addProtection('Z důvodu bezpečnosti prosím odešlete tento formulář ještě jednou');
+
         $form->onSuccess[] = [$this, 'registrationFormSucceeded'];
         return $form;
     }
 
-    public function registrationFormSucceeded(UI\Form $form, \stdClass $values)
+
+    public function registrationFormSucceeded(UI\Form $form): void
     {
 
-        $row = $this->db->table('participants')->where("email", $values->email)->count();
-        if($row > 0) {
-            $form->addError("S tímto e-mailem už zaregistrovaný jste.");
+        $values = $form->values;
+
+        if ($this->userModel->isEmailExists($values['email'])) {
+            $form->addError('S tímto e-mailem už jsi zaregistrovaný');
             return;
         }
+
         $toDb = [
             'full_name' => $values->first_name . " " . $values->last_name,
             'email' => $values->email,
@@ -52,18 +71,15 @@ final class RegistracePresenter extends BasePresenter
             'newsletter_barcamp' => $values->newsletter_barcamp,
             'newsletter_techheaven' => $values->newsletter_techheaven,
             'ip_address' => $_SERVER['REMOTE_ADDR'],
-            'created_at' => date ("Y-m-d H:i:s", time()),
+            'created_at' => new DateTime(),
             'position' => $values->position,
             'password' => Passwords::hash($values->pass),
             'job' => $values->job . "|||" . $values->job_desc,
 
-            ];
-        $this->db->table('participants')->insert($toDb);
+        ];
+        $this->userModel->insert($toDb);
         $this->redirect('Registrace:success');
     }
-
-
-
 
     //TODO Prezentace formulář
 
