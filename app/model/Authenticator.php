@@ -39,12 +39,14 @@ class Authenticator implements IAuthenticator
             throw new AuthenticationException('User not found', self::IDENTITY_NOT_FOUND, $e);
         }
 
+        $id = $user['id'];
+
         $isValid = $this->userModel->verifyPassword($user, $credentials[self::PASSWORD]);
 
         if ($isValid !== true) {
             throw new AuthenticationException('Password mismatch', self::INVALID_CREDENTIAL);
         }
 
-        return new Identity($email, [], $user->toArray());
+        return new Identity($id, [], $user->toArray());
     }
 }
