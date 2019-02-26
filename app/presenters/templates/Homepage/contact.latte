@@ -22,10 +22,10 @@
             {/foreach}
         </div>
 
-        <div class="organizatori">
-            <h2 id="dekujeme">Naši pomocnící</h2>
+        <h2 id="dekujeme">Naši pomocnící</h2>
+        <div class="organizers">
             {foreach $asistants as $asistant}
-            <div class="assistant">
+            <div class="organizer">
                 <h3>{$asistant->full_name}</h3>
                 <img class="photo-pic" {if strpos($asistant->img, ":")} src="{$asistant->img}" {else} src="{$basePath}/media/photos/{$asistant->img}" {/if} alt="{$asistant->full_name}" width="180" height="180">
                 <p>Tel.: <strong><a href="tel:{$asistant->tel}">{$asistant->tel}</a></strong></p>
