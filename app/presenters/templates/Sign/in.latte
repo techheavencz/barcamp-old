@@ -7,9 +7,10 @@
 			<div class="text-center" >
 			    <div class="choose-network">
 						<form n:name="signInForm" class="sign">
-							<ul class="errors" n:if="$form->hasErrors()">
-								<li class="form_error_item" n:foreach="$form->errors as $error">{$error}</li> {* TODO nastylovat *}
-							</ul>
+							{* Pravděpodobně hází chybu
+                                            <ul class="errors" n:if="$form->hasErrors()">
+                                                <li class="form_error_item" n:foreach="$form->errors as $error">{$error}</li> {* TODO nastylovat *
+							</ul> *}
 							<div class="segment">
 								<label  class="popisek" for="email">E-mail:</label>
 								<input type="email" n:name="email" id="email" class="req" placeholder="ucastnik@plzenskybarcamp.cz">
@@ -20,6 +21,7 @@
 							</div>
 							<input type="submit" n:name="sign" value="Přihlásit se" class="tlacitko">
 						</form>
+						<a n:href="Sign:reset">Nemáš/zapomněl jsi heslo? Klikni sem</a>
 			    </div>
 			</div>
 		</div>

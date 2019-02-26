@@ -8,9 +8,10 @@
                 <div class="choose-network">
 
                     <form n:name="newPasswordForm" class="new_password">
+                        {* Pravděpodobně hází chybu
                         <ul class="errors" n:if="$form->hasErrors()">
                             <li n:foreach="$form->errors as $error">{$error}</li>
-                        </ul>
+                        </ul> *}
                         <div class="segment">
                             <label class="popisek" for="pass">Heslo:</label>
                             <input n:name="pass" id="pass" class="req" autocomplete="new-password">
