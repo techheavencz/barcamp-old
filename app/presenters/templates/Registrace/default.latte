@@ -5,65 +5,66 @@
 <section class="main-content">
     <div class="inner">
         <h2>Šestý ročník Plzeňského Barcampu</h2>
-            <form n:name="registrationForm" class="registration">
-                <ul class="errors" n:if="$form->hasErrors()">
-                    <li class="form_error_item" n:foreach="$form->errors as $error">{$error}</li> {* TODO nastylovat *}
-                </ul>
-                <div class="segment">
-                    <label class="popisek" for="first_name">Jméno:</label><p class="star"> *</p>
-                    <input type="text" n:name="first_name" id="first_name" class="req" autocomplete="given-name">
-                </div>
-                <div class="segment">
-                    <label  class="popisek" for="last_name">Příjmení:</label><p class="star"> *</p>
-                    <input type="text" n:name="last_name" id="last_name" class="req" autocomplete="family-name">
-                </div>
-                <div class="segment">
-                    <label  class="popisek" for="email">E-mail:</label><p class="star"> *</p>
-                    <input type="email" n:name="email" id="email" class="req">
-                </div>
-                <div class="segment">
-                    <label class="popisek" for="position">Jsi:</label>
-                    <select name="position" id="position" onchange="if(this.options[this.selectedIndex].value=='customOption'){ toggleField(this,this.nextSibling); this.selectedIndex='0'; }">
-                        <option>Vyber</option>
-                        <option value="Vývojář">Vývojář</option>
-                        <option value="Webař">Webař</option>
-                        <option value="Markeťák">Markeťák</option>
-                        <option value="Byznysák">Byznysák</option>
-                        <option value="customOption">Jiné</option>
-                    </select><input name="position" style="display:none;" disabled="disabled" onblur="if(this.value==''){ toggleField(this,this.previousSibling); }">
-                </div>
-                <div class="segment">
-                    <label class="popis in_rad" for="freelancer_r"><input type="radio" name="job" id="freelancer_r" value="Freelancer">Freelancer</label> <br>
-                    <label class="popis in_rad" for="zamestnanec_r"><input type="radio" name="job" id="zamestnanec_r" value="Zaměstnanec">Zaměstnanec</label><br>
-                    <label class="popis in_rad" for="student_r"><input type="radio" name="job" id="student_r" value="Student">Student</label><br>
-                    <label class="popis in_rad" for="jine_r"><input type="radio" name="job" id="jine_r" value="Jiné">Jiné</label>
-                    <br><br>
+        <form n:name="registrationForm" class="registration">
+            {* Pravděpodobně hází chybu
+            <ul class="errors" n:if="$form->hasErrors()">
+                <li class="form_error_item" n:foreach="$form->errors as $error">{$error}</li> {* TODO nastylovat *
+            </ul> *}
+            <div class="segment">
+                <label class="popisek" for="first_name">Jméno:</label><p class="star"> *</p>
+                <input type="text" n:name="first_name" id="first_name" class="req" autocomplete="given-name">
+            </div>
+            <div class="segment">
+                <label  class="popisek" for="last_name">Příjmení:</label><p class="star"> *</p>
+                <input type="text" n:name="last_name" id="last_name" class="req" autocomplete="family-name">
+            </div>
+            <div class="segment">
+                <label  class="popisek" for="email">E-mail:</label><p class="star"> *</p>
+                <input type="email" n:name="email" id="email" class="req">
+            </div>
+            <div class="segment">
+                <label class="popisek" for="position">Jsi:</label>
+                <select name="position" id="position" onchange="if(this.options[this.selectedIndex].value=='customOption'){ toggleField(this,this.nextSibling); this.selectedIndex='0'; }">
+                    <option>Vyber</option>
+                    <option value="Vývojář">Vývojář</option>
+                    <option value="Webař">Webař</option>
+                    <option value="Markeťák">Markeťák</option>
+                    <option value="Byznysák">Byznysák</option>
+                    <option value="customOption">Jiné</option>
+                </select><input name="position" style="display:none;" disabled="disabled" onblur="if(this.value==''){ toggleField(this,this.previousSibling); }">
+            </div>
+            <div class="segment">
+                <label class="popis in_rad" for="freelancer_r"><input type="radio" name="job" id="freelancer_r" value="Freelancer">Freelancer</label> <br>
+                <label class="popis in_rad" for="zamestnanec_r"><input type="radio" name="job" id="zamestnanec_r" value="Zaměstnanec">Zaměstnanec</label><br>
+                <label class="popis in_rad" for="student_r"><input type="radio" name="job" id="student_r" value="Student">Student</label><br>
+                <label class="popis in_rad" for="jine_r"><input type="radio" name="job" id="jine_r" value="Jiné">Jiné</label>
+                <br><br>
 
-                    {* TODO Copywriting *}
-                    <span id="zamestnanec">A ve které firmě pracuješ?</span>
-                    <span id="student">A kde studuješ?</span>
-                    <span id="jine">A co tedy?</span>
-                    <input id="job_desc" type="text" name="job_desc" value="">
-                </div>
-                <div class="segment">
-                    <label class="popisek" for="frm-registrationForm-bio">Něco o Tobě:</label>
-                    <textarea n:name="bio" id="frm-registrationForm-bio"></textarea>
-                </div>
-                <div class="segment">
-                    <label class="popisek" for="pass">Heslo:</label><p class="star"> *</p>
-                    <input n:name="pass" id="pass" class="req" autocomplete="new-password">
-                </div>
-                <div class="segment">
-                    <label class="popisek" for="pass_repeat">Heslo znovu:</label><p class="star"> *</p>
-                    <input n:name="pass_repeat" id="pass_repeat" class="req" autocomplete="new-password">
-                </div>
+                {* TODO Copywriting *}
+                <span id="zamestnanec">A ve které firmě pracuješ?</span>
+                <span id="student">A kde studuješ?</span>
+                <span id="jine">A co tedy?</span>
+                <input id="job_desc" type="text" name="job_desc" value="">
+            </div>
+            <div class="segment">
+                <label class="popisek" for="frm-registrationForm-bio">Něco o Tobě:</label>
+                <textarea n:name="bio" id="frm-registrationForm-bio"></textarea>
+            </div>
+            <div class="segment">
+                <label class="popisek" for="pass">Heslo:</label><p class="star"> *</p>
+                <input n:name="pass" id="pass" class="req" autocomplete="new-password">
+            </div>
+            <div class="segment">
+                <label class="popisek" for="pass_repeat">Heslo znovu:</label><p class="star"> *</p>
+                <input n:name="pass_repeat" id="pass_repeat" class="req" autocomplete="new-password">
+            </div>
 
-                <div class="newsletter">
-                    <label for="newsletter_barcamp"><input class="check" type="checkbox" n:name="newsletter_barcamp" id="newsletter_barcamp">Přeješ si dostávat novinky z Barcampu?</label><br>
-                    <label for="newsletter_techheaven"><input class="check" type="checkbox" n:name="newsletter_techheaven" id="newsletter_techheaven">Přeješ si dostávat novinky z TechHeaven?</label><br>
-                </div>
-                <input type="submit" n:name="register" value="Registrovat" class="tlacitko">
-            </form>
+            <div class="newsletter">
+                <label for="newsletter_barcamp"><input class="check" type="checkbox" n:name="newsletter_barcamp" id="newsletter_barcamp">Přeješ si dostávat novinky z Barcampu?</label><br>
+                <label for="newsletter_techheaven"><input class="check" type="checkbox" n:name="newsletter_techheaven" id="newsletter_techheaven">Přeješ si dostávat novinky z TechHeaven?</label><br>
+            </div>
+            <input type="submit" n:name="register" value="Registrovat" class="tlacitko">
+        </form>
     </div>
 </section>
 <script>
