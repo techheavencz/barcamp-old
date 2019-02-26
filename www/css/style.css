@@ -2671,4 +2671,56 @@ body:after {
   position: relative;
   top: 1px;
 }
+.new_password {
+  text-align: center;
+}
+.new_password .segment {
+  display: inline-block;
+  width: 51%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.new_password .segment input,
+.new_password .segment select,
+.new_password .segment textarea {
+  margin-top: 5px;
+  border-color: #2e9d3c;
+  width: 60%;
+  border-style: solid;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: right;
+  clear: both;
+}
+.new_password .popisek {
+  margin-top: 1%;
+  font-size: large;
+}
+.new_password .tlacitko {
+  background-color: #2f9d3d;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #2f9d3d;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 13px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  margin: auto;
+  display: block;
+}
+.new_password .tlacitko:hover {
+  background-color: #5cbf2a;
+}
+.new_password .tlacitko:active {
+  position: relative;
+  top: 1px;
+}
 /*# sourceMappingURL=style.css.map */

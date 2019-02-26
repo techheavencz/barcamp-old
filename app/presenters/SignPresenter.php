@@ -142,7 +142,12 @@ final class SignPresenter extends BasePresenter
     {
         $form = new UI\Form;
 
-        // Vojto pro tebe
+
+        $form->addPassword('pass', 'Heslo:')
+            ->setRequired('Zadejte prosím heslo');
+        $form->addPassword('pass_repeat')
+            ->setRequired('Zadejte prosím heslo znovu');
+        $form->addSubmit('submit', 'Přihlásit se');
 
         $form->onSuccess[] = [$this, 'newPasswordFormSuccess'];
 

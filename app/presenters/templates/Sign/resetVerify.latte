@@ -2,13 +2,25 @@
 <section class="main-content">
     <div class="inner">
         <div>
-            <h2 n:block=title>Reset hesla</h2>
+            <h2 n:block=title class="form_nadpis">Reset hesla</h2>
 
             <div class="text-center" >
                 <div class="choose-network">
 
-
-                        {control resetPasswordForm}
+                    <form n:name="newPasswordForm" class="new_password">
+                        <ul class="errors" n:if="$form->hasErrors()">
+                            <li n:foreach="$form->errors as $error">{$error}</li>
+                        </ul>
+                        <div class="segment">
+                            <label class="popisek" for="pass">Heslo:</label>
+                            <input n:name="pass" id="pass" class="req" autocomplete="new-password">
+                        </div>
+                        <div class="segment">
+                            <label class="popisek" for="pass_repeat">Heslo znovu:</label>
+                            <input n:name="pass_repeat" id="pass_repeat" class="req" autocomplete="new-password">
+                        </div>
+                        <input type="submit" n:name="submit" value="Registrovat" class="tlacitko">
+                    </form>
                 </div>
             </div>
         </div>
