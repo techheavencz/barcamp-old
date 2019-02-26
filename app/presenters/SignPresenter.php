@@ -2,11 +2,13 @@
 
 namespace App\Presenters;
 
+use App\Model\Authenticator;
 use App\Model\Mail;
 use App\Model\NotFoundException;
 use App\Model\User;
 use Nette;
 use Nette\Application\UI;
+use Nette\Forms\Controls\HiddenField;
 
 
 final class SignPresenter extends BasePresenter
@@ -36,16 +38,19 @@ final class SignPresenter extends BasePresenter
     /**
      *
      */
-    public function renderIn()
+    public function actionOut(): void
     {
-        //TODO Sign in
+        $this->user->logout(true);
+
+        $this->flashMessage('Byl jsi odhlášen', 'success');
+        $this->redirect('Homepage:default');
     }
 
 
     /**
      * @return UI\Form
      */
-    protected function createComponentSignInForm()
+    protected function createComponentSignInForm(): UI\Form
     {
         $form = new UI\Form;
         $form->addEmail('email', 'E-mail:')
@@ -60,22 +65,36 @@ final class SignPresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
-     * @param \stdClass $values
      */
-    public function signInFormSucceeded(UI\Form $form, \stdClass $values)
+    public function signInFormSucceeded(UI\Form $form): void
     {
-        //TODO sign in
+        $values = $form->values;
+
+        $email = $values['email'];
+        $password = $values['pass'];
+
+        try {
+            $this->user->login($email, $password);
+        } catch (Nette\Security\AuthenticationException $e) {
+            if ($e->getCode() === Authenticator::IDENTITY_NOT_FOUND) {
+                $form->addError("Uživatele s e-mailem „${email}“ bohužel neznáme, jsi zaregistrován?");
+            } else {
+                $form->addError('Zadané přihlašovací údaje jsou neplatné');
+            }
+            return;
+        }
+
         $this->redirect('Homepage:default');
     }
 
 
     /**
-     * @param $email
-     * @param $token
+     * @param string $email
+     * @param string $token
      * @throws NotFoundException
      * @throws \Exception
      */
-    public function renderResetVerify($email, $token): void
+    public function renderResetVerify(string $email, string $token): void
     {
         $user = $this->userModel->getByEmail($email);
 
@@ -86,7 +105,16 @@ final class SignPresenter extends BasePresenter
             $this->redirect('reset', ['email' => $email]);
         }
 
+        /** @var UI\Form $form */
+        $form = $this['newPasswordForm'];
 
+        /** @var HiddenField $emailInput */
+        $emailInput = $form['email'];
+        /** @var HiddenField $tokenInput */
+        $tokenInput = $form['token'];
+
+        $emailInput->setDefaultValue($email);
+        $tokenInput->setDefaultValue($token);
     }
 
 
@@ -98,7 +126,7 @@ final class SignPresenter extends BasePresenter
         $form = new UI\Form;
 
         $form->addEmail('email', 'E-mail:')
-            ->setRequired('zadejte prosím Váš e-mail, kterým jsi se registroval(a).');
+            ->setRequired('Zadej prosím Váš e-mail, kterým jsi se registroval(a).');
         $form->addSubmit('submit', 'Resetovat');
 
         $form->onSuccess[] = [$this, 'resetFormSuccess'];
@@ -129,7 +157,7 @@ final class SignPresenter extends BasePresenter
             $this->flashMessage('Byl vám odeslán e-mail s dalšími instrukcemi', 'success');
             $this->redirect('Sign:in');
         } catch (NotFoundException $e) {
-            $form->addError("Uživatele s e-mailem $email bohužel neznáme, jsi zaregistrován?");
+            $form->addError("Uživatele s e-mailem „${email}“ bohužel neznáme, jsi zaregistrován?");
             return;
         }
     }
@@ -142,12 +170,15 @@ final class SignPresenter extends BasePresenter
     {
         $form = new UI\Form;
 
-
         $form->addPassword('pass', 'Heslo:')
             ->setRequired('Zadejte prosím heslo');
         $form->addPassword('pass_repeat')
-            ->setRequired('Zadejte prosím heslo znovu');
-        $form->addSubmit('submit', 'Přihlásit se');
+            ->setRequired('Zadejte prosím heslo znovu')
+            ->addRule(UI\Form::EQUAL, 'Hesla se neshodují', $form['pass']);
+        $form->addSubmit('submit', 'Změnit heslo');
+
+        $form->addHidden('email');
+        $form->addHidden('token');
 
         $form->onSuccess[] = [$this, 'newPasswordFormSuccess'];
 
@@ -157,15 +188,33 @@ final class SignPresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
+     * @throws Nette\InvalidStateException
+     * @throws NotFoundException
      */
     public function newPasswordFormSuccess(UI\Form $form): void
     {
-        // TODO: Don't forget enable this invalidation
+        $email = $form->values['email'];
+        $token = $form->values['token'];
+
+        $user = $this->userModel->getByEmail($email);
+
+        $isValid = $this->userModel->verifyResetPasswordToken($user, $token);
+
+        if ($isValid !== true) {
+            $this->flashMessage('Omlouváme se, ale odkaz je neplatný, pošlete si nový', 'error');
+            $this->redirect('reset', ['email' => $email]);
+        }
+
+        $password = $form->values['pass'];
+
+        $this->userModel->updatePassword($user, $password);
+
         // Reset token can be used once only
-        // $this->removeResetPasswordToken($user);
+        $this->userModel->removeResetPasswordToken($user);
+
+        $this->flashMessage('Vaše heslo bylo nastaveno', 'success');
+        $this->redirect('Homepage:default');
     }
-
-
 
 
     /**

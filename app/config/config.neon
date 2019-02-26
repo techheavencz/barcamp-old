@@ -33,3 +33,4 @@ services:
 	- App\Model\GithubLoader(%archiveUrlPrefix%)
 	- App\Model\User
 	- App\Model\Mail(%mail%)
+	- App\Model\Authenticator

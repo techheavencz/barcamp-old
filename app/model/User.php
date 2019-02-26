@@ -14,6 +14,8 @@ class User
     protected const TABLE = 'participants';
     protected const RESET_TOKEN = 'reset_token';
     protected const RESET_TOKEN_EXPIRE = 'reset_token_expire';
+    protected const EMAIL = 'email';
+    protected const PASSWORD = 'password';
 
     /**
      * @var Database\Context
@@ -54,7 +56,7 @@ class User
      */
     public function getByEmail(string $email): ActiveRow
     {
-        $user = $this->db->table(self::TABLE)->where('email', $email)->fetch();
+        $user = $this->db->table(self::TABLE)->where(self::EMAIL, $email)->fetch();
 
         if ($user === false) {
             throw new NotFoundException("Not found user with e-mail: $email");
@@ -82,6 +84,18 @@ class User
 
     /**
      * @param ActiveRow $user
+     * @param string $password
+     * @return bool
+     */
+    public function verifyPassword(ActiveRow $user, string $password): bool
+    {
+        $hash = $user[self::PASSWORD];
+
+        return Passwords::verify($password, $hash);
+    }
+
+    /**
+     * @param ActiveRow $user
      * @return string
      * @throws \Nette\InvalidArgumentException
      * @throws \Nette\InvalidStateException
@@ -106,7 +120,7 @@ class User
      * @param ActiveRow $user
      * @throws \Nette\InvalidStateException
      */
-    protected function removeResetPasswordToken(ActiveRow $user): void
+    public function removeResetPasswordToken(ActiveRow $user): void
     {
         $user->update([
             self::RESET_TOKEN => null,
@@ -134,5 +148,20 @@ class User
 
         // Check token hash
         return Passwords::verify($token, $hash);
+    }
+
+
+    /**
+     * @param ActiveRow $user
+     * @param string $password
+     * @throws \Nette\InvalidStateException
+     */
+    public function updatePassword(ActiveRow $user, string $password): void
+    {
+        $hash = Passwords::hash($password);
+
+        $user->update([
+            self::PASSWORD => $hash,
+        ]);
     }
 }
