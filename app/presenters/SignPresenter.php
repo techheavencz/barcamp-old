@@ -89,7 +89,7 @@ final class SignPresenter extends BasePresenter
     }
 
 
-    public function renderReset(?string $email)
+    public function renderReset(?string $email): void
     {
         if($email !== null) {
             /** @var UI\Form $form */

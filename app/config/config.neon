@@ -34,3 +34,4 @@ services:
 	- App\Model\User
 	- App\Model\Mail(%mail%)
 	- App\Model\Authenticator
+	- App\Model\Contact
