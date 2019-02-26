@@ -20,7 +20,8 @@ mail:
 	host: email-smtp.eu-west-1.amazonaws.com
 	username: AKIAJNX7NRUBYUWJM67A
 	password: {smtp-password}
-	secure: ssl
+	secure: tls
+	port: 587
 
 
 session:
