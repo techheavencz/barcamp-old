@@ -2722,6 +2722,9 @@ body:after {
   margin-top: 1%;
   font-size: large;
 }
+.new_talk .popisek_check {
+  color: black;
+}
 .new_talk .star {
   font-size: 10px;
   color: red;
