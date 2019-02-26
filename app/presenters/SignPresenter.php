@@ -136,6 +136,34 @@ final class SignPresenter extends BasePresenter
 
 
     /**
+     * @return UI\Form
+     */
+    public function createComponentNewPasswordForm(): UI\Form
+    {
+        $form = new UI\Form;
+
+        // Vojto pro tebe
+
+        $form->onSuccess[] = [$this, 'newPasswordFormSuccess'];
+
+        return $form;
+    }
+
+
+    /**
+     * @param UI\Form $form
+     */
+    public function newPasswordFormSuccess(UI\Form $form): void
+    {
+        // TODO: Don't forget enable this invalidation
+        // Reset token can be used once only
+        // $this->removeResetPasswordToken($user);
+    }
+
+
+
+
+    /**
      * @param Nette\Database\Table\ActiveRow $user
      * @return Nette\Mail\Message
      * @throws Nette\InvalidArgumentException
