@@ -13,10 +13,14 @@ use Nette\Forms\Controls\HiddenField;
 
 final class SignPresenter extends BasePresenter
 {
+    /** @persistent */
+    public $backlink = '';
+
     /**
      * @var User
      */
     private $userModel;
+
     /**
      * @var Mail
      */
@@ -85,6 +89,7 @@ final class SignPresenter extends BasePresenter
             return;
         }
 
+        $this->restoreRequest($this->backlink);
         $this->redirect('Homepage:default');
     }
 

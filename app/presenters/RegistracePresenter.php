@@ -2,10 +2,12 @@
 
 namespace App\Presenters;
 
+use App\Model\Talk;
 use App\Model\User;
 use DateTime;
 use Nette\Application\UI;
 use Nette\Security\Passwords;
+use Nette\Utils\Json;
 
 final class RegistracePresenter extends BasePresenter
 {
@@ -13,16 +15,26 @@ final class RegistracePresenter extends BasePresenter
      * @var User
      */
     private $userModel;
+    /**
+     * @var Talk
+     */
+    private $talkModel;
 
 
-    public function __construct(User $userModel)
+    public function __construct(User $userModel, Talk $talkModel)
     {
         parent::__construct();
         $this->userModel = $userModel;
+        $this->talkModel = $talkModel;
     }
 
 
     //TODO Formuláře jinam než do presenteru
+
+
+    /**
+     * @return UI\Form
+     */
     protected function createComponentRegistrationForm(): UI\Form
     {
         $form = new UI\Form;
@@ -54,6 +66,10 @@ final class RegistracePresenter extends BasePresenter
     }
 
 
+    /**
+     * @param UI\Form $form
+     * @throws \Nette\InvalidStateException
+     */
     public function registrationFormSucceeded(UI\Form $form): void
     {
 
@@ -65,7 +81,7 @@ final class RegistracePresenter extends BasePresenter
         }
 
         $toDb = [
-            'full_name' => $values->first_name . " " . $values->last_name,
+            'full_name' => $values->first_name . ' ' . $values->last_name,
             'email' => $values->email,
             'bio' => $values->bio,
             'newsletter_barcamp' => $values->newsletter_barcamp,
@@ -74,7 +90,7 @@ final class RegistracePresenter extends BasePresenter
             'created_at' => new DateTime(),
             'position' => $values->position,
             'password' => Passwords::hash($values->pass),
-            'job' => $values->job . "|||" . $values->job_desc,
+            'job' => $values->job . '|||' . $values->job_desc,
 
         ];
         $this->userModel->insert($toDb);
@@ -82,8 +98,17 @@ final class RegistracePresenter extends BasePresenter
     }
 
 
-    //TODO Prezentace formulář
-
+    public function renderTalk()
+    {
+        if($this->user->isLoggedIn() !== true) {
+            $this->flashMessage('Pro registraci přednášky se prosím nejdříve přihlaste.');
+            $this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+        }
+    }
+    
+    /**
+     * @return UI\Form
+     */
     protected function createComponentNewTalkForm(): UI\Form
     {
         $form = new UI\Form;
@@ -101,13 +126,37 @@ final class RegistracePresenter extends BasePresenter
             ->setRequired('Vyplňte prosím anotaci přednášky');
 
         $form->addSubmit('submit', 'Registrovat');
+
+        $form->addProtection('Z důvodu bezpečnosti prosím odešlete tento formulář ještě jednou');
+
         $form->onSuccess[] = [$this, 'newTalkFormSucceeded'];
         return $form;
     }
 
 
-    public function newTalkFormSucceeded(UI\Form $form, \stdClass $values)
+    /**
+     * @param UI\Form $form
+     * @throws \Nette\Utils\JsonException
+     */
+    public function newTalkFormSucceeded(UI\Form $form): void
     {
-        //TODO
+        $values = $form->values;
+
+        $title = $values['title'];
+
+        $data = [
+            'title' => $title,
+            'annotation' => $values['annotation'],
+            'target' => Json::encode($values['target']),
+
+            'created' => new DateTime,
+        ];
+
+        $userId = $this->user->id;
+
+        $this->talkModel->insert($data, $userId);
+
+        $this->flashMessage("Tvoje přednáška „${title}“ byla zveřejněna.", 'success');
+        $this->redirect('Conference:talks');
     }
 }
