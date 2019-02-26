@@ -26,8 +26,14 @@
             <h2 id="dekujeme">Naši pomocnící</h2>
             {foreach $asistants as $asistant}
             <div class="assistant">
-                <img class="photo-pic" src="{$basePath}/media/photos/someone.jpg" alt="{$asistant->full_name}" width="70" height="70">
-                <a href="https://www.facebook.com/{$asistant->facebook}" target="_blank">{$asistant->full_name}</a>
+                <h3>{$asistant->full_name}</h3>
+                <img class="photo-pic" {if strpos($asistant->img, ":")} src="{$asistant->img}" {else} src="{$basePath}/media/photos/{$asistant->img}" {/if} alt="{$asistant->full_name}" width="150" height="150">
+                <p>Tel.: <strong><a href="tel:{$asistant->tel}">{$asistant->tel}</a></strong></p>
+                <ul class="networks">
+                    <li n:if="$asistant->mail!=='NOT'" class="email"><a href="mailto:{$asistant->mail}" title="{$asistant->mail}"><i>{$asistant->mail}</i></a></li>
+                    <li n:if="$asistant->twitter!=='NOT'" class="tw"><a href="https://twitter.com/{$asistant->twitter}" target="_blank" title="@{$asistant->twitter}"><i>@{$asistant->twitter}</i></a></li>
+                    <li n:if="$asistant->facebook!=='NOT'" class="fb"><a href="https://www.facebook.com/{$asistant->facebook}" target="_blank" title="{$asistant->facebook}"><i>{$asistant->facebook}</i></a></li>
+                </ul>
             </div>
             {/foreach}
         </div>
