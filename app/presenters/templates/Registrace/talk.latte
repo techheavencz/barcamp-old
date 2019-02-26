@@ -23,5 +23,21 @@
             <input type="submit" value="Registrovat přednášku" class="tlacitko">
         </form>
         *}
+        <form n:name="newTalkForm">
+            Název přednášky: <input n:name="title"><br>
+
+            Komu je přednáška určena?<br>
+            <ul>
+                <li><input n:name="for_developer"> Vývojářům</li>
+                <li><input n:name="for_web"> Webařům</li>
+                <li><input n:name="for_marketing"> Markeťákům</li>
+                <li><input n:name="for_business"> Byznysákům</li>
+                <li><input n:name="for_other"> Jiné</li>
+            </ul>
+            Anotace:<br>
+            <textarea n:name="anotation"></textarea>
+            <input class="tlacitko" n:name="submit">
+
+        </form>
     </div>
 </section>

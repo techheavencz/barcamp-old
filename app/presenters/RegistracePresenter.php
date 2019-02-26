@@ -70,16 +70,27 @@ final class RegistracePresenter extends BasePresenter
     protected function createComponentNewTalkForm()
     {
         $form = new UI\Form;
-        $form->addText('title', 'Název přednášky');
-        $form->addText('for_who', "Komu je přednáška určena"); //TODO tady asi výběr z kategorií? Vývojář/markeťák/byznysák? Nebo je to blbost?
-        //Možná nějaká fotka?
+        $form->addText('title', 'Název přednášky')
+            ->setRequired("Vyplňte prosím název přednášky");
+        $form->addCheckbox('for_developer', 'Vývojářům')
+            ->setDefaultValue(false);
+        $form->addCheckbox('for_web', 'Webařům')
+            ->setDefaultValue(false);
+        $form->addCheckbox('for_marketing', 'Markeťákům')
+            ->setDefaultValue(false);
+        $form->addCheckbox('for_business', 'Byznysákům')
+            ->setDefaultValue(false);
+        $form->addCheckbox('for_other', 'Jiné')
+            ->setDefaultValue(false);
 
 
 
-        $form->addTextArea('anotation', 'Anotace tvé přednášky');
+
+        $form->addTextArea('anotation', 'Anotace tvé přednášky')
+            ->setRequired("Vyplňte prosím anotaci přednášky");
 
 
-        $form->addSubmit('register', 'Registrovat');
+        $form->addSubmit('submit', 'Registrovat');
         $form->onSuccess[] = [$this, 'newTalkFormSucceeded'];
         return $form;
     }
