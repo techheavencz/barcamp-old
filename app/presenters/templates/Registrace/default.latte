@@ -7,7 +7,7 @@
         <h2>Šestý ročník Plzeňského Barcampu</h2>
             <form n:name="registrationForm" class="registration">
                 <ul class="errors" n:if="$form->hasErrors()">
-                    <li n:foreach="$form->errors as $error">{$error}</li>
+                    <li class="form_error_item" n:foreach="$form->errors as $error">{$error}</li> {* TODO nastylovat *}
                 </ul>
                 <div class="segment">
                     <label class="popisek" for="first_name">Jméno:</label><p class="star"> *</p>
