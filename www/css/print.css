@@ -1956,11 +1956,15 @@ iframe[seamless] {
   top: 1px;
 }
 .talks {
-  margin-top: 3%;
+  margin-top: 1%;
   text-align: center;
 }
 .talks .table {
   width: 100%;
+}
+.talks tr {
+  margin-bottom: 3%;
+  display: block;
 }
 .talks .talk-title {
   width: 20%;
@@ -1970,6 +1974,10 @@ iframe[seamless] {
 }
 .talks .talk-name {
   width: 10%;
+}
+.want_to_talk {
+  margin-bottom: 4%;
+  display: inline-block;
 }
 .visible-xs,
 .visible-xs-inline-block,
