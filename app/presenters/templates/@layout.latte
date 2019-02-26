@@ -85,15 +85,15 @@
                     </ul>
                     <ul class="info-navigation">
                             <li><a href="{link Registrace:default}" id="login-button" class="track-click">Zaregistrovat se</a></li>
-                        {*{if !$user->isLoggedIn()}<li><a href="{link Sign:in}" id="login-button" class="track-click">Přihlásit</a></li>{/if}*}
+                        {if !$user->isLoggedIn()}<li><a href="{link Sign:in}" id="login-button" class="track-click">Přihlásit</a></li>{/if}
                         {if $user->isLoggedIn()}<li><a href="{link Sign:out}" id="logout-button">Odhlásit</a></li>{/if}
-                        {if $user->isLoggedIn()}
+                        {* }{if $user->isLoggedIn()}
                             <li>
                                 <img n:ifset="$user->identity->picture_url" class="user-pic user-pic-s25" src="{$user->identity->picture_url}">
                                 <a href="{link Conference:profil}" n:tag-if="$user->identity->isRegistered()">
                                     {$user->identity->name|truncate:20}
                                 </a>
-                        {/if}
+                        {/if} *}
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -104,6 +104,7 @@
                                 <a class="home nav-link" href="{link //Homepage:default}" data-hover="Úvod">Úvod</a>
                             </li>
                             <li><a class="nav-link track-click" href="{link Registrace:default}" id="login-button">Zaregistrovat se</a></li>
+                            {if $user->isLoggedIn()}<li><a href="{link Sign:out}" id="logout-button">Odhlásit</a></li>{/if}
                             {*<li class="nav-item">
                                 <a class="nav-link" href="{link Program:list}" data-hover="Program">Program</a>
                             </li>*
@@ -122,6 +123,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{link Homepage:vocabulary}" data-hover="Plzeňština ?"><span class="tooltip pilsen" title="Copa jsou tyhle divoký názvy? To je Koldovo druhej rodnej jazyk…">Plzeňština ?</span></a>
                             </li>
+                            {if !$user->isLoggedIn()}<li><a href="{link Sign:in}" id="login-button" class="track-click">Přihlásit</a></li>{/if} {* Na mobilu může být teoreticky trošku problém s vypsáním přednášky - proto přihlášení až dole. *}
                         </ul>
                     </div>
                 </div>
