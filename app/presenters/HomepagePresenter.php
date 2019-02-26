@@ -22,8 +22,8 @@ final class HomepagePresenter extends BasePresenter
 
     public function renderContact(): void
     {
-        $this->template->organizators = $this->contactModel->getOrganisators();
-        $this->template->asistants = $this->contactModel->getAsistents();
+        $this->template->organizators = $this->contactModel->findOrganisators();
+        $this->template->asistants = $this->contactModel->findAsistents();
     }
 
 

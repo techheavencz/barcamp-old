@@ -2,24 +2,46 @@
 
 namespace App\Presenters;
 
-use Nette;
 
+use App\Model\Talk;
 
 final class ConferencePresenter extends BasePresenter
 {
-    public function renderProfil(){
+    /**
+     * @var Talk
+     */
+    private $talkModel;
+
+
+    public function __construct(Talk $talkModel)
+    {
+        parent::__construct();
+        $this->talkModel = $talkModel;
+    }
+
+
+    public function renderProfil()
+    {
         //TODO Zobrazení detailu profilu
 
     }
-    public function renderTalks(){
-        //TODO zobrazení přednášek
 
+
+    public function renderTalks()
+    {
+        $this->template->talks = $this->talkModel->find();
     }
-    public function renderTalksDetail(){
+
+
+    public function renderTalksDetail()
+    {
         //TODO zobrazení detailu
 
     }
-    public function renderVisitors(){
+
+
+    public function renderVisitors()
+    {
 
         //TODO Zobrazení návštěvníků, co chtějí být zobrazení
         /*

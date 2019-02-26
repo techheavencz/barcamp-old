@@ -24,7 +24,7 @@ class Contact
     }
 
 
-    public function getOrganisators(): Selection
+    public function findOrganisators(): Selection
     {
         return $this->db->table(self::TABLE)
             ->where(self::CATEGORY, 'org')
@@ -32,7 +32,7 @@ class Contact
     }
 
 
-    public function getAsistents(): Selection
+    public function findAsistents(): Selection
     {
         return $this->db->table(self::TABLE)
             ->where(self::CATEGORY, 'asist')

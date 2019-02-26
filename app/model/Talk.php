@@ -25,6 +25,20 @@ class Talk
     }
 
 
+    /**
+     * @return Database\Table\Selection
+     */
+    public function find(): Database\Table\Selection
+    {
+        return $this->db->table(self::TABLE)->order('created DESC');
+    }
+
+
+    /**
+     * @param array $data
+     * @param int $participantId
+     * @return ActiveRow
+     */
     public function insert(array $data, int $participantId): ActiveRow
     {
         $data[self::PARTICIPANT_ID] = $participantId;
