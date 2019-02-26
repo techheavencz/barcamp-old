@@ -16,10 +16,10 @@ final class RegistracePresenter extends BasePresenter
 
 
     public function __construct(User $userModel)
-{
-    parent::__construct();
-    $this->userModel = $userModel;
-}
+    {
+        parent::__construct();
+        $this->userModel = $userModel;
+    }
 
 
     //TODO Formuláře jinam než do presenteru
@@ -81,35 +81,30 @@ final class RegistracePresenter extends BasePresenter
         $this->redirect('Registrace:success');
     }
 
+
     //TODO Prezentace formulář
 
-    protected function createComponentNewTalkForm()
+    protected function createComponentNewTalkForm(): UI\Form
     {
         $form = new UI\Form;
         $form->addText('title', 'Název přednášky')
-            ->setRequired("Vyplňte prosím název přednášky");
-        $form->addCheckbox('for_developer', 'Vývojářům')
-            ->setDefaultValue(false);
-        $form->addCheckbox('for_web', 'Webařům')
-            ->setDefaultValue(false);
-        $form->addCheckbox('for_marketing', 'Markeťákům')
-            ->setDefaultValue(false);
-        $form->addCheckbox('for_business', 'Byznysákům')
-            ->setDefaultValue(false);
-        $form->addCheckbox('for_other', 'Jiné')
-            ->setDefaultValue(false);
+            ->setRequired('Vyplňte prosím název přednášky');
 
-
-
-
-        $form->addTextArea('anotation', 'Anotace tvé přednášky')
-            ->setRequired("Vyplňte prosím anotaci přednášky");
-
+        $form->addCheckboxList('target', 'Komu je přednáška určena?', [
+            'developer' => 'Vývojářům',
+            'web' => 'Webařům',
+            'marketing' => 'Markeťákům',
+            'business' => 'Byznysákům',
+            'other' => 'Jiné',
+        ]);
+        $form->addTextArea('annotation', 'Anotace tvé přednášky')
+            ->setRequired('Vyplňte prosím anotaci přednášky');
 
         $form->addSubmit('submit', 'Registrovat');
         $form->onSuccess[] = [$this, 'newTalkFormSucceeded'];
         return $form;
     }
+
 
     public function newTalkFormSucceeded(UI\Form $form, \stdClass $values)
     {

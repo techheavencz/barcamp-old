@@ -35,17 +35,15 @@
             <div class="segment">
                 Komu je přednáška určena?<br>
                 <ul>
-                    <li><input n:name="for_developer"><label class="popisek popisek_check" for="for_developer"> Vývojářům</label></li>
-                    <li><input n:name="for_web"><label class="popisek popisek_check" for="for_web"> Webařům</label></li>
-                    <li><input n:name="for_marketing"><label class="popisek popisek_check" for="for_marketing"> Markeťákům</label></li>
-                    <li><input n:name="for_business"><label class="popisek popisek_check" for="for_business"> Byznysákům</label></li>
-                    <li><input n:name="for_other"><label class="popisek popisek_check" for="for_other"> Jiné</label></li>
+                    {foreach $form[target]->items as $key => $label}
+                        <li><input n:name="target:$key"> <label n:name="target:$key" class="popisek popisek_check" >{$label}</label></li>
+                    {/foreach}
                 </ul>
             </div>
 
 
             <label for="anotation" class="popisek">Anotace:</label><span class="star"> *</span><br>
-            <textarea n:name="anotation" id="anotation" class="req pole"></textarea>
+            <textarea n:name="annotation" id="anotation" class="req pole"></textarea>
             <input class="tlacitko" n:name="submit">
 
         </form>
