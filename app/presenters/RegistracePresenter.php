@@ -28,6 +28,13 @@ final class RegistracePresenter extends BasePresenter
         $this->talkModel = $talkModel;
     }
 
+    protected function renderDefault()
+    {
+        //TODO je to správně?
+
+        // Start sign-in form to generate Csrf token before send HTTP headers
+        $this->session->start();
+    }
 
     //TODO Formuláře jinam než do presenteru
 
