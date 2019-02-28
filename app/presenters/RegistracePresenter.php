@@ -21,6 +21,10 @@ final class RegistracePresenter extends BasePresenter
     private $talkModel;
 
 
+    /**
+     * @param User $userModel
+     * @param Talk $talkModel
+     */
     public function __construct(User $userModel, Talk $talkModel)
     {
         parent::__construct();
@@ -28,10 +32,12 @@ final class RegistracePresenter extends BasePresenter
         $this->talkModel = $talkModel;
     }
 
-    protected function renderDefault()
-    {
-        //TODO je to správně?
 
+    /**
+     * @throws \Nette\InvalidStateException
+     */
+    protected function renderDefault(): void
+    {
         // Start sign-in form to generate Csrf token before send HTTP headers
         $this->session->start();
     }
@@ -105,7 +111,10 @@ final class RegistracePresenter extends BasePresenter
     }
 
 
-    public function renderTalk()
+    /**
+     *
+     */
+    public function renderTalk(): void
     {
         if($this->user->isLoggedIn() !== true) {
             $this->flashMessage('Pro registraci přednášky se prosím nejdříve přihlaste.');
