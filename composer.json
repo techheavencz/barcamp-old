@@ -23,7 +23,8 @@
         "ext-curl": "*"
     },
 	"require-dev": {
-		"nette/tester": "^2.0"
+		"nette/tester": "^2.0",
+		"dg/ftp-deployment": "^3.1"
 	},
 	"minimum-stability": "stable"
 }
