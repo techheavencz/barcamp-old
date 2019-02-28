@@ -4,7 +4,8 @@ Plzeňský barcamp – Web
 Požadavky
 ---------
 
-PHP 7.2 nebo vyšší.
+- PHP 7.2 nebo vyšší
+- MySQL 5+
 
 
 Instalace na Localhost
@@ -25,3 +26,11 @@ potřeba ještě několik úkonů:
 1. vytvořte soubor `/app/config/config.local.neon` – klidně prázdný,
 2. vytvořte v databázi tabulky, které aplikace potřebuje (konfigurace bude doplněna…)
 
+Instalace na server
+-------------------
+
+Webový server musí číst soubory z adresáře `/www`.
+
+Pokud není možné nastavit přímo `DocumentRoot`, např. na webhostingu Wedos,
+použijte soubor `.htaccess.wedos`, tento přejmenujte na `.htaccess`, a nahrajte do aktuální složky `DocumentRoot` na hostingu.
+V takovém případě pak nahrajte aplikaci do podadresáře `/plzenskybarcamp.cz/` v `DocumentRoot`.  

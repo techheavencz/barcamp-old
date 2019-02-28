@@ -1,0 +1,28 @@
+## .htaccess for Wedos webhosting
+## ==============================
+
+# Deploy instructions
+# -------------------
+
+# 1. Rename file to .htaccess
+# 2. Upload to root of webhosting's DocumentRoot (usually /www/ on FTP)
+
+#################################
+
+RewriteEngine On
+
+# HTTP -> HTTPS
+RewriteCond %{HTTP_HOST} plzenskybarcamp\.cz$
+RewriteCond %{HTTPS} !on
+RewriteRule .? https://www.plzenskybarcamp.cz%{REQUEST_URI} [R=301,L]
+
+# domain.tld -> www.domain.tld
+RewriteCond %{HTTP_HOST} plzenskybarcamp\.cz$
+RewriteCond %{HTTP_HOST} !^www\.plzenskybarcamp\.cz$
+RewriteRule .? https://www.plzenskybarcamp.cz%{REQUEST_URI} [R=301,L]
+
+# Rewrite to project directory
+RewriteCond %{HTTP_HOST} ^www\.plzenskybarcamp\.cz$
+RewriteCond %{REQUEST_URI} !^plzenskybarcamp.cz/www/
+RewriteCond %{REQUEST_URI} !^/plzenskybarcamp.cz/www/
+RewriteRule (.*) plzenskybarcamp.cz/www/$1 [DPI]
