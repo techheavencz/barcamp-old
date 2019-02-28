@@ -23,7 +23,7 @@ Po spuštění bude aplikace dostupná na URL: http://localhost:8080/
 V konfiguraci Dockeru je nastavení webového serveru i MySQL serveru, vše je nakonfigurováno. Při zcela prvním spuště je
 potřeba ještě několik úkonů:
 
-1. vytvořte soubor `/app/config/config.local.neon` – klidně prázdný,
+1. vytvořte soubor `/local/config.local.neon` – klidně prázdný,
 2. vytvořte v databázi tabulky, které aplikace potřebuje (konfigurace bude doplněna…)
 
 Instalace na server
