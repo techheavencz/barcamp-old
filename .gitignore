@@ -1,10 +1,9 @@
-!.gitignore
-!.htaccess
-!web.config
 .idea/
 .DS_Store
 app/config/config.local.neon
-log/*
-temp/*
-vendor/*
 docker/mysql/data/*
+log/*
+!log/.htaccess
+temp/*
+!temp/.htaccess
+vendor/
