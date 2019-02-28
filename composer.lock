@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d868f1ee1eeeca7ccca0d2f31f83c37",
+    "content-hash": "731f34c6851bd17209dae5339b2e577a",
     "packages": [
+        {
+            "name": "jakubboucek/nette-debug-enabler",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakubboucek/nette-debug-enabler.git",
+                "reference": "5da5020bbcce5417e5d67022083898ae9c2525f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakubboucek/nette-debug-enabler/zipball/5da5020bbcce5417e5d67022083898ae9c2525f1",
+                "reference": "5da5020bbcce5417e5d67022083898ae9c2525f1",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^2.4 || ^3.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Bouček",
+                    "homepage": "https://www.jakub-boucek.cz"
+                }
+            ],
+            "description": "Debug mode enabler for Nette framework - safe and clean way to automatize Nette Debug mode at specific environment",
+            "keywords": [
+                "debug",
+                "nette",
+                "tracy"
+            ],
+            "time": "2018-09-20T06:56:56+00:00"
+        },
         {
             "name": "latte/latte",
             "version": "v2.5.1",

@@ -1,11 +1,12 @@
-<?php
+<?php /** @noinspection PhpUnhandledExceptionInspection */
+
+use JakubBoucek\DebugEnabler\DebugEnabler;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $configurator = new Nette\Configurator;
 
-$configurator->setDebugMode(true);
-//$configurator->setDebugMode('185.153.194.166'); // enable for your remote IP
+$configurator->setDebugMode(DebugEnabler::isDebugByEnv());
 $configurator->enableTracy(__DIR__ . '/../log');
 
 $configurator->setTimeZone('Europe/Prague');

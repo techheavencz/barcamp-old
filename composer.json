@@ -19,6 +19,7 @@
 		"nette/utils": "^2.4",
 		"latte/latte": "^2.4",
 		"tracy/tracy": "^2.4",
+		"jakubboucek/nette-debug-enabler": "^1.1",
         "ext-curl": "*"
     },
 	"require-dev": {
