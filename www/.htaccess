@@ -5,6 +5,8 @@ Allow from all
 	Options -Indexes
 </IfModule>
 
+RewriteEngine On
+
 # WEDOS FUCKING SUCK
 # https://www.plzenskybarcamp.cz/plzenskybarcamp.cz/www/... -> https://www.plzenskybarcamp.cz/...
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
