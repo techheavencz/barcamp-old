@@ -9,6 +9,7 @@ use App\Model\User;
 use Nette;
 use Nette\Application\UI;
 use Nette\Forms\Controls\HiddenField;
+use Tracy\Debugger;
 
 
 final class SignPresenter extends BasePresenter
@@ -56,6 +57,9 @@ final class SignPresenter extends BasePresenter
      */
     public function actionOut(): void
     {
+        $userId = $this->user->id;
+        Debugger::log("[Sign:out] Success, User ID: $userId", 'sign');
+
         $this->user->logout(true);
 
         $this->flashMessage('Byl jsi odhlášen', 'success');
@@ -92,11 +96,17 @@ final class SignPresenter extends BasePresenter
 
         try {
             $this->user->login($email, $password);
+
+            $userId = $this->user->id;
+            Debugger::log("[Sign:in] Success, User ID: $userId", 'sign');
+
         } catch (Nette\Security\AuthenticationException $e) {
             if ($e->getCode() === Authenticator::IDENTITY_NOT_FOUND) {
                 $form->addError("Uživatele s e-mailem „${email}“ bohužel neznáme, jsi zaregistrován?");
+                Debugger::log("[Sign:in] Fail, Unknown email: $email", 'sign');
             } else {
                 $form->addError('Zadané přihlašovací údaje jsou neplatné');
+                Debugger::log("[Sign:in] Fail, Wrong password for email: $email", 'sign');
             }
             return;
         }
@@ -136,6 +146,8 @@ final class SignPresenter extends BasePresenter
         $isValid = $this->userModel->verifyResetPasswordToken($user, $token);
 
         if ($isValid !== true) {
+            Debugger::log("[Sign:reset] Fail, Open form for email: $email", 'sign');
+
             $this->flashMessage('Omlouváme se, ale odkaz je neplatný, pošlete si nový', 'error');
             $this->redirect('reset', ['email' => $email]);
         }
@@ -150,6 +162,8 @@ final class SignPresenter extends BasePresenter
 
         $emailInput->setDefaultValue($email);
         $tokenInput->setDefaultValue($token);
+
+        Debugger::log("[Sign:reset] Success, Open form for email: $email", 'sign');
     }
 
 
@@ -191,9 +205,12 @@ final class SignPresenter extends BasePresenter
 
             $this->mailModel->send($message);
 
+            Debugger::log("[Sign:reset] Success, Send token for email: $email", 'sign');
+
             $this->flashMessage('Byl vám odeslán e-mail s dalšími instrukcemi', 'success');
             $this->redirect('Sign:in');
         } catch (NotFoundException $e) {
+            Debugger::log("[Sign:reset] Fail, Send token for email: $email", 'sign');
             $form->addError("Uživatele s e-mailem „${email}“ bohužel neznáme, jsi zaregistrován?");
             return;
         }
@@ -240,6 +257,8 @@ final class SignPresenter extends BasePresenter
         $isValid = $this->userModel->verifyResetPasswordToken($user, $token);
 
         if ($isValid !== true) {
+            Debugger::log("[Sign:reset] Fail, Submit reset for email: $email", 'sign');
+
             $this->flashMessage('Omlouváme se, ale odkaz je neplatný, pošlete si nový', 'error');
             $this->redirect('reset', ['email' => $email]);
         }
@@ -250,6 +269,8 @@ final class SignPresenter extends BasePresenter
 
         // Reset token can be used once only
         $this->userModel->removeResetPasswordToken($user);
+
+        Debugger::log("[Sign:reset] Success, Submit reset for email: $email", 'sign');
 
         $this->flashMessage('Vaše heslo bylo nastaveno', 'success');
         $this->redirect('Homepage:default');
