@@ -36,7 +36,7 @@ final class RegistracePresenter extends BasePresenter
     /**
      * @throws \Nette\InvalidStateException
      */
-    protected function renderDefault(): void
+    public function renderDefault(): void
     {
         // Start sign-in form to generate Csrf token before send HTTP headers
         $this->session->start();
