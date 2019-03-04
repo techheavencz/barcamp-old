@@ -4,28 +4,44 @@
 {block metaKeywords}přednáška, řečník, prezentace, projev, vystupování, Barcamp, Plzeň, pohled, konference, téma {/block}
 {block content}
 <section class="main-content">
-	<div class="inner">
+	<div class="inner_talk">
 		<h2>Přednášky</h2>
 		<p>Toto jsou zatím vypsané přednášky. Líbí se? Po uzávěrce přidávání přednášek bude možné pro hlasovat. A 13.4. si je ve Vědeckotechnickém parku poslechneme!</p>
-		<div class="talks">
+		{*<div class="talks">
 			<a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet</a><br>
-			<table class="table">
-				<thead>
-				<tr class="talk-row">
-					<th class="talk-title">Název přednášky</th>
-					<th class="talk-anotation">Anotace</th>
-					<th class="talk-name">Přednášející</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr n:foreach="$talks as $talk" class="talk-row">
-					<td class="talk-title">{$talk->title}</td>
-					<td class="talk-anotation">{$talk->annotation}</td>
-					<td class="talk-name">{$talk->participant->full_name}</td>
-				</tr>
-				</tbody>
-			</table>
+			<ul class="table">
+				<li class="talk-row">
+					<div class="talk-title">Název přednášky</div>
+					<div class="talk-anotation">Anotace</div>
+					<div class="talk-name">Přednášející</div>
+				</li>
+				<li n:foreach="$talks as $talk" class="talk-row">
+					<div class="talk-title">{$talk->title}</div>
+					<div class="talk-anotation">{$talk->annotation}</div>
+					<div class="talk-name">{$talk->participant->full_name}</div>
+				</li>
+			</ul>
+		</div>*}
+		{foreach $talks as $talk}
+			<ul class="lectures-list">
+				<li>
+					<div class="item-header">
+						<div class="item-author">
+							<p class="item-author-name">{$talk->participant->full_name}</p>
+						</div>
+					</div>
+					<div class="item-content">
+						<div class="item-content-perex">
+							<h4 class="item-title">{$talk->title}</h4>
+							<div class="item-text">
+								<p>{$talk->annotation}</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
 
-		</div>
+		{/foreach}
+
 	</div>
 </section>
