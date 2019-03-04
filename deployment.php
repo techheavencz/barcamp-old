@@ -38,7 +38,10 @@ return [
         'allowDelete' => true,
         'purge' => [
             'temp/cache',
-        ]
+        ],
+        'after' => [
+            'remote: unlink log/email-sent'
+        ],
     ],
     'log' => __DIR__ . '/log/deployment.log',
     'tempDir' => __DIR__ . '/temp',
