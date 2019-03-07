@@ -32,6 +32,12 @@ final class ConferencePresenter extends BasePresenter
         $this->template->talks = $this->talkModel->find();
     }
 
+    public function renderTalksVoting()
+    {
+        $this->template->talks = $this->talkModel->find();
+    }
+
+
 
     public function renderTalksDetail()
     {

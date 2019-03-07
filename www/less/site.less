@@ -1273,6 +1273,12 @@ iframe[seamless]{
 }
 
 .inner_talk {
+	width: 60%;
+	margin: auto;
+	.want_to_talk {
+		margin-bottom: 4%;
+		display: inline-block;
+	}
 	.item-header{
 		position: absolute;
 		left: 0;
@@ -1295,7 +1301,7 @@ iframe[seamless]{
 	}
 	.item-text{
 		font-size: 14px;
-		overflow: hidden
+		overflow: hidden;
 	}
 	.lectures-list{
 		padding: 0;
@@ -1315,16 +1321,82 @@ iframe[seamless]{
 		-moz-transition: all 250ms linear;
 		-o-transition: all 250ms linear;
 		-ms-transition: all 250ms linear;
-		transition: all 250ms linear}
+		transition: all 250ms linear
+	}
+	#full {
+		display: none;
+	}
+	.voting {
+		font-size: 15px;
+		color: @green;
+		font-family: "open_sanssemibold";
+		text-align: right;
+		.text {
+			margin-right: 25px;
+		}
+	}
+	.control {
+		font-family: arial;
+		display: block;
+		position: relative;
+		padding-left: 30px;
+		margin-bottom: 4px;
+		padding-top: 3px;
+		cursor: pointer;
+		font-size: 15px;
+		input {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+	}
+	.control_indicator {
+		position: absolute;
+		top: -20px;
+		right: 0;
+		height: 20px;
+		width: 20px;
+		background: #e6e6e6;
+		border: 0px solid #000000;
+	}
 
+	.control:hover input ~ .control_indicator,
+	.control input:focus ~ .control_indicator {
+		background: #cccccc;
+	}
 
+	.control input:checked ~ .control_indicator {
+		background: @green;
+	}
+	.control:hover input:not([disabled]):checked ~ .control_indicator,
+	.control input:checked:focus ~ .control_indicator {
+		background: #0e6647d;
+	}
+	.control input:disabled ~ .control_indicator {
+		background: #e6e6e6;
+		opacity: 0.6;
+		pointer-events: none;
+	}
+	.control_indicator:after {
+		box-sizing: unset;
+		content: '';
+		position: absolute;
+		display: none;
+	}
+	.control input:checked ~ .control_indicator:after {
+		display: block;
+	}
+	.control-checkbox .control_indicator:after {
+		left: 8px;
+		top: 4px;
+		width: 3px;
+		height: 8px;
+		border: solid #ffffff;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+	.control-checkbox input:disabled ~ .control_indicator:after {
+		border-color: #7b7b7b;
+	}
 }
 
-.want_to_talk {
-	margin-bottom: 4%;
-	display: inline-block;
-}
-.inner_talk {
- width: 60%;
- margin: auto;
-}
