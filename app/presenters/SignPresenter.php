@@ -112,7 +112,7 @@ final class SignPresenter extends BasePresenter
         }
 
         $this->restoreRequest($this->backlink);
-        $this->redirect('Homepage:default');
+        $this->redirect('Registrace:talk');
     }
 
 
