@@ -5,45 +5,40 @@
         <p>Toto jsou zatím vypsané přednášky. Líbí se? Po uzávěrce přidávání přednášek bude možné pro hlasovat. A 13.4. si je ve Vědeckotechnickém parku poslechneme!</p>
         <a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a>
         {foreach $talks as $talk}
-            <ul class="lectures-list">
+            <ul class="lectures-list vote">
                 <li>
-                    <div class="item-header">
-                        <div class="item-author">
-                            <p class="item-author-name">{$talk->participant->full_name}</p>
+                    <div class="clicking">
+                        <div class="item-header">
+                            <div class="item-author">
+                                <p class="item-author-name">{$talk->participant->full_name}</p>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-content">
+                                <h4 class="item-title">{$talk->title}</h4>
+                                <div class="item-text" id="full">
+                                    <p>{$talk->annotation}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="item-content">
-                        <div class="item-content">
-                            <h4 class="item-title">{$talk->title}</h4>
-                            <div class="item-text" id="short">
-                                <p>{$talk->annotation|truncate:300}</p>
-                            </div>
-                            <div class="item-text full" id="full">
-                                <p>{$talk->annotation}</p>
-                            </div>
-                            <div class="voting">
-                                <label class="text">Hlasuj pro přednášku:</label>
-                                <label class="control control-checkbox">
-                                    <input type="checkbox"/>
-                                    <div class="control_indicator"></div>
-                                </label>
-                            </div>
-                        </div>
+                    <div class="voting">
+                        <label class="text">Hlasuj pro přednášku:</label>
+                        <label class="control control-checkbox">
+                            <input type="checkbox"/>
+                            <div class="control_indicator"></div>
+                        </label>
                     </div>
                 </li>
+
             </ul>
         {/foreach}
     </div>
 </section>
 <script>
     $(document).ready(function(){
-        $("#short").click(function() {
-            $("#short").hide();
-            $("#full").show();
-        });
-        $("#full").click(function() {
-            $("#full").hide();
-            $("#short").show();
+        $(".clicking").click(function() {
+            $("#full").toggle();
         });
     });
 </script>

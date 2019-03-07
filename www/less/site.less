@@ -1279,6 +1279,17 @@ iframe[seamless]{
 		margin-bottom: 4%;
 		display: inline-block;
 	}
+	.vote {
+		.item-header {
+			padding-top: 1rem;
+			.item-author-name {
+				padding-top: 0;
+			}
+		}
+		.item-title {
+			margin-top: 1rem;
+		}
+	}
 	.item-header{
 		position: absolute;
 		left: 0;
@@ -1311,10 +1322,13 @@ iframe[seamless]{
 		overflow: hidden;
 		border-top: 1px solid #d6d6d6
 	}
+	.lectures-list:hover {
+		background-color: #f7f7f7;
+	}
 	.lectures-list li{
 		display: block;
 		position: relative;
-		padding-left: 160px;
+		padding-left: 200px;
 		border-bottom: 1px solid #d6d6d6;
 		transition: max-height .15s ease-out;
 		-webkit-transition: all 250ms linear;
@@ -1332,7 +1346,7 @@ iframe[seamless]{
 		font-family: "open_sanssemibold";
 		text-align: right;
 		.text {
-			margin-right: 25px;
+			margin-right: 35px;
 		}
 	}
 	.control {
@@ -1353,11 +1367,11 @@ iframe[seamless]{
 	.control_indicator {
 		position: absolute;
 		top: -20px;
-		right: 0;
+		right: 10px;
 		height: 20px;
 		width: 20px;
 		background: #e6e6e6;
-		border: 0px solid #000000;
+		border: 1px solid #b3b3b3;
 	}
 
 	.control:hover input ~ .control_indicator,

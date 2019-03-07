@@ -1967,6 +1967,15 @@ iframe[seamless] {
   margin-bottom: 4%;
   display: inline-block;
 }
+.inner_talk .vote .item-header {
+  padding-top: 1rem;
+}
+.inner_talk .vote .item-header .item-author-name {
+  padding-top: 0;
+}
+.inner_talk .vote .item-title {
+  margin-top: 1rem;
+}
 .inner_talk .item-header {
   position: absolute;
   left: 0;
@@ -1999,10 +2008,13 @@ iframe[seamless] {
   overflow: hidden;
   border-top: 1px solid #d6d6d6;
 }
+.inner_talk .lectures-list:hover {
+  background-color: #f7f7f7;
+}
 .inner_talk .lectures-list li {
   display: block;
   position: relative;
-  padding-left: 160px;
+  padding-left: 200px;
   border-bottom: 1px solid #d6d6d6;
   transition: max-height 0.15s ease-out;
   -webkit-transition: all 250ms linear;
@@ -2021,7 +2033,7 @@ iframe[seamless] {
   text-align: right;
 }
 .inner_talk .voting .text {
-  margin-right: 25px;
+  margin-right: 35px;
 }
 .inner_talk .control {
   font-family: arial;
@@ -2041,11 +2053,11 @@ iframe[seamless] {
 .inner_talk .control_indicator {
   position: absolute;
   top: -20px;
-  right: 0;
+  right: 10px;
   height: 20px;
   width: 20px;
   background: #e6e6e6;
-  border: 0px solid #000000;
+  border: 1px solid #b3b3b3;
 }
 .inner_talk .control:hover input ~ .control_indicator,
 .inner_talk .control input:focus ~ .control_indicator {
