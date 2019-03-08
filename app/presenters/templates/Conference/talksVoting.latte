@@ -4,21 +4,20 @@
         <h2>Přednášky - hlasování</h2>
         <p>Toto jsou zatím vypsané přednášky. Líbí se? Po uzávěrce přidávání přednášek bude možné pro hlasovat. A 13.4. si je ve Vědeckotechnickém parku poslechneme!</p>
         <a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a>
+        <input type="submit" class="tlacitko hlas" value="Uprav zobrazení">
         {foreach $talks as $talk}
             <ul class="lectures-list vote">
                 <li>
-                    <div class="clicking">
-                        <div class="item-header">
-                            <div class="item-author">
-                                <p class="item-author-name">{$talk->participant->full_name}</p>
-                            </div>
+                    <div class="item-header">
+                        <div class="item-author">
+                            <p class="item-author-name">{$talk->participant->full_name}</p>
                         </div>
+                    </div>
+                    <div class="item-content">
                         <div class="item-content">
-                            <div class="item-content">
-                                <h4 class="item-title">{$talk->title}</h4>
-                                <div class="item-text" id="full">
-                                    <p>{$talk->annotation}</p>
-                                </div>
+                            <h4 class="item-title">{$talk->title}</h4>
+                            <div class="item-text">
+                                <p>{$talk->annotation}</p>
                             </div>
                         </div>
                     </div>
@@ -37,8 +36,8 @@
 </section>
 <script>
     $(document).ready(function(){
-        $(".clicking").click(function() {
-            $("#full").toggle();
+        $(".hlas").click(function() {
+            $(".item-text").toggle();
         });
     });
 </script>
