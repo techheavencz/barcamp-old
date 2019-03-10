@@ -112,7 +112,7 @@ final class SignPresenter extends BasePresenter
         }
 
         $this->restoreRequest($this->backlink);
-        $this->redirect('Registrace:talk');
+        $this->redirect('Homepage:default');
     }
 
 
@@ -246,6 +246,7 @@ final class SignPresenter extends BasePresenter
      * @param UI\Form $form
      * @throws Nette\InvalidStateException
      * @throws NotFoundException
+     * @throws \Exception
      */
     public function newPasswordFormSuccess(UI\Form $form): void
     {
