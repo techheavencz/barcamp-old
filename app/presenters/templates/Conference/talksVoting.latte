@@ -33,7 +33,9 @@
 
             </ul>
         {/foreach}
+            {if $user->isLoggedIn} {* TODO merge with talks.latte before deploy *}
         <input type="submit" value="Hlasovat">
+            {/if}
         </form>
     </div>
 </section>

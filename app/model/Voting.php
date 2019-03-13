@@ -34,6 +34,16 @@ class Voting
         return $this->db->table(self::TABLE)->where(self::TALK_ID, $talkId)->count();
     }
 
+    public function checkIfExist(int $participantId, int $talkId): bool
+    {
+        if($this->db->table(self::TABLE)->where("participant_id", $participantId)->where("talk_id", $talkId)->count() == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
 
     /**
      * @param int $participantId

@@ -69,7 +69,9 @@ final class ConferencePresenter extends BasePresenter
 
         foreach($values as $key => $value) {
             if($value == true) {
+                if(!$this->votingModel->checkIfExist($participantId, $key)) {
                 $this->votingModel->insert($participantId, $key);
+                }
             }
         }
     }
