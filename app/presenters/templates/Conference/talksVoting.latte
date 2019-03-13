@@ -4,7 +4,8 @@
         <h2>Přednášky - hlasování</h2>
         <p>Toto jsou zatím vypsané přednášky. Líbí se? Po uzávěrce přidávání přednášek bude možné pro hlasovat. A 13.4. si je ve Vědeckotechnickém parku poslechneme!</p>
         <a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a>
-        <input type="submit" class="tlacitko hlas" value="Uprav zobrazení">
+        <input type="submit" class="tlacitko hlas tlactikohlasu" value="Sbalit popisky"><br>
+        <form n:name="votingForm">
         {foreach $talks as $talk}
             <ul class="lectures-list vote">
                 <li>
@@ -24,7 +25,7 @@
                     <div class="voting">
                         <label class="text">Hlasuj pro přednášku:</label>
                         <label class="control control-checkbox">
-                            <input type="checkbox"/>
+                            <input type="checkbox" n:name="{$talk->id}"/>
                             <div class="control_indicator"></div>
                         </label>
                     </div>
@@ -32,12 +33,23 @@
 
             </ul>
         {/foreach}
+        <input type="submit" value="Hlasovat">
+        </form>
     </div>
 </section>
 <script>
     $(document).ready(function(){
+        var t = 1;
         $(".hlas").click(function() {
             $(".item-text").toggle();
+            if(t == 1) {
+                $(".tlactikohlasu").val("Rozbalit popisky");
+                t = 0;
+            }
+            else {
+                $(".tlactikohlasu").val("Sbalit popisky");
+                t = 1;
+            }
         });
     });
 </script>
