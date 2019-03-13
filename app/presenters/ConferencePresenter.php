@@ -75,6 +75,7 @@ final class ConferencePresenter extends BasePresenter
                 }
             }
         }
+        $this->flashMessage("Hlasování bylo úspěšné!");
     }
 
 
