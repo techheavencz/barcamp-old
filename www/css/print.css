@@ -1937,7 +1937,6 @@ iframe[seamless] {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   border: 1px solid #2f9d3d;
-  display: inline-block;
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
@@ -1947,6 +1946,12 @@ iframe[seamless] {
   text-shadow: 0px 1px 0px #2f6627;
   margin: auto;
   display: block;
+}
+.registration .tlacitko hlas {
+  display: block;
+  padding: 5px 18px;
+  margin: 0;
+  margin-bottom: 20px;
 }
 .registration .tlacitko:hover {
   background-color: #5cbf2a;
@@ -1962,6 +1967,17 @@ iframe[seamless] {
 .inner_talk .want_to_talk {
   margin-bottom: 4%;
   display: inline-block;
+}
+.inner_talk .hlas {
+  display: block;
+  padding: 5px 18px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.inner_talk .hlasovani {
+  display: block;
+  padding: 5px 18px;
+  margin: 40px 0 0 75%;
 }
 .inner_talk .vote .item-header {
   padding-top: 1rem;
@@ -2018,9 +2034,6 @@ iframe[seamless] {
   -o-transition: all 250ms linear;
   -ms-transition: all 250ms linear;
   transition: all 250ms linear;
-}
-.inner_talk #full {
-  display: none;
 }
 .inner_talk .voting {
   font-size: 15px;

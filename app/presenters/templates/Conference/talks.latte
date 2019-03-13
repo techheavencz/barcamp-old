@@ -5,26 +5,13 @@
 {block content}
 <section class="main-content">
 	<div class="inner_talk">
-		<h2>Přednášky</h2>
-		<p>Toto jsou zatím vypsané přednášky. Líbí se? Po uzávěrce přidávání přednášek bude možné pro hlasovat. A 13.4. si je ve Vědeckotechnickém parku poslechneme!</p>
+		<h2>Přednášky - hlasování</h2>
+		<p>{if $user->isLoggedIn()}Zde můžeš hlasovat pro přednášky. Každé přednášce můžeš dát jen jeden hlas - hlasuj pro všechny, které chceš vidět!{else}Přihlaš se, abys mohl hlasovat pro přednášky.{/if}</p>
 		<a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a>
-		{*<div class="talks">
-			<a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet</a><br>
-			<ul class="table">
-				<li class="talk-row">
-					<div class="talk-title">Název přednášky</div>
-					<div class="talk-anotation">Anotace</div>
-					<div class="talk-name">Přednášející</div>
-				</li>
-				<li n:foreach="$talks as $talk" class="talk-row">
-					<div class="talk-title">{$talk->title}</div>
-					<div class="talk-anotation">{$talk->annotation}</div>
-					<div class="talk-name">{$talk->participant->full_name}</div>
-				</li>
-			</ul>
-		</div>*}
-		{foreach $talks as $talk}
-			<ul class="lectures-list">
+		<input type="submit" class="tlacitko hlas tlactikohlasu" value="Sbalit popisky"><br>
+		<form n:name="votingForm">
+			{foreach $talks as $talk}
+			<ul class="lectures-list vote">
 				<li>
 					<div class="item-header">
 						<div class="item-author">
@@ -32,17 +19,47 @@
 						</div>
 					</div>
 					<div class="item-content">
-						<div class="item-content-perex">
+						<div class="item-content">
 							<h4 class="item-title">{$talk->title}</h4>
 							<div class="item-text">
-								<p>{$talk->annotation|breaklines}</p>
+								{* <p>{$talk->annotation|breaklines}</p> *}
+								<p>{$talk->annotation}</p>
 							</div>
 						</div>
 					</div>
+					<div class="voting">
+						<p>Počet hlasů: {$votes[$talk->id]}</p>
+						{if !$user->isLoggedIn()}
+						<label class="text">Hlasuj pro přednášku:</label>
+						<label class="control control-checkbox">
+							<input type="checkbox" n:name="{$talk->id}"/>
+							<div class="control_indicator"></div>
+						</label>
+						{/if}
+					</div>
 				</li>
+
 			</ul>
-
-		{/foreach}
-
+			{/foreach}
+            {if $user->isLoggedIn()}
+				<input class="tlacitko hlasovani" type="submit" value="Hlasovat">
+			{/if}
+		</form>
 	</div>
 </section>
+<script>
+	$(document).ready(function(){
+		var t = 1;
+		$(".hlas").click(function() {
+			$(".item-text").toggle();
+			if(t == 1) {
+				$(".tlactikohlasu").val("Rozbalit popisky");
+				t = 0;
+			}
+			else {
+				$(".tlactikohlasu").val("Sbalit popisky");
+				t = 1;
+			}
+		});
+	});
+</script>
