@@ -1941,7 +1941,6 @@ iframe[seamless] {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   border: 1px solid #2f9d3d;
-  display: inline-block;
   cursor: pointer;
   color: #ffffff;
   font-family: Arial;
@@ -1952,12 +1951,46 @@ iframe[seamless] {
   margin: auto;
   display: block;
 }
+.registration .tlacitko hlas {
+  display: block;
+  padding: 5px 18px;
+  margin: 0;
+  margin-bottom: 20px;
+}
 .registration .tlacitko:hover {
   background-color: #5cbf2a;
 }
 .registration .tlacitko:active {
   position: relative;
   top: 1px;
+}
+.inner_talk {
+  width: 60%;
+  margin: auto;
+}
+.inner_talk .want_to_talk {
+  margin-bottom: 4%;
+  display: inline-block;
+}
+.inner_talk .hlas {
+  display: block;
+  padding: 5px 18px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.inner_talk .hlasovani {
+  display: block;
+  padding: 5px 18px;
+  margin: 40px 0 0 75%;
+}
+.inner_talk .vote .item-header {
+  padding-top: 1rem;
+}
+.inner_talk .vote .item-header .item-author-name {
+  padding-top: 0;
+}
+.inner_talk .vote .item-title {
+  margin-top: 1rem;
 }
 .inner_talk .item-header {
   position: absolute;
@@ -1991,10 +2024,13 @@ iframe[seamless] {
   overflow: hidden;
   border-top: 1px solid #d6d6d6;
 }
+.inner_talk .lectures-list:hover {
+  background-color: #f7f7f7;
+}
 .inner_talk .lectures-list li {
   display: block;
   position: relative;
-  padding-left: 160px;
+  padding-left: 200px;
   border-bottom: 1px solid #d6d6d6;
   transition: max-height 0.15s ease-out;
   -webkit-transition: all 250ms linear;
@@ -2003,13 +2039,75 @@ iframe[seamless] {
   -ms-transition: all 250ms linear;
   transition: all 250ms linear;
 }
-.want_to_talk {
-  margin-bottom: 4%;
-  display: inline-block;
+.inner_talk .voting {
+  font-size: 15px;
+  color: #2e9d3c;
+  font-family: "open_sanssemibold";
+  text-align: right;
 }
-.inner_talk {
-  width: 60%;
-  margin: auto;
+.inner_talk .voting .text {
+  margin-right: 35px;
+}
+.inner_talk .control {
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 4px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.inner_talk .control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.inner_talk .control_indicator {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+  border: 1px solid #b3b3b3;
+}
+.inner_talk .control:hover input ~ .control_indicator,
+.inner_talk .control input:focus ~ .control_indicator {
+  background: #cccccc;
+}
+.inner_talk .control input:checked ~ .control_indicator {
+  background: #2e9d3c;
+}
+.inner_talk .control:hover input:not([disabled]):checked ~ .control_indicator,
+.inner_talk .control input:checked:focus ~ .control_indicator {
+  background: #0e6647 d;
+}
+.inner_talk .control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.inner_talk .control_indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+.inner_talk .control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.inner_talk .control-checkbox .control_indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.inner_talk .control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
 }
 .visible-xs,
 .visible-xs-inline-block,

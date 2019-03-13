@@ -37,3 +37,4 @@ services:
 	- App\Model\Authenticator
 	- App\Model\Contact
 	- App\Model\Talk
+	- App\Model\Voting
