@@ -38,6 +38,9 @@ final class ConferencePresenter extends BasePresenter
     {
         $this->template->talks = $this->talkModel->find();
         $this->template->votes = $this->votingModel->votesAll();
+        if($this->getUser()->isLoggedIn()) {
+        $this->template->p_voted = $this->votingModel->participantVoted($this->getUser()->getId());
+        }
     }
 
     public function renderTalksVoting()

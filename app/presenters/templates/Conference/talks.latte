@@ -29,10 +29,10 @@
 					</div>
 					<div class="voting">
 						<p>Počet hlasů: {$votes[$talk->id]}</p>
-						{if !$user->isLoggedIn()}
+						{if $user->isLoggedIn()}
 						<label class="text">Hlasuj pro přednášku:</label>
 						<label class="control control-checkbox">
-							<input type="checkbox" n:name="{$talk->id}"/>
+							<input {if $p_voted[$talk->id] == true} checked {/if}type="checkbox" n:name="{$talk->id}"/>
 							<div class="control_indicator"></div>
 						</label>
 						{/if}

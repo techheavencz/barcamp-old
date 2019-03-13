@@ -44,6 +44,18 @@ class Voting
         return $votes;
     }
 
+    public function participantVoted($participantId): array
+    {
+        $p_voted = [];
+        foreach($this->db->table('talks')->order('created DESC') as $row) {
+            $p_voted[$row->id] = false;
+        }
+        $result = $this->db->table(self::TABLE)->where(self::PARTICIPANT_ID, $participantId);
+        foreach($result as $row) {
+            $p_voted[$row->talk_id] = true;
+        }
+        return $p_voted;
+    }
     public function checkIfExist(int $participantId, int $talkId): bool
     {
         if($this->db->table(self::TABLE)->where("participant_id", $participantId)->where("talk_id", $talkId)->count() == 0) {
