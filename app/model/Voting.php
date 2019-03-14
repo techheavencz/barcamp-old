@@ -66,6 +66,10 @@ class Voting
         }
     }
 
+    public function clearVotes($participantId): int
+    {
+        return $this->db->table(self::TABLE)->where("participant_id", $participantId)->delete();
+    }
 
     /**
      * @param int $participantId
@@ -77,7 +81,17 @@ class Voting
         $data = [];
         $data[self::PARTICIPANT_ID] = $participantId;
         $data[self::TALK_ID] = $talkId;
-
+        $this->updateVotes();
         return $this->db->table(self::TABLE)->insert($data);
+    }
+
+    public function updateVotes(): bool
+    {
+        foreach($this->db->table('talks')->order('created DESC') as $talk) {
+            $talkId = $talk->id;
+            $votes = $this->db->table(self::TABLE)->where(self::TALK_ID, $talkId)->count();
+            $this->db->table("talks")->where("id", $talkId)->update(["votes" => $votes]);
+        }
+        return true;
     }
 }

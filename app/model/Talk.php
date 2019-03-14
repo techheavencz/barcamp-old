@@ -30,7 +30,7 @@ class Talk
      */
     public function find(): Database\Table\Selection
     {
-        return $this->db->table(self::TABLE)->order('created DESC');
+        return $this->db->table(self::TABLE)->order('votes DESC');
     }
 
 

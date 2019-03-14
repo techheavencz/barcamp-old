@@ -70,7 +70,7 @@ final class ConferencePresenter extends BasePresenter
     {
         $participantId = $this->user->getIdentity()->getId();
         $values = $form->values;
-
+        $this->votingModel->clearVotes($participantId);
         foreach($values as $key => $value) {
             if($value == true) {
                 if(!$this->votingModel->checkIfExist($participantId, $key)) {
