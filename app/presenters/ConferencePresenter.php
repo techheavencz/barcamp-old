@@ -19,6 +19,7 @@ final class ConferencePresenter extends BasePresenter
      */
     private $votingModel;
 
+
     public function __construct(Talk $talkModel, Voting $votingModel)
     {
         parent::__construct();
@@ -27,26 +28,22 @@ final class ConferencePresenter extends BasePresenter
     }
 
 
-    public function renderProfil()
-    {
-        //TODO Zobrazení detailu profilu
-
-    }
-
-
     public function renderTalks()
     {
         $this->template->talks = $this->talkModel->find();
         $this->template->votes = $this->votingModel->votesAll();
-        if($this->getUser()->isLoggedIn()) {
-        $this->template->p_voted = $this->votingModel->participantVoted($this->getUser()->getId());
+        if ($this->getUser()->isLoggedIn()) {
+            $this->template->p_voted = $this->votingModel->participantVoted($this->getUser()->getId());
         }
     }
 
-    public function renderTalksVoting()
+
+    public function renderTalksDetail(string $guid): void
     {
-        $this->template->talks = $this->talkModel->find();
+
+
     }
+
 
     /**
      * @return UI\Form
@@ -55,7 +52,7 @@ final class ConferencePresenter extends BasePresenter
     {
         $form = new UI\Form;
         $talks = $this->talkModel->find();
-        foreach($talks as $talk) {
+        foreach ($talks as $talk) {
             $form->addCheckbox($talk->id, "Talk");
         }
         $form->onSuccess[] = [$this, 'votingFormSucceeded'];
@@ -71,31 +68,13 @@ final class ConferencePresenter extends BasePresenter
         $participantId = $this->user->getIdentity()->getId();
         $values = $form->values;
         $this->votingModel->clearVotes($participantId);
-        foreach($values as $key => $value) {
-            if($value == true) {
-                if(!$this->votingModel->checkIfExist($participantId, $key)) {
-                $this->votingModel->insert($participantId, $key);
+        foreach ($values as $key => $value) {
+            if ($value == true) {
+                if (!$this->votingModel->checkIfExist($participantId, $key)) {
+                    $this->votingModel->insert($participantId, $key);
                 }
             }
         }
         $this->flashMessage("Hlasování bylo úspěšné!");
-    }
-
-
-    public function renderTalksDetail()
-    {
-        //TODO zobrazení detailu
-
-    }
-
-
-    public function renderVisitors()
-    {
-
-        //TODO Zobrazení návštěvníků, co chtějí být zobrazení
-        /*
-         *  Jsem debil a zapomněl jsem tam dát políčko, jestli chtějí být zobrazení. Co s tím teď? :/
-         */
-
     }
 }
