@@ -7,7 +7,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $configurator = new Nette\Configurator;
 
 $configurator->setDebugMode(DebugEnabler::isDebugByEnv());
-$configurator->enableTracy(__DIR__ . '/../log', 'b3z2g3u8a0j7f4x2@techheaven.slack.com');
+$configurator->enableTracy(__DIR__ . '/../log', 'pan@jakubboucek.cz');
 
 $configurator->setTimeZone('Europe/Prague');
 $configurator->setTempDirectory(__DIR__ . '/../temp');
