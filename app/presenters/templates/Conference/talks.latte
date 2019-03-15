@@ -20,7 +20,7 @@
 					</div>
 					<div class="item-content">
 						<div class="item-content">
-							<h4 class="item-title">{$talk->title}</h4>
+							<h4 class="item-title"><a n:href="talksDetail, 'guid'=>$talk->guid">{$talk->title}</a></h4>
 							<div class="item-text">
 								{* <p>{$talk->annotation|breaklines}</p> *}
 								<p>{$talk->annotation}</p>

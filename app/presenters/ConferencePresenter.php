@@ -3,8 +3,10 @@
 namespace App\Presenters;
 
 
+use App\Model\NotFoundException;
 use App\Model\Talk;
 use App\Model\Voting;
+use Nette\Application\BadRequestException;
 use Nette\Application\UI;
 
 final class ConferencePresenter extends BasePresenter
@@ -38,10 +40,18 @@ final class ConferencePresenter extends BasePresenter
     }
 
 
+    /**
+     * @param string $guid
+     * @throws BadRequestException
+     * @throws \Nette\MemberAccessException
+     */
     public function renderTalksDetail(string $guid): void
     {
-
-
+        try {
+            $this->template->talk = $this->talkModel->getByGuid($guid);
+        } catch (NotFoundException $e) {
+            throw new BadRequestException();
+        }
     }
 
 
@@ -53,7 +63,7 @@ final class ConferencePresenter extends BasePresenter
         $form = new UI\Form;
         $talks = $this->talkModel->find();
         foreach ($talks as $talk) {
-            $form->addCheckbox($talk->id, "Talk");
+            $form->addCheckbox($talk->id, 'Talk');
         }
         $form->onSuccess[] = [$this, 'votingFormSucceeded'];
         return $form;
@@ -62,6 +72,7 @@ final class ConferencePresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
+     * @throws \Nette\InvalidArgumentException
      */
     public function votingFormSucceeded(UI\Form $form): void
     {
@@ -69,12 +80,12 @@ final class ConferencePresenter extends BasePresenter
         $values = $form->values;
         $this->votingModel->clearVotes($participantId);
         foreach ($values as $key => $value) {
-            if ($value == true) {
+            if ($value) {
                 if (!$this->votingModel->checkIfExist($participantId, $key)) {
                     $this->votingModel->insert($participantId, $key);
                 }
             }
         }
-        $this->flashMessage("Hlasování bylo úspěšné!");
+        $this->flashMessage('Hlasování bylo úspěšné!');
     }
 }
