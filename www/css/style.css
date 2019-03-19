@@ -1981,13 +1981,16 @@ iframe[seamless] {
 .inner_talk .hlasovani {
   display: block;
   padding: 5px 18px;
-  margin: 40px 0 0 75%;
+  margin: 40px 0 0 105%;
+  position: sticky;
+  bottom: 20px;
 }
 .inner_talk .vote .item-header {
   padding-top: 1rem;
 }
 .inner_talk .vote .item-header .item-author-name {
   padding-top: 0;
+  max-width: 150px;
 }
 .inner_talk .vote .item-title {
   margin-top: 1rem;
@@ -2011,7 +2014,8 @@ iframe[seamless] {
   padding: 0;
   font-size: 1.7em;
 }
-.inner_talk .item-title, .inner_talk .item-title a {
+.inner_talk .item-title,
+.inner_talk .item-title a {
   color: #2e9d3c;
 }
 .inner_talk .item-text {
@@ -2279,6 +2283,10 @@ iframe[seamless] {
   }
   .inner_talk li h4 {
     padding-left: 1.5rem !important;
+  }
+  .inner_talk .hlasovani {
+    margin-left: 100%;
+    padding: 10px 30px;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
