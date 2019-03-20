@@ -61,5 +61,11 @@
 				t = 1;
 			}
 		});
+
+		if ($(window).width() < 992) {
+			$(".lectures-list").click(function() {
+				$(this).find(".item-text").toggle();
+			});
+		}
 	});
 </script>
