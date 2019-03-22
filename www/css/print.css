@@ -433,7 +433,7 @@ a:focus {
   margin-right: -115px;
 }
 .main-content p.partners.middle img {
-  margin: 0 22px;
+  margin: 0 22px 10px 22px;
 }
 .main-content ul,
 .main-content ol {
@@ -1034,7 +1034,6 @@ iframe[seamless] {
 .main-content #talk-detail {
   margin-bottom: 40px;
   float: left;
-  width: 560px;
 }
 .main-content #speaker-detail {
   width: 300px;
@@ -1977,13 +1976,16 @@ iframe[seamless] {
 .inner_talk .hlasovani {
   display: block;
   padding: 5px 18px;
-  margin: 40px 0 0 75%;
+  margin: 40px 0 0 105%;
+  position: sticky;
+  bottom: 20px;
 }
 .inner_talk .vote .item-header {
   padding-top: 1rem;
 }
 .inner_talk .vote .item-header .item-author-name {
   padding-top: 0;
+  max-width: 150px;
 }
 .inner_talk .vote .item-title {
   margin-top: 1rem;
@@ -2063,8 +2065,8 @@ iframe[seamless] {
   position: absolute;
   top: -20px;
   right: 10px;
-  height: 20px;
-  width: 20px;
+  height: 19px;
+  width: 19px;
   background: #e6e6e6;
   border: 1px solid #b3b3b3;
 }
@@ -2094,7 +2096,7 @@ iframe[seamless] {
   display: block;
 }
 .inner_talk .control-checkbox .control_indicator:after {
-  left: 8px;
+  left: 7px;
   top: 4px;
   width: 3px;
   height: 8px;
@@ -2273,6 +2275,18 @@ iframe[seamless] {
   }
   .inner_talk li h4 {
     padding-left: 1.5rem !important;
+  }
+  .inner_talk li .item-text {
+    display: none;
+  }
+  .inner_talk .hlasovani {
+    margin-left: 100%;
+    padding: 10px 30px;
+  }
+}
+@media screen and (max-width: 1110px) {
+  .main-navigation .inner {
+    width: 70%;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */

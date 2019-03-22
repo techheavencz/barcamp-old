@@ -29,7 +29,7 @@
 					</div>
 					<div class="voting">
 						<p>Počet hlasů: {$votes[$talk->id]}</p>
-						{if !$user->isLoggedIn()}
+						{if $user->isLoggedIn()}
 						<label class="text">Hlasuj pro přednášku:</label>
 						<label class="control control-checkbox">
 							<input type="checkbox" n:name="{$talk->id}"/>
@@ -61,7 +61,6 @@
 				t = 1;
 			}
 		});
-
 		if ($(window).width() < 992) {
 			$(".lectures-list").click(function() {
 				$(this).find(".item-text").toggle();
