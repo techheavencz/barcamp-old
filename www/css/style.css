@@ -2280,17 +2280,19 @@ iframe[seamless] {
   .inner_talk li h4 {
     padding-left: 1.5rem !important;
   }
-  .inner_talk li .item-text {
-    display: none;
-  }
   .inner_talk .hlasovani {
     margin-left: 100%;
-    padding: 10px 30px;
+    padding: 10px 20px;
   }
 }
 @media screen and (max-width: 1110px) {
   .main-navigation .inner {
     width: 70%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .inner_talk .hlasovani {
+    margin-left: 90%;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */
