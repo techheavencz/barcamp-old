@@ -6,7 +6,13 @@
 <section class="main-content">
 	<div class="inner_talk">
 		<h2>Přednášky - hlasování</h2>
-		<p>{if $user->isLoggedIn()}Zde můžeš hlasovat pro přednášky. Každé přednášce můžeš dát jen jeden hlas - hlasuj pro všechny, které chceš vidět!{else}Přihlaš se, abys mohl hlasovat pro přednášky.{/if}</p>
+		<p>
+			{if $user->isLoggedIn()}
+				Zde můžeš hlasovat pro přednášky. Každé přednášce můžeš dát jen jeden hlas - hlasuj pro všechny, které chceš vidět!
+			{else}
+				<a n:href="vote"><strong>Přihlaš se</strong></a>, abys mohl hlasovat pro přednášky.
+			{/if}
+		</p>
 		<a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a>
 		<input type="submit" class="tlacitko hlas tlactikohlasu" value="Sbalit popisky"><br>
 		<form n:name="votingForm">

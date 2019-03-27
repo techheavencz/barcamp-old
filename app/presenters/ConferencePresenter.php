@@ -41,6 +41,19 @@ final class ConferencePresenter extends BasePresenter
 
 
     /**
+     *  Redirect logged user to talks, unlogged to login form
+     */
+    public function actionVote(): void
+    {
+        if ($this->user->isLoggedIn()) {
+            $this->redirect('talks');
+        } else {
+            $this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+        }
+    }
+
+
+    /**
      * @param string $guid
      * @throws BadRequestException
      * @throws \Nette\MemberAccessException
