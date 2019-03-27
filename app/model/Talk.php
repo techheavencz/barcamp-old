@@ -49,7 +49,7 @@ class Talk
      */
     public function find(): Database\Table\Selection
     {
-        return $this->db->table(self::TABLE)->order('votes ASC');
+        return $this->db->table(self::TABLE)->order('votes DESC');
     }
 
 
