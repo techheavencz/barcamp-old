@@ -549,7 +549,7 @@ html {
   margin: auto;
 }
 .inner-table {
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 .cleaner {
@@ -1604,19 +1604,19 @@ iframe[seamless] {
 #timetable,
 #timetable-workshop {
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 #timetable .main,
 #timetable-workshop .main {
   border-top: 1px dashed #d9d9d9;
-  height: 140px;
+  height: 180px;
   width: 100%;
   padding: 10px;
 }
 #timetable .main div,
 #timetable-workshop .main div {
   width: 20.5%;
-  height: 120px;
+  height: 160px;
   display: inline-block;
   padding: 10px;
   vertical-align: top;
@@ -1624,7 +1624,7 @@ iframe[seamless] {
 }
 #timetable .main .time,
 #timetable-workshop .main .time {
-  width: 7%;
+  width: 6%;
   padding: 0;
 }
 #timetable .main .time .hours,
@@ -1639,7 +1639,7 @@ iframe[seamless] {
 #timetable .main .full,
 #timetable-workshop .main .full {
   width: 80%;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 #timetable .main .full div,
@@ -1680,6 +1680,10 @@ iframe[seamless] {
   color: #2e9d3c;
   font-size: 100%;
   margin-bottom: 10px;
+  padding: 14px;
+  display: block;
+  height: 50px;
+  border-bottom: none;
 }
 #timetable .zelena span,
 #timetable-workshop .zelena span,
@@ -1701,7 +1705,7 @@ iframe[seamless] {
 #timetable-workshop .zluta-txt,
 #timetable .modra-txt,
 #timetable-workshop .modra-txt {
-  font-size: 130%;
+  font-size: 110%;
   font-family: "open_sanssemibold";
   width: 225px;
   text-align: center;
@@ -1765,19 +1769,19 @@ iframe[seamless] {
 }
 #timetable .zelena-lbl,
 #timetable-workshop .zelena-lbl {
-  background-color: #2e9d3c;
+  background-color: #1B5E20;
 }
 #timetable .cervena-lbl,
 #timetable-workshop .cervena-lbl {
-  background-color: #FF3D00;
+  background-color: #B71C1C;
 }
 #timetable .zluta-lbl,
 #timetable-workshop .zluta-lbl {
-  background-color: #FFB300;
+  background-color: #F57F17;
 }
 #timetable .modra-lbl,
 #timetable-workshop .modra-lbl {
-  background-color: #3415B0;
+  background-color: #0D47A1;
 }
 #timetable-workshop .zelena-txt,
 #timetable-workshop .cervena-txt,
@@ -1917,7 +1921,7 @@ iframe[seamless] {
   position: absolute;
   left: 0;
   top: 0;
-  width: 25rem;
+  width: 10rem;
   padding-left: 2rem;
   padding-top: 3rem;
   color: black;
@@ -1930,8 +1934,11 @@ iframe[seamless] {
   text-overflow: clip;
   overflow: hidden;
   padding: 0;
-  color: #2e9d3c;
   font-size: 1.7em;
+}
+.inner_talk .item-title,
+.inner_talk .item-title a {
+  color: #2e9d3c;
 }
 .inner_talk .item-text {
   font-size: 14px;
