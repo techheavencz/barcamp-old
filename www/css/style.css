@@ -549,7 +549,11 @@ html {
   display: none;
 }
 .inner {
-  width: 60%;
+  width: 50%;
+  margin: auto;
+}
+.inner-table {
+  width: 70%;
   margin: auto;
 }
 .cleaner {
@@ -830,9 +834,6 @@ iframe[seamless] {
 }
 .show {
   display: block!important;
-}
-.main-content .inner {
-  width: 40%;
 }
 .wide .main-content .inner {
   padding-left: 0;
@@ -1607,203 +1608,158 @@ iframe[seamless] {
 #timetable,
 #timetable-workshop {
   width: 100%;
-  border-spacing: 20px;
+  font-size: 1.2em;
 }
-#timetable td,
-#timetable-workshop td {
+#timetable .main,
+#timetable-workshop .main {
+  border-top: 1px dashed #d9d9d9;
+  height: 140px;
+  width: 100%;
   padding: 10px;
 }
-#timetable .time td,
-#timetable-workshop .time td {
-  background: #edfff3;
-  border-top: 20px solid #FFF;
-  text-align: center;
+#timetable .main div,
+#timetable-workshop .main div {
+  width: 20.5%;
+  height: 120px;
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
+  margin: 1px;
 }
-#timetable .prg-text td,
-#timetable-workshop .prg-text td {
+#timetable .main .time,
+#timetable-workshop .main .time {
+  width: 7%;
+  padding: 0;
+}
+#timetable .main .time .hours,
+#timetable-workshop .main .time .hours {
+  font-size: 25px;
+  font-weight: bold;
+}
+#timetable .main .time .minutes,
+#timetable-workshop .main .time .minutes {
+  font-size: 13px;
+}
+#timetable .main .full,
+#timetable-workshop .main .full {
+  width: 80%;
+  font-size: 20px;
+  font-weight: bold;
+}
+#timetable .main .full div,
+#timetable-workshop .main .full div {
+  width: 60%;
+}
+#timetable .sm,
+#timetable-workshop .sm {
+  height: 50px;
+}
+#timetable .sm div,
+#timetable-workshop .sm div {
+  height: 30px;
+}
+#timetable .prg-text div,
+#timetable-workshop .prg-text div {
   background: #F3F3F3;
 }
-#timetable .katedrala,
-#timetable-workshop .katedrala,
-#timetable .pivovar,
-#timetable-workshop .pivovar,
-#timetable .podzemi,
-#timetable-workshop .podzemi,
-#timetable .skodovka,
-#timetable-workshop .skodovka,
-#timetable .peklo,
-#timetable-workshop .peklo,
-#timetable .sokolovna,
-#timetable-workshop .sokolovna,
-#timetable .andelicek,
-#timetable-workshop .andelicek,
-#timetable .sady,
-#timetable-workshop .sady,
-#timetable .strouha,
-#timetable-workshop .strouha {
+#timetable .zelena,
+#timetable-workshop .zelena,
+#timetable .cervena,
+#timetable-workshop .cervena,
+#timetable .zluta,
+#timetable-workshop .zluta,
+#timetable .modra,
+#timetable-workshop .modra {
   text-align: center;
   padding: 15px 10px;
 }
-#timetable .katedrala a,
-#timetable-workshop .katedrala a,
-#timetable .pivovar a,
-#timetable-workshop .pivovar a,
-#timetable .podzemi a,
-#timetable-workshop .podzemi a,
-#timetable .skodovka a,
-#timetable-workshop .skodovka a,
-#timetable .peklo a,
-#timetable-workshop .peklo a,
-#timetable .sokolovna a,
-#timetable-workshop .sokolovna a,
-#timetable .andelicek a,
-#timetable-workshop .andelicek a,
-#timetable .sady a,
-#timetable-workshop .sady a,
-#timetable .strouha a,
-#timetable-workshop .strouha a {
+#timetable .zelena a,
+#timetable-workshop .zelena a,
+#timetable .cervena a,
+#timetable-workshop .cervena a,
+#timetable .zluta a,
+#timetable-workshop .zluta a,
+#timetable .modra a,
+#timetable-workshop .modra a {
   color: #2e9d3c;
   font-size: 100%;
   margin-bottom: 10px;
 }
-#timetable .katedrala span,
-#timetable-workshop .katedrala span,
-#timetable .pivovar span,
-#timetable-workshop .pivovar span,
-#timetable .podzemi span,
-#timetable-workshop .podzemi span,
-#timetable .skodovka span,
-#timetable-workshop .skodovka span,
-#timetable .peklo span,
-#timetable-workshop .peklo span,
-#timetable .sokolovna span,
-#timetable-workshop .sokolovna span,
-#timetable .andelicek span,
-#timetable-workshop .andelicek span,
-#timetable .sady span,
-#timetable-workshop .sady span,
-#timetable .strouha span,
-#timetable-workshop .strouha span {
+#timetable .zelena span,
+#timetable-workshop .zelena span,
+#timetable .cervena span,
+#timetable-workshop .cervena span,
+#timetable .zluta span,
+#timetable-workshop .zluta span,
+#timetable .modra span,
+#timetable-workshop .modra span {
   display: block;
   padding-top: 10px;
   font-size: 80%;
 }
-#timetable .katedrala-txt,
-#timetable-workshop .katedrala-txt,
-#timetable .pivovar-txt,
-#timetable-workshop .pivovar-txt,
-#timetable .podzemi-txt,
-#timetable-workshop .podzemi-txt,
-#timetable .skodovka-txt,
-#timetable-workshop .skodovka-txt,
-#timetable .peklo-txt,
-#timetable-workshop .peklo-txt,
-#timetable .sokolovna-txt,
-#timetable-workshop .sokolovna-txt,
-#timetable .andelicek-txt,
-#timetable-workshop .andelicek-txt,
-#timetable .sady-txt,
-#timetable-workshop .sady-txt,
-#timetable .strouha-txt,
-#timetable-workshop .strouha-txt {
+#timetable .zelena-txt,
+#timetable-workshop .zelena-txt,
+#timetable .cervena-txt,
+#timetable-workshop .cervena-txt,
+#timetable .zluta-txt,
+#timetable-workshop .zluta-txt,
+#timetable .modra-txt,
+#timetable-workshop .modra-txt {
   font-size: 130%;
   font-family: "open_sanssemibold";
   width: 225px;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #000;
 }
-#timetable td.katedrala a,
-#timetable-workshop td.katedrala a,
-#timetable td.katedrala-txt,
-#timetable-workshop td.katedrala-txt {
-  color: #2e9d3c;
+#timetable div.zelena,
+#timetable-workshop div.zelena {
+  background-color: #E8F5E9;
 }
-#timetable td.pivovar a,
-#timetable-workshop td.pivovar a,
-#timetable td.pivovar-txt,
-#timetable-workshop td.pivovar-txt {
-  color: #FF3D00;
+#timetable div.zelena a,
+#timetable-workshop div.zelena a {
+  color: #1B5E20;
 }
-#timetable td.podzemi a,
-#timetable-workshop td.podzemi a,
-#timetable td.podzemi-txt,
-#timetable-workshop td.podzemi-txt {
-  color: #FFB300;
+#timetable div.cervena,
+#timetable-workshop div.cervena {
+  background-color: #FFEBEE;
 }
-#timetable td.skodovka a,
-#timetable-workshop td.skodovka a,
-#timetable td.skodovka-txt,
-#timetable-workshop td.skodovka-txt {
-  color: #3415B0;
+#timetable div.cervena a,
+#timetable-workshop div.cervena a {
+  color: #B71C1C;
 }
-#timetable td.peklo a,
-#timetable-workshop td.peklo a,
-#timetable td.peklo-txt,
-#timetable-workshop td.peklo-txt {
-  color: #A64B00;
+#timetable div.modra,
+#timetable-workshop div.modra {
+  background-color: #E3F2FD;
 }
-#timetable td.sokolovna a,
-#timetable-workshop td.sokolovna a,
-#timetable td.sokolovna-txt,
-#timetable-workshop td.sokolovna-txt {
-  color: #228089;
+#timetable div.modra a,
+#timetable-workshop div.modra a {
+  color: #0D47A1;
 }
-#timetable td.andelicek a,
-#timetable-workshop td.andelicek a,
-#timetable td.andelicek-txt,
-#timetable-workshop td.andelicek-txt {
-  color: #cfb444;
+#timetable div.zluta,
+#timetable-workshop div.zluta {
+  background-color: #FFFDE7;
 }
-#timetable td.sady a,
-#timetable-workshop td.sady a,
-#timetable td.sady-txt,
-#timetable-workshop td.sady-txt {
-  color: #AE1EB5;
+#timetable div.zluta a,
+#timetable-workshop div.zluta a {
+  color: #F57F17;
 }
-#timetable td.strouha a,
-#timetable-workshop td.strouha a,
-#timetable td.strouha-txt,
-#timetable-workshop td.strouha-txt {
-  color: #0CD4DD;
-}
-#timetable .podzemi-txt span,
-#timetable-workshop .podzemi-txt span,
-#timetable .peklo-txt span,
-#timetable-workshop .peklo-txt span,
-#timetable .sokolovna-txt span,
-#timetable-workshop .sokolovna-txt span,
-#timetable .andelicek-txt span,
-#timetable-workshop .andelicek-txt span,
-#timetable .sady-txt span,
-#timetable-workshop .sady-txt span,
-#timetable .strouha-txt span,
-#timetable-workshop .strouha-txt span {
+#timetable .zluta-txt span,
+#timetable-workshop .zluta-txt span {
   display: block;
   font-style: normal;
   font-weight: normal;
   color: #000;
   font-size: 65%;
 }
-#timetable .katedrala-lbl,
-#timetable-workshop .katedrala-lbl,
-#timetable .pivovar-lbl,
-#timetable-workshop .pivovar-lbl,
-#timetable .skodovka-lbl,
-#timetable-workshop .skodovka-lbl,
-#timetable .podzemi-lbl,
-#timetable-workshop .podzemi-lbl,
-#timetable .peklo-lbl,
-#timetable-workshop .peklo-lbl,
-#timetable .sokolovna-lbl,
-#timetable-workshop .sokolovna-lbl,
-#timetable .workshop-lbl,
-#timetable-workshop .workshop-lbl,
-#timetable .arduino-lbl,
-#timetable-workshop .arduino-lbl,
-#timetable .andelicek-lbl,
-#timetable-workshop .andelicek-lbl,
-#timetable .sady-lbl,
-#timetable-workshop .sady-lbl,
-#timetable .strouha-lbl,
-#timetable-workshop .strouha-lbl {
+#timetable .zelena-lbl,
+#timetable-workshop .zelena-lbl,
+#timetable .cervena-lbl,
+#timetable-workshop .cervena-lbl,
+#timetable .modra-lbl,
+#timetable-workshop .modra-lbl,
+#timetable .zluta-lbl,
+#timetable-workshop .zluta-lbl {
   padding: 3px 5px;
   font-size: 70%;
   color: #fff;
@@ -1811,59 +1767,26 @@ iframe[seamless] {
   text-align: center;
   margin-top: 5px;
 }
-#timetable .katedrala-lbl,
-#timetable-workshop .katedrala-lbl {
+#timetable .zelena-lbl,
+#timetable-workshop .zelena-lbl {
   background-color: #2e9d3c;
 }
-#timetable .pivovar-lbl,
-#timetable-workshop .pivovar-lbl {
+#timetable .cervena-lbl,
+#timetable-workshop .cervena-lbl {
   background-color: #FF3D00;
 }
-#timetable .podzemi-lbl,
-#timetable-workshop .podzemi-lbl {
+#timetable .zluta-lbl,
+#timetable-workshop .zluta-lbl {
   background-color: #FFB300;
 }
-#timetable .skodovka-lbl,
-#timetable-workshop .skodovka-lbl {
+#timetable .modra-lbl,
+#timetable-workshop .modra-lbl {
   background-color: #3415B0;
 }
-#timetable .peklo-lbl,
-#timetable-workshop .peklo-lbl {
-  background-color: #A64B00;
-}
-#timetable .sokolovna-lbl,
-#timetable-workshop .sokolovna-lbl {
-  background-color: #228089;
-}
-#timetable .workshop-lbl,
-#timetable-workshop .workshop-lbl {
-  background-color: #999;
-}
-#timetable .arduino-lbl,
-#timetable-workshop .arduino-lbl {
-  background-color: #999;
-}
-#timetable .andelicek-lbl,
-#timetable-workshop .andelicek-lbl {
-  background-color: #cfb444;
-}
-#timetable .sady-lbl,
-#timetable-workshop .sady-lbl {
-  background-color: #AE1EB5;
-}
-#timetable .strouha-lbl,
-#timetable-workshop .strouha-lbl {
-  background-color: #0CD4DD;
-}
-#timetable-workshop .katedrala-txt,
-#timetable-workshop .pivovar-txt,
-#timetable-workshop .podzemi-txt,
-#timetable-workshop .skodovka-txt,
-#timetable-workshop .peklo-txt,
-#timetable-workshop .sokolovna-txt,
-#timetable-workshop .andelicek-txt,
-#timetable-workshop .sady-txt,
-#timetable-workshop .strouha-txt {
+#timetable-workshop .zelena-txt,
+#timetable-workshop .cervena-txt,
+#timetable-workshop .zluta-txt,
+#timetable-workshop .modra-txt {
   width: 180px;
 }
 .canceled * {
