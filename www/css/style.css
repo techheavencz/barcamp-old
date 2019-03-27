@@ -1936,7 +1936,8 @@ iframe[seamless] {
   padding: 0;
   font-size: 1.7em;
 }
-.inner_talk .item-title, .inner_talk .item-title a {
+.inner_talk .item-title,
+.inner_talk .item-title a {
   color: #2e9d3c;
 }
 .inner_talk .item-text {

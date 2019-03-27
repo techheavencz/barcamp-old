@@ -1917,7 +1917,7 @@ iframe[seamless] {
   position: absolute;
   left: 0;
   top: 0;
-  width: 25rem;
+  width: 10rem;
   padding-left: 2rem;
   padding-top: 3rem;
   color: black;
@@ -1930,8 +1930,11 @@ iframe[seamless] {
   text-overflow: clip;
   overflow: hidden;
   padding: 0;
-  color: #2e9d3c;
   font-size: 1.7em;
+}
+.inner_talk .item-title,
+.inner_talk .item-title a {
+  color: #2e9d3c;
 }
 .inner_talk .item-text {
   font-size: 14px;

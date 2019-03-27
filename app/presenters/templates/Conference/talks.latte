@@ -7,15 +7,17 @@
 	<div class="inner_talk">
 		<h2>Přednášky - hlasování</h2>
 		<p>
+			{* }
 			{if $user->isLoggedIn()}
 				Zde můžeš hlasovat pro přednášky. Každé přednášce můžeš dát jen jeden hlas - hlasuj pro všechny, které chceš vidět!
 			{else}
 				<a n:href="vote"><strong>Přihlaš se</strong></a>, abys mohl hlasovat pro přednášky.
-			{/if}
+			{/if}{ *}
+			Hlasování bylo ukončeno. Program zveřejníme 30. března
 		</p>
-		<a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a>
+		{* <a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a> *}
 		<input type="submit" class="tlacitko hlas tlactikohlasu" value="Sbalit popisky"><br>
-		<form n:name="votingForm">
+		{* <form n:name="votingForm"> *}
 			{foreach $talks as $talk}
 			<ul class="lectures-list vote">
 				<li>
@@ -35,21 +37,21 @@
 					</div>
 					<div class="voting">
 						<p>Počet hlasů: {$votes[$talk->id]}</p>
-						{if $user->isLoggedIn()}
+						{* }{if $user->isLoggedIn()}
 						<label class="text" n:name="{$talk->id}">Hlasuj pro přednášku:</label>
 						<label class="control control-checkbox">
 							<input {if $p_voted[$talk->id] == true} checked {/if}type="checkbox" n:name="{$talk->id}"/>
 							<div class="control_indicator"></div>
 						</label>
-						{/if}
+						{/if} *}
 					</div>
 				</li>
 
 			</ul>
 			{/foreach}
-            {if $user->isLoggedIn()}
+            {* {if $user->isLoggedIn()}
 				<input class="tlacitko hlasovani" type="submit" value="Hlasovat">
-			{/if}
+			{/if} *}
 		</form>
 	</div>
 </section>
