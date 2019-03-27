@@ -152,6 +152,7 @@ final class RegistracePresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
+     * @throws \Nette\InvalidArgumentException
      * @throws \Nette\Utils\JsonException
      */
     public function newTalkFormSucceeded(UI\Form $form): void

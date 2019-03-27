@@ -30,6 +30,8 @@ final class RouterFactory
         $router[] = new Route('[2019/]kontakt', 'Homepage:contact');
         $router[] = new Route('[!2019/]partneri', 'Homepage:partners');
         $router[] = new Route('[!2019/]prednasky', 'Conference:talks');
+        $router[] = new Route('[!2019/]prednasky/<guid>', 'Conference:talksDetail');
+        $router[] = new Route('[!2019/]hlasovani', 'Conference:vote');
         $router[] = new Route('[2019/]plzenakovo-slovnicek-pojmu', 'Homepage:vocabulary');
 
         $router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');

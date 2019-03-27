@@ -3,8 +3,10 @@
 namespace App\Presenters;
 
 
+use App\Model\NotFoundException;
 use App\Model\Talk;
 use App\Model\Voting;
+use Nette\Application\BadRequestException;
 use Nette\Application\UI;
 
 final class ConferencePresenter extends BasePresenter
@@ -19,6 +21,7 @@ final class ConferencePresenter extends BasePresenter
      */
     private $votingModel;
 
+
     public function __construct(Talk $talkModel, Voting $votingModel)
     {
         parent::__construct();
@@ -27,23 +30,43 @@ final class ConferencePresenter extends BasePresenter
     }
 
 
-    public function renderProfil()
-    {
-        //TODO Zobrazení detailu profilu
-
-    }
-
-
     public function renderTalks()
     {
         $this->template->talks = $this->talkModel->find();
         $this->template->votes = $this->votingModel->votesAll();
+        if ($this->getUser()->isLoggedIn()) {
+            $this->template->p_voted = $this->votingModel->participantVoted($this->getUser()->getId());
+        }
     }
 
-    public function renderTalksVoting()
+
+    /**
+     *  Redirect logged user to talks, unlogged to login form
+     */
+    public function actionVote(): void
     {
-        $this->template->talks = $this->talkModel->find();
+        if ($this->user->isLoggedIn()) {
+            $this->redirect('talks');
+        } else {
+            $this->redirect('Sign:in', ['backlink' => $this->storeRequest()]);
+        }
     }
+
+
+    /**
+     * @param string $guid
+     * @throws BadRequestException
+     * @throws \Nette\MemberAccessException
+     */
+    public function renderTalksDetail(string $guid): void
+    {
+        try {
+            $this->template->talk = $this->talkModel->getByGuid($guid);
+        } catch (NotFoundException $e) {
+            throw new BadRequestException();
+        }
+    }
+
 
     /**
      * @return UI\Form
@@ -52,8 +75,8 @@ final class ConferencePresenter extends BasePresenter
     {
         $form = new UI\Form;
         $talks = $this->talkModel->find();
-        foreach($talks as $talk) {
-            $form->addCheckbox($talk->id, "Talk");
+        foreach ($talks as $talk) {
+            $form->addCheckbox($talk->id, 'Talk');
         }
         $form->onSuccess[] = [$this, 'votingFormSucceeded'];
         return $form;
@@ -62,36 +85,20 @@ final class ConferencePresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
+     * @throws \Nette\InvalidArgumentException
      */
     public function votingFormSucceeded(UI\Form $form): void
     {
         $participantId = $this->user->getIdentity()->getId();
         $values = $form->values;
-
-        foreach($values as $key => $value) {
-            if($value == true) {
-                if(!$this->votingModel->checkIfExist($participantId, $key)) {
-                $this->votingModel->insert($participantId, $key);
+        $this->votingModel->clearVotes($participantId);
+        foreach ($values as $key => $value) {
+            if ($value) {
+                if (!$this->votingModel->checkIfExist($participantId, $key)) {
+                    $this->votingModel->insert($participantId, $key);
                 }
             }
         }
-    }
-
-
-    public function renderTalksDetail()
-    {
-        //TODO zobrazení detailu
-
-    }
-
-
-    public function renderVisitors()
-    {
-
-        //TODO Zobrazení návštěvníků, co chtějí být zobrazení
-        /*
-         *  Jsem debil a zapomněl jsem tam dát políčko, jestli chtějí být zobrazení. Co s tím teď? :/
-         */
-
+        $this->flashMessage('Hlasování bylo úspěšné!');
     }
 }

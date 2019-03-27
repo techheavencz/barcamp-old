@@ -1320,7 +1320,7 @@ iframe[seamless]{
 		position: absolute;
 		left: 0;
 		top: 0;
-		width: 25rem;
+		width: 10rem;
 		padding-left: 2rem;
 		padding-top: 3rem;
 		color: black;
@@ -1333,8 +1333,10 @@ iframe[seamless]{
 		text-overflow: clip;
 		overflow: hidden;
 		padding: 0;
-		color: @green;
 		font-size: 1.7em;
+		&, & a {
+			color: @green;
+		}
 	}
 	.item-text{
 		font-size: 14px;

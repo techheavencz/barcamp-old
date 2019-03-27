@@ -25,46 +25,4 @@ final class HomepagePresenter extends BasePresenter
         $this->template->organizators = $this->contactModel->findOrganisators();
         $this->template->asistants = $this->contactModel->findAsistents();
     }
-
-
-    public function renderDefault()
-    {
-
-    }
-
-
-    public function renderInfo()
-    {
-
-    }
-
-
-    public function renderPartners()
-    {
-
-    }
-
-
-    public function renderPrivacyPolicy()
-    {
-
-    }
-
-
-    public function renderTerms()
-    {
-
-    }
-
-
-    public function renderVocabulary()
-    {
-
-    }
-
-
-    public function renderWritten()
-    {
-
-    }
 }

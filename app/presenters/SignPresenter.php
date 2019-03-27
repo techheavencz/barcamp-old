@@ -84,6 +84,15 @@ final class SignPresenter extends BasePresenter
     }
 
 
+    public function renderIn(): void
+    {
+        if($this->user->isLoggedIn()) {
+            $this->flashMessage('Vy už jste přihlášeni', 'success');
+            $this->redirect('Homepage:default');
+        }
+    }
+
+
     /**
      * @param UI\Form $form
      */
