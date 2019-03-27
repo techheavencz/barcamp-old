@@ -10,8 +10,12 @@ html {
 .form.prehidden { display: none; }
 
 .inner {
-	width: 60%;
+	width: 50%;
 	margin: auto;
+}
+.inner-table {
+  width: 70%;
+  margin: auto;
 }
 
 .cleaner {
@@ -296,11 +300,6 @@ iframe[seamless]{
 }
 .show {
 	display: block!important;
-}
-
-.main-content .inner {
-	width: 40%;
-
 }
 .wide .main-content .inner {
 	padding-left: 0; padding-right: 0;
@@ -1053,21 +1052,51 @@ iframe[seamless]{
 }
 #timetable, #timetable-workshop {
 	width: 100%;
-	border-spacing: 20px;
+    font-size: 1.2em;
 
-	td {
-		padding: 10px;
-	}
-
-	.time td {
-		background: #edfff3;
-		border-top: 20px solid #FFF;
-		text-align: center;
-	}
-	.prg-text td {
+    .main {
+      border-top: 1px dashed #d9d9d9;
+      height: 140px;
+      width: 100%;
+      padding: 10px;
+      div {
+        width: 20.5%;
+        height: 120px;
+        display: inline-block;
+        padding: 10px;
+        vertical-align: top;
+        margin: 1px;
+      }
+      .time {
+        width: 7%;
+        padding: 0;
+        .hours {
+          font-size: 25px;
+          font-weight: bold;
+        }
+        .minutes {
+          font-size: 13px;
+        }
+      }
+      .full {
+        width: 80%;
+        font-size: 20px;
+        font-weight: bold;
+        div {
+          width: 60%;
+        }
+      }
+    }
+    .sm {
+      height: 50px;
+      div {
+        height: 30px;
+      }
+    }
+	.prg-text div {
 		background: #F3F3F3;
 	}
-	.katedrala, .pivovar, .podzemi, .skodovka, .peklo, .sokolovna, .andelicek, .sady, .strouha {
+	.zelena, .cervena, .zluta, .modra {
 		text-align: center;
 		padding: 15px 10px;
 
@@ -1084,42 +1113,42 @@ iframe[seamless]{
 		}
 	}
 
-	.katedrala-txt, .pivovar-txt, .podzemi-txt,.skodovka-txt, .peklo-txt, .sokolovna-txt, .andelicek-txt, .sady-txt, .strouha-txt {
+	.zelena-txt, .cervena-txt, .zluta-txt,.modra-txt {
 		font-size: 130%;
 		font-family: "open_sanssemibold";
 		width: 225px;
+        text-align: center;
+        background-color: #f4f4f4;
+        color: @black;
 	}
 
-	td.katedrala a, td.katedrala-txt {
-		color: #2e9d3c;
+	div.zelena {
+      background-color: #E8F5E9;
+      a {
+        color: #1B5E20;
+      }
+    }
+	div.cervena {
+      background-color: #FFEBEE;
+      a {
+        color: #B71C1C;
+      }
 	}
-	td.pivovar a, td.pivovar-txt {
-		color: #FF3D00;
+	div.modra {
+      background-color: #E3F2FD;
+      a {
+        color: #0D47A1;
+      }
 	}
-	td.podzemi a, td.podzemi-txt {
-		color: #FFB300;
-	}
-	td.skodovka a, td.skodovka-txt {
-		color: #3415B0;
-	}
-	td.peklo a, td.peklo-txt {
-		color: #A64B00;
-	}
-	td.sokolovna a, td.sokolovna-txt {
-		color: #228089;
-	}
-	td.andelicek a, td.andelicek-txt {
-		color: #cfb444;
-	}
-	td.sady a, td.sady-txt {
-		color: #AE1EB5;
-	}
-	td.strouha a, td.strouha-txt {
-		color: #0CD4DD;
-	}
+    div.zluta {
+      background-color: #FFFDE7;
+      a {
+        color: #F57F17;
+      }
+    }
 
 
-	.podzemi-txt, .peklo-txt, .sokolovna-txt, .andelicek-txt, .sady-txt, .strouha-txt {
+	.zluta-txt{
 		span {
 			display: block;
 			font-style: normal;
@@ -1129,7 +1158,7 @@ iframe[seamless]{
 		}
 	}
 	
-	.katedrala-lbl, .pivovar-lbl, .skodovka-lbl, .podzemi-lbl, .peklo-lbl, .sokolovna-lbl, .workshop-lbl, .arduino-lbl, .andelicek-lbl, .sady-lbl, .strouha-lbl {
+	.zelena-lbl, .cervena-lbl, .modra-lbl, .zluta-lbl {
 	  padding: 3px 5px;
 	  font-size: 70%;
 	  color: #fff;
@@ -1137,43 +1166,22 @@ iframe[seamless]{
 	  text-align: center;
 	  margin-top: 5px;
 	}
-	.katedrala-lbl {
+	.zelena-lbl {
 		background-color: #2e9d3c;
 	}
-	.pivovar-lbl {
+	.cervena-lbl {
 		background-color: #FF3D00;
 	}
-	.podzemi-lbl {
+	.zluta-lbl {
 		background-color: #FFB300;
 	}
-	.skodovka-lbl {
+	.modra-lbl {
 		background-color: #3415B0;
-	}
-	.peklo-lbl {
-		background-color: #A64B00;
-	}
-	.sokolovna-lbl {
-		background-color: #228089;
-	}
-	.workshop-lbl {
-		background-color: #999;
-	}
-	.arduino-lbl {
-		background-color: #999;
-	}
-	.andelicek-lbl {
-		background-color: #cfb444;
-	}
-	.sady-lbl {
-		background-color: #AE1EB5;
-	}
-	.strouha-lbl {
-		background-color: #0CD4DD;
 	}
 }
 
 #timetable-workshop {
-	.katedrala-txt, .pivovar-txt, .podzemi-txt,.skodovka-txt, .peklo-txt, .sokolovna-txt, .andelicek-txt, .sady-txt, .strouha-txt {
+	.zelena-txt, .cervena-txt, .zluta-txt,.modra-txt {
 			width: 180px;
 		}
 }
