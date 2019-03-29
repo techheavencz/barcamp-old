@@ -1050,36 +1050,34 @@ iframe[seamless]{
 	.size(180,180);
 	.border-radius(90px);
 }
-#timetable, #timetable-workshop {
+.timetable, #timetable-workshop {
 	width: 100%;
     font-size: 1.1em;
 
     .main {
-      border-top: 1px dashed #d9d9d9;
-      height: 180px;
-      width: 100%;
-      padding: 10px;
-      div {
-        width: 20.5%;
-        height: 160px;
-        display: inline-block;
-        padding: 10px;
-        vertical-align: top;
-        margin: 1px;
+      	border-top: 1px dashed #d9d9d9;
+      	height: 200px;
+      	width: 100%;
+      	padding: 10px;
+     	 div {
+      	  	width: 20.5%;
+        	display: inline-block;
+        	padding: 10px;
+        	vertical-align: top;
       }
-      .time {
-        width: 6%;
-        padding: 0;
+      	.time {
+        	width: 6%;
+        	padding: 0;
         .hours {
-          font-size: 25px;
-          font-weight: bold;
+          	font-size: 28px;
+          	font-weight: bold;
         }
         .minutes {
-          font-size: 13px;
+          	font-size: 14px;
         }
       }
       .full {
-        width: 80%;
+        width: 90%;
         font-size: 18px;
         font-weight: bold;
         div {
@@ -1088,17 +1086,21 @@ iframe[seamless]{
       }
     }
     .sm {
-      height: 50px;
+      height: 50px!important;
       div {
-        height: 30px;
+        height: 30px!important;
       }
     }
 	.prg-text div {
 		background: #F3F3F3;
 	}
-	.zelena, .cervena, .zluta, .modra {
+	.tech, .web, .business, .misce {
 		text-align: center;
 		padding: 15px 10px;
+		height: 180px;
+		margin: 1px;
+		background-color: #F5F5F5;
+		position: relative;
 
 		a {
 			color: @green;
@@ -1106,53 +1108,86 @@ iframe[seamless]{
 			margin-bottom: 10px;
 			padding: 14px;
 			display: block;
-			height: 50px;
+			height: 70px;
 			border-bottom: none;
 		}
 
 		span {
 			display: block;
-			padding-top: 10px;
+			font-size: 80%;
+		}
+	}
+	.work{
+		text-align: center;
+		padding: 15px 10px;
+		position: relative;
+		a {
+			color: @green;
+			font-size: 100%;
+			margin-bottom: 10px;
+			padding: 14px;
+			display: block;
+			height: 70px;
+			border-bottom: none;
+		}
+
+		span {
+			display: block;
 			font-size: 80%;
 		}
 	}
 
-	.zelena-txt, .cervena-txt, .zluta-txt,.modra-txt {
+	.prvni {
+		height: 290px;
+		margin: 1px;
+	}
+	.druha {
+		height: 290px;
+		margin: -110px 1px 1px 1px;
+	}
+	.tech-txt, .web-txt, .work-txt,.business-txt,.misce-txt {
 		font-size: 110%;
 		font-family: "open_sanssemibold";
 		width: 225px;
         text-align: center;
-        background-color: #f4f4f4;
         color: @black;
+		margin: 1px;
+		background-color: #EEEEEE;
 	}
 
-	div.zelena {
+	div.tech {
       background-color: #E8F5E9;
       a {
         color: #1B5E20;
       }
     }
-	div.cervena {
+	div.web {
       background-color: #FFEBEE;
       a {
         color: #B71C1C;
       }
 	}
-	div.modra {
+	div.business {
       background-color: #E3F2FD;
       a {
         color: #0D47A1;
       }
 	}
-    div.zluta {
-      background-color: #FFFDE7;
+    div.work {
+      background-color: #FFF8E1;
       a {
-        color: #F57F17;
+        color: #FF6F00;
       }
     }
+	div.misce {
+		background-color: #FFF8E1;
+		a {
+			color: #FF6F00;
+		}
+	}
 
 
-	.zluta-txt{
+	.work-txt{
 		span {
 			display: block;
 			font-style: normal;
@@ -1162,30 +1197,34 @@ iframe[seamless]{
 		}
 	}
 	
-	.zelena-lbl, .cervena-lbl, .modra-lbl, .zluta-lbl {
-	  padding: 3px 5px;
-	  font-size: 70%;
-	  color: #fff;
-	  font-style: normal;
-	  text-align: center;
-	  margin-top: 5px;
+	.tech-lbl, .web-lbl, .business-lbl, .work-lbl, .misce-lbl {
+	  	padding: 6px 10px;
+	  	font-size: 100%;
+	  	color: @black;
+	  	font-style: normal;
+	  	text-align: center;
+		position: absolute;
+		bottom: 10px;
 	}
-	.zelena-lbl {
-		background-color: #1B5E20;
+	.tech-lbl {
+		background-color: #81C784;
 	}
-	.cervena-lbl {
-		background-color: #B71C1C;
+	.web-lbl {
+		background-color: #E57373;
 	}
-	.zluta-lbl {
-		background-color: #F57F17;
+	.work-lbl {
+		background-color: #FFF176;
 	}
-	.modra-lbl {
-		background-color: #0D47A1;
+	.business-lbl {
+		background-color: #64B5F6;
+	}
+	.misce-lbl {
+		background-color: #FFF176;
 	}
 }
 
 #timetable-workshop {
-	.zelena-txt, .cervena-txt, .zluta-txt,.modra-txt {
+	.tech-txt, .web-txt, .work-txt,.business-txt, .misce-txt {
 			width: 180px;
 		}
 }
