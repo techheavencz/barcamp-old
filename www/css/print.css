@@ -612,7 +612,6 @@ iframe[seamless] {
 .main-header {
   display: block;
   width: 100%;
-  margin-top: -16px;
   background: url(../images/bg-header.jpg) no-repeat 0 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -631,7 +630,7 @@ iframe[seamless] {
 }
 .main-header .inner.information {
   position: relative;
-  top: 214px;
+  top: 114px;
   text-align: center;
 }
 .main-header .inner.information h1 {
@@ -675,7 +674,6 @@ iframe[seamless] {
 }
 .main-navigation {
   display: block;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -2084,6 +2082,27 @@ iframe[seamless] {
 }
 .inner_talk .control-checkbox input:disabled ~ .control_indicator:after {
   border-color: #7b7b7b;
+}
+.annoucement {
+  background-color: #3ab54a;
+  padding: 20px;
+}
+.annoucement .oznameni {
+  font-size: 1.3em;
+  padding-bottom: 20px;
+}
+.annoucement .actual-prog div {
+  margin: 10px;
+}
+.annoucement .actual-prog ul {
+  margin: 7px;
+}
+.annoucement .actual-prog ul li {
+  list-style-type: none;
+  margin: 5px;
+}
+.annoucement .actual-prog h3 {
+  margin: 0;
 }
 .visible-xs,
 .visible-xs-inline-block,
