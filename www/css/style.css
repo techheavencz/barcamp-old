@@ -432,12 +432,9 @@ a:focus {
 .main-content p.partners.small img {
   margin: 0 17px;
 }
-.main-content p.partners.middle {
-  margin-left: -115px;
-  margin-right: -115px;
-}
 .main-content p.partners.middle img {
-  margin: 0 22px 10px 22px;
+  width: 100%;
+  height: auto;
 }
 .main-content ul,
 .main-content ol {
@@ -553,7 +550,7 @@ html {
   margin: auto;
 }
 .inner-table {
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 .cleaner {
@@ -1605,188 +1602,243 @@ iframe[seamless] {
   border-radius: 90px;
   background-clip: padding-box;
 }
-#timetable,
+.timetable,
 #timetable-workshop {
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
-#timetable .main,
+.timetable .main,
 #timetable-workshop .main {
   border-top: 1px dashed #d9d9d9;
-  height: 140px;
+  height: 200px;
   width: 100%;
   padding: 10px;
 }
-#timetable .main div,
+.timetable .main div,
 #timetable-workshop .main div {
   width: 20.5%;
-  height: 120px;
   display: inline-block;
   padding: 10px;
   vertical-align: top;
-  margin: 1px;
 }
-#timetable .main .time,
+.timetable .main .time,
 #timetable-workshop .main .time {
-  width: 7%;
+  width: 6%;
   padding: 0;
 }
-#timetable .main .time .hours,
+.timetable .main .time .hours,
 #timetable-workshop .main .time .hours {
-  font-size: 25px;
+  font-size: 28px;
   font-weight: bold;
 }
-#timetable .main .time .minutes,
+.timetable .main .time .minutes,
 #timetable-workshop .main .time .minutes {
-  font-size: 13px;
+  font-size: 14px;
 }
-#timetable .main .full,
+.timetable .main .full,
 #timetable-workshop .main .full {
-  width: 80%;
-  font-size: 20px;
+  width: 90%;
+  font-size: 18px;
   font-weight: bold;
 }
-#timetable .main .full div,
+.timetable .main .full div,
 #timetable-workshop .main .full div {
   width: 60%;
 }
-#timetable .sm,
+.timetable .sm,
 #timetable-workshop .sm {
-  height: 50px;
+  height: 50px!important;
 }
-#timetable .sm div,
+.timetable .sm div,
 #timetable-workshop .sm div {
-  height: 30px;
+  height: 30px!important;
 }
-#timetable .prg-text div,
+.timetable .prg-text div,
 #timetable-workshop .prg-text div {
   background: #F3F3F3;
 }
-#timetable .zelena,
-#timetable-workshop .zelena,
-#timetable .cervena,
-#timetable-workshop .cervena,
-#timetable .zluta,
-#timetable-workshop .zluta,
-#timetable .modra,
-#timetable-workshop .modra {
+.timetable .tech,
+#timetable-workshop .tech,
+.timetable .web,
+#timetable-workshop .web,
+.timetable .business,
+#timetable-workshop .business,
+.timetable .misce,
+#timetable-workshop .misce {
   text-align: center;
   padding: 15px 10px;
+  height: 180px;
+  margin: 1px;
+  background-color: #F5F5F5;
+  position: relative;
 }
-#timetable .zelena a,
-#timetable-workshop .zelena a,
-#timetable .cervena a,
-#timetable-workshop .cervena a,
-#timetable .zluta a,
-#timetable-workshop .zluta a,
-#timetable .modra a,
-#timetable-workshop .modra a {
+.timetable .tech a,
+#timetable-workshop .tech a,
+.timetable .web a,
+#timetable-workshop .web a,
+.timetable .business a,
+#timetable-workshop .business a,
+.timetable .misce a,
+#timetable-workshop .misce a {
   color: #2e9d3c;
   font-size: 100%;
   margin-bottom: 10px;
-}
-#timetable .zelena span,
-#timetable-workshop .zelena span,
-#timetable .cervena span,
-#timetable-workshop .cervena span,
-#timetable .zluta span,
-#timetable-workshop .zluta span,
-#timetable .modra span,
-#timetable-workshop .modra span {
+  padding: 14px;
   display: block;
-  padding-top: 10px;
+  height: 70px;
+  border-bottom: none;
+}
+.timetable .tech span,
+#timetable-workshop .tech span,
+.timetable .web span,
+#timetable-workshop .web span,
+.timetable .business span,
+#timetable-workshop .business span,
+.timetable .misce span,
+#timetable-workshop .misce span {
+  display: block;
   font-size: 80%;
 }
-#timetable .zelena-txt,
-#timetable-workshop .zelena-txt,
-#timetable .cervena-txt,
-#timetable-workshop .cervena-txt,
-#timetable .zluta-txt,
-#timetable-workshop .zluta-txt,
-#timetable .modra-txt,
-#timetable-workshop .modra-txt {
-  font-size: 130%;
+.timetable .work,
+#timetable-workshop .work {
+  text-align: center;
+  padding: 15px 10px;
+  position: relative;
+}
+.timetable .work a,
+#timetable-workshop .work a {
+  color: #2e9d3c;
+  font-size: 100%;
+  margin-bottom: 10px;
+  padding: 14px;
+  display: block;
+  height: 70px;
+  border-bottom: none;
+}
+.timetable .work span,
+#timetable-workshop .work span {
+  display: block;
+  font-size: 80%;
+}
+.timetable .prvni,
+#timetable-workshop .prvni {
+  height: 290px;
+  margin: 1px;
+}
+.timetable .druha,
+#timetable-workshop .druha {
+  height: 290px;
+  margin: -110px 1px 1px 1px;
+}
+.timetable .tech-txt,
+#timetable-workshop .tech-txt,
+.timetable .web-txt,
+#timetable-workshop .web-txt,
+.timetable .work-txt,
+#timetable-workshop .work-txt,
+.timetable .business-txt,
+#timetable-workshop .business-txt,
+.timetable .misce-txt,
+#timetable-workshop .misce-txt {
+  font-size: 110%;
   font-family: "open_sanssemibold";
   width: 225px;
   text-align: center;
-  background-color: #f4f4f4;
   color: #000;
+  margin: 1px;
+  background-color: #EEEEEE;
 }
-#timetable div.zelena,
-#timetable-workshop div.zelena {
+.timetable div.tech,
+#timetable-workshop div.tech {
   background-color: #E8F5E9;
 }
-#timetable div.zelena a,
-#timetable-workshop div.zelena a {
+.timetable div.tech a,
+#timetable-workshop div.tech a {
   color: #1B5E20;
 }
-#timetable div.cervena,
-#timetable-workshop div.cervena {
+.timetable div.web,
+#timetable-workshop div.web {
   background-color: #FFEBEE;
 }
-#timetable div.cervena a,
-#timetable-workshop div.cervena a {
+.timetable div.web a,
+#timetable-workshop div.web a {
   color: #B71C1C;
 }
-#timetable div.modra,
-#timetable-workshop div.modra {
+.timetable div.business,
+#timetable-workshop div.business {
   background-color: #E3F2FD;
 }
-#timetable div.modra a,
-#timetable-workshop div.modra a {
+.timetable div.business a,
+#timetable-workshop div.business a {
   color: #0D47A1;
 }
-#timetable div.zluta,
-#timetable-workshop div.zluta {
-  background-color: #FFFDE7;
+.timetable div.work,
+#timetable-workshop div.work {
+  background-color: #FFF8E1;
 }
-#timetable div.zluta a,
-#timetable-workshop div.zluta a {
-  color: #F57F17;
+.timetable div.work a,
+#timetable-workshop div.work a {
+  color: #FF6F00;
 }
-#timetable .zluta-txt span,
-#timetable-workshop .zluta-txt span {
+.timetable div.misce,
+#timetable-workshop div.misce {
+  background-color: #FFF8E1;
+}
+.timetable div.misce a,
+#timetable-workshop div.misce a {
+  color: #FF6F00;
+}
+.timetable .work-txt span,
+#timetable-workshop .work-txt span {
   display: block;
   font-style: normal;
   font-weight: normal;
   color: #000;
   font-size: 65%;
 }
-#timetable .zelena-lbl,
-#timetable-workshop .zelena-lbl,
-#timetable .cervena-lbl,
-#timetable-workshop .cervena-lbl,
-#timetable .modra-lbl,
-#timetable-workshop .modra-lbl,
-#timetable .zluta-lbl,
-#timetable-workshop .zluta-lbl {
-  padding: 3px 5px;
-  font-size: 70%;
-  color: #fff;
+.timetable .tech-lbl,
+#timetable-workshop .tech-lbl,
+.timetable .web-lbl,
+#timetable-workshop .web-lbl,
+.timetable .business-lbl,
+#timetable-workshop .business-lbl,
+.timetable .work-lbl,
+#timetable-workshop .work-lbl,
+.timetable .misce-lbl,
+#timetable-workshop .misce-lbl {
+  padding: 6px 10px;
+  font-size: 100%;
+  color: #000;
   font-style: normal;
   text-align: center;
-  margin-top: 5px;
+  position: absolute;
+  bottom: 10px;
 }
-#timetable .zelena-lbl,
-#timetable-workshop .zelena-lbl {
-  background-color: #2e9d3c;
+.timetable .tech-lbl,
+#timetable-workshop .tech-lbl {
+  background-color: #81C784;
 }
-#timetable .cervena-lbl,
-#timetable-workshop .cervena-lbl {
-  background-color: #FF3D00;
+.timetable .web-lbl,
+#timetable-workshop .web-lbl {
+  background-color: #E57373;
 }
-#timetable .zluta-lbl,
-#timetable-workshop .zluta-lbl {
-  background-color: #FFB300;
+.timetable .work-lbl,
+#timetable-workshop .work-lbl {
+  background-color: #FFF176;
 }
-#timetable .modra-lbl,
-#timetable-workshop .modra-lbl {
-  background-color: #3415B0;
+.timetable .business-lbl,
+#timetable-workshop .business-lbl {
+  background-color: #64B5F6;
 }
-#timetable-workshop .zelena-txt,
-#timetable-workshop .cervena-txt,
-#timetable-workshop .zluta-txt,
-#timetable-workshop .modra-txt {
+.timetable .misce-lbl,
+#timetable-workshop .misce-lbl {
+  background-color: #FFF176;
+}
+#timetable-workshop .tech-txt,
+#timetable-workshop .web-txt,
+#timetable-workshop .work-txt,
+#timetable-workshop .business-txt,
+#timetable-workshop .misce-txt {
   width: 180px;
 }
 .canceled * {
@@ -2091,6 +2143,9 @@ iframe[seamless] {
   td.visible-sm {
     display: table-cell !important;
   }
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .visible-md {
@@ -2145,6 +2200,21 @@ iframe[seamless] {
 @media screen and (max-width: 1200px) {
   .vtp img {
     width: 100%;
+  }
+  .inner-table .main {
+    height: 220px;
+  }
+  .inner-table .main .tech,
+  .inner-table .main .web,
+  .inner-table .main .business,
+  .inner-table .main .misce {
+    height: 200px;
+  }
+  .inner-table .main .tech a,
+  .inner-table .main .web a,
+  .inner-table .main .business a,
+  .inner-table .main .misce a {
+    height: 90px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -2210,6 +2280,47 @@ iframe[seamless] {
     margin-left: 100%;
     padding: 10px 20px;
   }
+  .inner-table .main {
+    height: auto!important;
+    padding: 0!important;
+    margin-top: 10px!important;
+  }
+  .inner-table .main div {
+    padding: 0!important;
+  }
+  .inner-table .main .full {
+    width: 100% !important;
+  }
+  .inner-table .tech,
+  .inner-table .web,
+  .inner-table .misce,
+  .inner-table .business {
+    width: 100%!important;
+    height: 140px!important;
+    margin-top: 10px!important;
+  }
+  .inner-table .tech a,
+  .inner-table .web a,
+  .inner-table .misce a,
+  .inner-table .business a {
+    height: 30px!important;
+  }
+  .inner-table .time {
+    width: 100%!important;
+    height: 50px!important;
+  }
+  .inner-table .time .hours {
+    font-size: 36px!important;
+  }
+  .inner-table .time .minutes {
+    font-size: 18px!important;
+  }
+  .inner-table .tech-lbl,
+  .inner-table .web-lbl,
+  .inner-table .business-lbl,
+  .inner-table .misce-lbl {
+    margin-left: 10px;
+  }
 }
 @media screen and (max-width: 1110px) {
   .main-navigation .inner {
@@ -2219,6 +2330,11 @@ iframe[seamless] {
 @media screen and (max-width: 500px) {
   .inner_talk .hlasovani {
     margin-left: 90%;
+  }
+}
+@media screen and (max-width: 1210px) {
+  .inner-table {
+    width: 90%;
   }
 }
 /* This is the default Tooltipster theme (feel free to modify or duplicate and create multiple themes!): */

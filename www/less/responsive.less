@@ -34,6 +34,9 @@
     .homepage .main-header{
         height: 700px;
     }
+    #timetable .main div {
+        //display: block;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .visible-sm {
@@ -48,6 +51,9 @@
     th.visible-sm,
     td.visible-sm {
         display: table-cell!important
+    }
+    .visible-sm-inline-block{
+        display: inline-block!important
     }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -103,6 +109,17 @@
 @media screen and (max-width: 1200px) {
     .vtp img {
         width: 100%;
+    }
+    .inner-table {
+        .main {
+            height: 220px;
+            .tech, .web, .business, .misce {
+                height: 200px;
+                a {
+                    height: 90px;
+                }
+            }
+        }
     }
 }
 
@@ -171,6 +188,40 @@
             padding: 10px 20px;
         }
     }
+    .inner-table {
+        .main {
+            height: auto!important;
+            padding: 0!important;
+            margin-top: 10px!important;
+            div {
+                padding: 0!important;
+            }
+            .full {
+                width: 100% !important;
+            }
+        }
+        .tech, .web, .misce, .business {
+            width: 100%!important;
+            height: 140px!important;
+            margin-top: 10px!important;
+            a {
+                height: 30px!important;
+            }
+        }
+        .time {
+            width: 100%!important;
+            height: 50px!important;
+            .hours {
+                font-size: 36px!important;
+            }
+            .minutes {
+                font-size: 18px!important;
+            }
+        }
+        .tech-lbl, .web-lbl, .business-lbl, .misce-lbl {
+            margin-left: 10px;
+        }
+    }
 }
 @media screen and (max-width: 1110px){
     .main-navigation .inner {
@@ -184,6 +235,8 @@
         }
     }
 }
-@media screen and (max-width: 1400px){
-
+@media screen and (max-width: 1210px){
+    .inner-table {
+        width: 90%;
+    }
 }
