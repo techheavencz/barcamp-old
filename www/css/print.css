@@ -685,6 +685,7 @@ iframe[seamless] {
 }
 .main-navigation .inner {
   position: relative;
+  width: 70%;
   top: 30px;
 }
 .main-navigation .navigation,
@@ -2320,7 +2321,7 @@ iframe[seamless] {
 }
 @media screen and (max-width: 1110px) {
   .main-navigation .inner {
-    width: 70%;
+    width: 80%;
   }
 }
 @media screen and (max-width: 500px) {
