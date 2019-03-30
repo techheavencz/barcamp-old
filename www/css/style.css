@@ -1650,9 +1650,9 @@ iframe[seamless] {
 #timetable-workshop .sm {
   height: 50px!important;
 }
-.timetable .sm div,
-#timetable-workshop .sm div {
-  height: 30px!important;
+.timetable .sm .time,
+#timetable-workshop .sm .time {
+  height: 40px!important;
 }
 .timetable .prg-text div,
 #timetable-workshop .prg-text div {
