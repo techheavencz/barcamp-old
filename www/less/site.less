@@ -1479,16 +1479,12 @@ iframe[seamless]{
 	}
 }
 .annoucement {
-	background-color: #3ab54a;
 	padding: 20px;
 	.oznameni {
 		font-size: 1.3em;
-		padding-bottom: 20px;
+		padding: 20px;
 	}
 	.actual-prog {
-		div {
-			margin: 10px
-		}
 		ul {
 			margin: 7px;
 			li {
@@ -1499,6 +1495,93 @@ iframe[seamless]{
 		h3 {
 			margin: 0;
 		}
+		.timetable-sm {
+			width: 100%;
+			margin: 10px;
+			.tech, .web, .business, .misce {
+				width: 28%;
+				display: inline-block;
+				text-align: center;
+				vertical-align: top;
+				padding: 15px 10px;
+				height: 180px;
+				margin: 1px;
+				background-color: #F5F5F5;
+				position: relative;
 
+				a {
+					color: @green;
+					font-size: 100%;
+					margin-bottom: 10px;
+					padding: 14px;
+					display: block;
+					height: 70px;
+					border-bottom: none;
+				}
+
+				span {
+					display: block;
+					font-size: 80%;
+					width: 100px;
+					margin: auto;
+				}
+			}
+			div.tech {
+				background-color: #E8F5E9;
+				a {
+					color: #1B5E20;
+				}
+			}
+			div.web {
+				background-color: #FFEBEE;
+				a {
+					color: #B71C1C;
+				}
+			}
+			div.business {
+				background-color: #E3F2FD;
+				a {
+					color: #0D47A1;
+				}
+			}
+			div.work {
+				background-color: #FFF8E1;
+				a {
+					color: #FF6F00;
+				}
+			}
+			div.misce {
+				background-color: #FFF8E1;
+				a {
+					color: #FF6F00;
+				}
+			}
+			.tech-lbl, .web-lbl, .business-lbl, .work-lbl, .misce-lbl {
+				padding: 6px 10px;
+				font-size: 100%;
+				color: @black;
+				font-style: normal;
+				text-align: center;
+				position: absolute;
+				bottom: 10px;
+				width: auto!important;
+
+			}
+			.tech-lbl {
+				background-color: #81C784;
+			}
+			.web-lbl {
+				background-color: #E57373;
+			}
+			.work-lbl {
+				background-color: #FFF176;
+			}
+			.business-lbl {
+				background-color: #64B5F6;
+			}
+			.misce-lbl {
+				background-color: #FFF176;
+			}
+		}
 	}
 }

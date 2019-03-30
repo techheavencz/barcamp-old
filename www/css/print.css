@@ -2084,15 +2084,11 @@ iframe[seamless] {
   border-color: #7b7b7b;
 }
 .annoucement {
-  background-color: #3ab54a;
   padding: 20px;
 }
 .annoucement .oznameni {
   font-size: 1.3em;
-  padding-bottom: 20px;
-}
-.annoucement .actual-prog div {
-  margin: 10px;
+  padding: 20px;
 }
 .annoucement .actual-prog ul {
   margin: 7px;
@@ -2103,6 +2099,104 @@ iframe[seamless] {
 }
 .annoucement .actual-prog h3 {
   margin: 0;
+}
+.annoucement .actual-prog .timetable-sm {
+  width: 100%;
+  margin: 10px;
+}
+.annoucement .actual-prog .timetable-sm .tech,
+.annoucement .actual-prog .timetable-sm .web,
+.annoucement .actual-prog .timetable-sm .business,
+.annoucement .actual-prog .timetable-sm .misce {
+  width: 28%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding: 15px 10px;
+  height: 180px;
+  margin: 1px;
+  background-color: #F5F5F5;
+  position: relative;
+}
+.annoucement .actual-prog .timetable-sm .tech a,
+.annoucement .actual-prog .timetable-sm .web a,
+.annoucement .actual-prog .timetable-sm .business a,
+.annoucement .actual-prog .timetable-sm .misce a {
+  color: #2e9d3c;
+  font-size: 100%;
+  margin-bottom: 10px;
+  padding: 14px;
+  display: block;
+  height: 70px;
+  border-bottom: none;
+}
+.annoucement .actual-prog .timetable-sm .tech span,
+.annoucement .actual-prog .timetable-sm .web span,
+.annoucement .actual-prog .timetable-sm .business span,
+.annoucement .actual-prog .timetable-sm .misce span {
+  display: block;
+  font-size: 80%;
+  width: 100px;
+  margin: auto;
+}
+.annoucement .actual-prog .timetable-sm div.tech {
+  background-color: #E8F5E9;
+}
+.annoucement .actual-prog .timetable-sm div.tech a {
+  color: #1B5E20;
+}
+.annoucement .actual-prog .timetable-sm div.web {
+  background-color: #FFEBEE;
+}
+.annoucement .actual-prog .timetable-sm div.web a {
+  color: #B71C1C;
+}
+.annoucement .actual-prog .timetable-sm div.business {
+  background-color: #E3F2FD;
+}
+.annoucement .actual-prog .timetable-sm div.business a {
+  color: #0D47A1;
+}
+.annoucement .actual-prog .timetable-sm div.work {
+  background-color: #FFF8E1;
+}
+.annoucement .actual-prog .timetable-sm div.work a {
+  color: #FF6F00;
+}
+.annoucement .actual-prog .timetable-sm div.misce {
+  background-color: #FFF8E1;
+}
+.annoucement .actual-prog .timetable-sm div.misce a {
+  color: #FF6F00;
+}
+.annoucement .actual-prog .timetable-sm .tech-lbl,
+.annoucement .actual-prog .timetable-sm .web-lbl,
+.annoucement .actual-prog .timetable-sm .business-lbl,
+.annoucement .actual-prog .timetable-sm .work-lbl,
+.annoucement .actual-prog .timetable-sm .misce-lbl {
+  padding: 6px 10px;
+  font-size: 100%;
+  color: #000;
+  font-style: normal;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: auto!important;
+}
+.annoucement .actual-prog .timetable-sm .tech-lbl {
+  background-color: #81C784;
+}
+.annoucement .actual-prog .timetable-sm .web-lbl {
+  background-color: #E57373;
+}
+.annoucement .actual-prog .timetable-sm .work-lbl {
+  background-color: #FFF176;
+}
+.annoucement .actual-prog .timetable-sm .business-lbl {
+  background-color: #64B5F6;
+}
+.annoucement .actual-prog .timetable-sm .misce-lbl {
+  background-color: #FFF176;
 }
 .visible-xs,
 .visible-xs-inline-block,
@@ -2345,6 +2439,27 @@ iframe[seamless] {
 @media screen and (max-width: 500px) {
   .inner_talk .hlasovani {
     margin-left: 90%;
+  }
+  .timetable-sm .tech,
+  .timetable-sm .web,
+  .timetable-sm .business,
+  .timetable-sm .misce {
+    width: 25% !important;
+  }
+}
+@media screen and (max-width: 690px) {
+  .timetable-sm .tech,
+  .timetable-sm .web,
+  .timetable-sm .business,
+  .timetable-sm .misce {
+    width: 90% !important;
+    height: auto!important;
+  }
+  .timetable-sm .tech a,
+  .timetable-sm .web a,
+  .timetable-sm .business a,
+  .timetable-sm .misce a {
+    height: auto!important;
   }
 }
 @media screen and (max-width: 1210px) {
