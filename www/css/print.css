@@ -2081,7 +2081,7 @@ iframe[seamless] {
 }
 .annoucement .oznameni {
   font-size: 1.3em;
-  padding: 20px;
+  padding-bottom: 10px;
 }
 .annoucement .actual-prog ul {
   margin: 7px;
@@ -2122,14 +2122,13 @@ iframe[seamless] {
   display: block;
   height: 70px;
   border-bottom: none;
+  min-height: 30px;
 }
 .annoucement .actual-prog .timetable-sm .tech span,
 .annoucement .actual-prog .timetable-sm .web span,
 .annoucement .actual-prog .timetable-sm .business span,
 .annoucement .actual-prog .timetable-sm .misce span {
   display: block;
-  font-size: 80%;
-  width: 100px;
   margin: auto;
 }
 .annoucement .actual-prog .timetable-sm div.tech {
@@ -2150,12 +2149,6 @@ iframe[seamless] {
 .annoucement .actual-prog .timetable-sm div.business a {
   color: #0D47A1;
 }
-.annoucement .actual-prog .timetable-sm div.work {
-  background-color: #FFF8E1;
-}
-.annoucement .actual-prog .timetable-sm div.work a {
-  color: #FF6F00;
-}
 .annoucement .actual-prog .timetable-sm div.misce {
   background-color: #FFF8E1;
 }
@@ -2165,7 +2158,6 @@ iframe[seamless] {
 .annoucement .actual-prog .timetable-sm .tech-lbl,
 .annoucement .actual-prog .timetable-sm .web-lbl,
 .annoucement .actual-prog .timetable-sm .business-lbl,
-.annoucement .actual-prog .timetable-sm .work-lbl,
 .annoucement .actual-prog .timetable-sm .misce-lbl {
   padding: 6px 10px;
   font-size: 100%;
@@ -2174,16 +2166,13 @@ iframe[seamless] {
   text-align: center;
   position: absolute;
   bottom: 10px;
-  width: auto!important;
+  width: auto;
 }
 .annoucement .actual-prog .timetable-sm .tech-lbl {
   background-color: #81C784;
 }
 .annoucement .actual-prog .timetable-sm .web-lbl {
   background-color: #E57373;
-}
-.annoucement .actual-prog .timetable-sm .work-lbl {
-  background-color: #FFF176;
 }
 .annoucement .actual-prog .timetable-sm .business-lbl {
   background-color: #64B5F6;
@@ -2201,7 +2190,7 @@ iframe[seamless] {
   bottom: 10px;
   right: 10px;
   background-color: #E0E0E0;
-  width: auto!important;
+  width: auto;
 }
 .visible-xs,
 .visible-xs-inline-block,
