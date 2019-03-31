@@ -1768,11 +1768,11 @@ iframe[seamless] {
 }
 .timetable div.work,
 #timetable-workshop div.work {
-  background-color: #FFF8E1;
+  background-color: #EFEBE9;
 }
 .timetable div.work a,
 #timetable-workshop div.work a {
-  color: #FF6F00;
+  color: #3E2723;
 }
 .timetable div.misce,
 #timetable-workshop div.misce {
@@ -1818,7 +1818,7 @@ iframe[seamless] {
 }
 .timetable .work-lbl,
 #timetable-workshop .work-lbl {
-  background-color: #FFF176;
+  background-color: #A1887F;
 }
 .timetable .business-lbl,
 #timetable-workshop .business-lbl {
@@ -1827,13 +1827,6 @@ iframe[seamless] {
 .timetable .misce-lbl,
 #timetable-workshop .misce-lbl {
   background-color: #FFF176;
-}
-#timetable-workshop .tech-txt,
-#timetable-workshop .web-txt,
-#timetable-workshop .work-txt,
-#timetable-workshop .business-txt,
-#timetable-workshop .misce-txt {
-  width: 180px;
 }
 .canceled * {
   color: gray !important;
@@ -2197,6 +2190,18 @@ iframe[seamless] {
 }
 .annoucement .actual-prog .timetable-sm .misce-lbl {
   background-color: #FFF176;
+}
+.sal-lbl {
+  padding: 6px 10px;
+  font-size: 100%;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #E0E0E0;
+  width: auto!important;
 }
 .visible-xs,
 .visible-xs-inline-block,
