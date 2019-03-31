@@ -426,7 +426,8 @@ a:focus {
   margin: 0;
 }
 .main-content p.partners.small img {
-  margin: 0 17px;
+  width: 35%;
+  display: inline;
 }
 .main-content p.partners.middle img {
   width: 100%;
