@@ -31,6 +31,7 @@ final class RouterFactory
         $router[] = new Route('[!2019/]partneri', 'Homepage:partners');
         $router[] = new Route('[!2019/]prednasky', 'Conference:talks');
         $router[] = new Route('[!2019/]prednasky/<guid>', 'Conference:talksDetail');
+        $router[] = new Route('[!2019/]program', 'Program:list');
         $router[] = new Route('[!2019/]hlasovani', 'Conference:vote');
         $router[] = new Route('[2019/]plzenakovo-slovnicek-pojmu', 'Homepage:vocabulary');
 
