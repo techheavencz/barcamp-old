@@ -437,6 +437,9 @@ a:focus {
   width: 100%;
   height: auto;
 }
+.main-content p.partners.middle .eurosoftware {
+  max-width: 660px;
+}
 .main-content ul,
 .main-content ol {
   padding: 0 0 0 20px;
