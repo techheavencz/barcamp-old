@@ -1776,11 +1776,11 @@ iframe[seamless] {
 }
 .timetable div.work,
 #timetable-workshop div.work {
-  background-color: #FFF8E1;
+  background-color: #EFEBE9;
 }
 .timetable div.work a,
 #timetable-workshop div.work a {
-  color: #FF6F00;
+  color: #3E2723;
 }
 .timetable div.misce,
 #timetable-workshop div.misce {
@@ -1826,7 +1826,7 @@ iframe[seamless] {
 }
 .timetable .work-lbl,
 #timetable-workshop .work-lbl {
-  background-color: #FFF176;
+  background-color: #A1887F;
 }
 .timetable .business-lbl,
 #timetable-workshop .business-lbl {
@@ -2296,7 +2296,8 @@ iframe[seamless] {
   .inner-table .tech,
   .inner-table .web,
   .inner-table .misce,
-  .inner-table .business {
+  .inner-table .business,
+  .inner-table .work {
     width: 100%!important;
     height: 140px!important;
     margin-top: 10px!important;
@@ -2304,7 +2305,8 @@ iframe[seamless] {
   .inner-table .tech a,
   .inner-table .web a,
   .inner-table .misce a,
-  .inner-table .business a {
+  .inner-table .business a,
+  .inner-table .work a {
     height: 30px!important;
   }
   .inner-table .time {
@@ -2320,7 +2322,8 @@ iframe[seamless] {
   .inner-table .tech-lbl,
   .inner-table .web-lbl,
   .inner-table .business-lbl,
-  .inner-table .misce-lbl {
+  .inner-table .misce-lbl,
+  .inner-table .work-lbl {
     margin-left: 10px;
   }
 }
