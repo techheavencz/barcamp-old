@@ -1056,12 +1056,24 @@ iframe[seamless]{
       	height: 200px;
       	width: 100%;
       	padding: 10px;
-     	 div {
+     	  .time, .misce, .business, .web, .tech, .misce-txt, .business-txt, .web-txt, .tech-txt, .work, .work-txt {
       	  	width: 20.5%;
         	display: inline-block;
         	padding: 10px;
         	vertical-align: top;
-      }
+        }
+        .control {
+          padding: 0;
+          margin: 0;
+          width: 200px;
+          position: absolute;
+          right: -20px;
+          bottom: 10px;
+          font-size: 13px;
+          .control_indicator {
+            right: 30px;
+          }
+        }
       	.time {
         	width: 6%;
         	padding: 0;
@@ -1418,70 +1430,72 @@ iframe[seamless]{
 			margin-right: 35px;
 		}
 	}
-	.control {
-		font-family: arial;
-		display: block;
-		position: relative;
-		padding-left: 30px;
-		margin-bottom: 4px;
-		padding-top: 3px;
-		cursor: pointer;
-		font-size: 15px;
-		input {
-			position: absolute;
-			z-index: -1;
-			opacity: 0;
-		}
-	}
-	.control_indicator {
-		position: absolute;
-		top: -20px;
-		right: 10px;
-		height: 19px;
-		width: 19px;
-		background: #e6e6e6;
-		border: 1px solid #b3b3b3;
-	}
-
-	.control:hover input ~ .control_indicator,
-	.control input:focus ~ .control_indicator {
-		background: #cccccc;
-	}
-
-	.control input:checked ~ .control_indicator {
-		background: @green;
-	}
-	.control:hover input:not([disabled]):checked ~ .control_indicator,
-	.control input:checked:focus ~ .control_indicator {
-		background: #0e6647d;
-	}
-	.control input:disabled ~ .control_indicator {
-		background: #e6e6e6;
-		opacity: 0.6;
-		pointer-events: none;
-	}
-	.control_indicator:after {
-		box-sizing: unset;
-		content: '';
-		position: absolute;
-		display: none;
-	}
-	.control input:checked ~ .control_indicator:after {
-		display: block;
-	}
-	.control-checkbox .control_indicator:after {
-		left: 7px;
-		top: 4px;
-		width: 3px;
-		height: 8px;
-		border: solid #ffffff;
-		border-width: 0 2px 2px 0;
-		transform: rotate(45deg);
-	}
-	.control-checkbox input:disabled ~ .control_indicator:after {
-		border-color: #7b7b7b;
-	}
 }
+
+.control {
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 4px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-size: 15px;
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+}
+.control_indicator {
+  position: absolute;
+  top: -3px;
+  right: 10px;
+  height: 19px;
+  width: 19px;
+  background: #e6e6e6;
+  border: 1px solid #b3b3b3;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+  background: @green;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: #0e6647d;
+}
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control_indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control_indicator:after {
+  display: block;
+}
+.control-checkbox .control_indicator:after {
+  left: 7px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+  border-color: #7b7b7b;
+}
+
 .annoucement {
 	padding: 15px;
 	.oznameni {

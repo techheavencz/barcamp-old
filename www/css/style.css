@@ -1612,12 +1612,46 @@ iframe[seamless] {
   width: 100%;
   padding: 10px;
 }
-.timetable .main div,
-#timetable-workshop .main div {
+.timetable .main .time,
+#timetable-workshop .main .time,
+.timetable .main .misce,
+#timetable-workshop .main .misce,
+.timetable .main .business,
+#timetable-workshop .main .business,
+.timetable .main .web,
+#timetable-workshop .main .web,
+.timetable .main .tech,
+#timetable-workshop .main .tech,
+.timetable .main .misce-txt,
+#timetable-workshop .main .misce-txt,
+.timetable .main .business-txt,
+#timetable-workshop .main .business-txt,
+.timetable .main .web-txt,
+#timetable-workshop .main .web-txt,
+.timetable .main .tech-txt,
+#timetable-workshop .main .tech-txt,
+.timetable .main .work,
+#timetable-workshop .main .work,
+.timetable .main .work-txt,
+#timetable-workshop .main .work-txt {
   width: 20.5%;
   display: inline-block;
   padding: 10px;
   vertical-align: top;
+}
+.timetable .main .control,
+#timetable-workshop .main .control {
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  position: absolute;
+  right: -20px;
+  bottom: 10px;
+  font-size: 13px;
+}
+.timetable .main .control .control_indicator,
+#timetable-workshop .main .control .control_indicator {
+  right: 30px;
 }
 .timetable .main .time,
 #timetable-workshop .main .time {
@@ -2032,7 +2066,7 @@ iframe[seamless] {
 .inner_talk .voting .text {
   margin-right: 35px;
 }
-.inner_talk .control {
+.control {
   font-family: arial;
   display: block;
   position: relative;
@@ -2042,46 +2076,46 @@ iframe[seamless] {
   cursor: pointer;
   font-size: 15px;
 }
-.inner_talk .control input {
+.control input {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-.inner_talk .control_indicator {
+.control_indicator {
   position: absolute;
-  top: -20px;
+  top: -3px;
   right: 10px;
   height: 19px;
   width: 19px;
   background: #e6e6e6;
   border: 1px solid #b3b3b3;
 }
-.inner_talk .control:hover input ~ .control_indicator,
-.inner_talk .control input:focus ~ .control_indicator {
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
   background: #cccccc;
 }
-.inner_talk .control input:checked ~ .control_indicator {
+.control input:checked ~ .control_indicator {
   background: #2e9d3c;
 }
-.inner_talk .control:hover input:not([disabled]):checked ~ .control_indicator,
-.inner_talk .control input:checked:focus ~ .control_indicator {
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
   background: #0e6647 d;
 }
-.inner_talk .control input:disabled ~ .control_indicator {
+.control input:disabled ~ .control_indicator {
   background: #e6e6e6;
   opacity: 0.6;
   pointer-events: none;
 }
-.inner_talk .control_indicator:after {
+.control_indicator:after {
   box-sizing: unset;
   content: '';
   position: absolute;
   display: none;
 }
-.inner_talk .control input:checked ~ .control_indicator:after {
+.control input:checked ~ .control_indicator:after {
   display: block;
 }
-.inner_talk .control-checkbox .control_indicator:after {
+.control-checkbox .control_indicator:after {
   left: 7px;
   top: 4px;
   width: 3px;
@@ -2090,7 +2124,7 @@ iframe[seamless] {
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
-.inner_talk .control-checkbox input:disabled ~ .control_indicator:after {
+.control-checkbox input:disabled ~ .control_indicator:after {
   border-color: #7b7b7b;
 }
 .annoucement {
@@ -2249,7 +2283,7 @@ iframe[seamless] {
     height: 700px;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
   .visible-sm {
     display: block !important;
   }
@@ -2410,6 +2444,10 @@ iframe[seamless] {
   }
   .inner-table .main .full {
     width: 100% !important;
+  }
+  .inner-table .main .control {
+    right: 80px;
+    bottom: 15px;
   }
   .inner-table .tech,
   .inner-table .web,
