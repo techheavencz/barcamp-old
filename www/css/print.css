@@ -428,6 +428,8 @@ a:focus {
 .main-content p.partners.small img {
   width: 35%;
   display: inline;
+  max-width: 278px;
+  height: auto;
 }
 .main-content p.partners.middle img {
   width: 100%;
