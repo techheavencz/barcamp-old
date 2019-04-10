@@ -174,4 +174,11 @@ class User
     {
         return $this->db->table(self::TABLE)->insert($data);
     }
+
+    public function setAttending($id, $attend) {
+        $row = $this->db->table(self::TABLE)->get($id);
+        if(is_null($row->attending)) {
+            return $this->db->table(self::TABLE)->get($id)->update(["attending" => $attend]);
+        }
+    }
 }

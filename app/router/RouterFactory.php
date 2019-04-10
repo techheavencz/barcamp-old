@@ -34,6 +34,7 @@ final class RouterFactory
         $router[] = new Route('[!2019/]program', 'Program:list');
         $router[] = new Route('[!2019/]hlasovani', 'Conference:vote');
         $router[] = new Route('[2019/]plzenakovo-slovnicek-pojmu', 'Homepage:vocabulary');
+        $router[] = new Route('[!2019/]attend', 'Attend:default');
 
         $router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
