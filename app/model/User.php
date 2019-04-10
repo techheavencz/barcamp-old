@@ -176,6 +176,9 @@ class User
     }
 
     public function setAttending($id, $attend) {
-        return $this->db->table(self::TABLE)->get($id)->update(["attending" => $attend]);
+        $row = $this->db->table(self::TABLE)->get($id);
+        if(is_null($row->attending)) {
+            return $this->db->table(self::TABLE)->get($id)->update(["attending" => $attend]);
+        }
     }
 }
