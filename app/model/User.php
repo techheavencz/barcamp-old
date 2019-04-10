@@ -174,4 +174,8 @@ class User
     {
         return $this->db->table(self::TABLE)->insert($data);
     }
+
+    public function setAttending($id, $attend) {
+        return $this->db->table(self::TABLE)->get($id)->update(["attending" => $attend]);
+    }
 }
