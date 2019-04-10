@@ -2,8 +2,10 @@
 
 namespace App\Presenters;
 
-use Nette;
+use App\Model\NotFoundException;
 use App\Model\User;
+use Nette\Application\BadRequestException;
+use Nette\Application\ForbiddenRequestException;
 
 final class AttendPresenter extends BasePresenter
 {
@@ -22,19 +24,28 @@ final class AttendPresenter extends BasePresenter
         $this->userModel = $userModel;
     }
 
-    public function renderDefault($id, $hash, $isAttending) {
-        if(is_null($id)) {
-            throw new Nette\Application\BadRequestException();
+
+    /**
+     * @param int $id
+     * @param string $hash
+     * @param string $isAttending Values: 0/1
+     * @throws BadRequestException
+     * @throws ForbiddenRequestException
+     */
+    public function renderDefault($id, $hash, $isAttending): void
+    {
+        try {
+            $user = $this->userModel->getById($id);
+        } catch (NotFoundException $e) {
+            throw new BadRequestException();
         }
-        $user = $this->userModel->getById($id);
-        if($hash != md5($user->email)) {
-            throw new Nette\Application\ForbiddenRequestException();
+        if (strtolower($hash) !== strtolower(md5($user->email))) {
+            throw new ForbiddenRequestException('Nesouhlasí kontrolní hash');
         }
 
-        $this->userModel->setAttending($id, (bool) $isAttending);
-        $this->flashMessage("Díky za info!");
-        $this->redirect("Homepage:default");
-
+        $this->userModel->setAttending($id, (bool)$isAttending);
+        $this->flashMessage('Děkujeme za informaci!' . 'success');
+        $this->redirect('Homepage:default');
     }
 
 }
