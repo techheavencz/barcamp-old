@@ -44,7 +44,7 @@ final class AttendPresenter extends BasePresenter
         }
 
         $this->userModel->setAttending($id, (bool)$isAttending);
-        $this->flashMessage('Děkujeme za informaci!' . 'success');
+        $this->flashMessage('Děkujeme za informaci!', 'success');
         $this->redirect('Homepage:default');
     }
 
