@@ -7,17 +7,11 @@
 	<div class="inner_talk">
 		<h2>Přednášky - hlasování</h2>
 		<p>
-			{* }
-			{if $user->isLoggedIn()}
-				Zde můžeš hlasovat pro přednášky. Každé přednášce můžeš dát jen jeden hlas - hlasuj pro všechny, které chceš vidět!
-			{else}
-				<a n:href="vote"><strong>Přihlaš se</strong></a>, abys mohl hlasovat pro přednášky.
-			{/if}{ *}
-			Hlasování bylo ukončeno. Program najdeš <a n:href="Program:list">tady</a>.
+
+			Tůto je seznam přednášek, které jsi mohl vidět na šestém ročníku Barcampu (2019).
+			Podívej se, které přednášky se nakonec dostaly do <a n:href="Program:list">Programu</a>.
 		</p>
-		{* <a class="want_to_talk" n:href="Registrace:talk">Chci taky přednášet!</a> *}
-		<input type="submit" class="tlacitko hlas tlactikohlasu" value="Sbalit popisky"><br>
-		{* <form n:name="votingForm"> *}
+
 			{foreach $talks as $talk}
 			<ul class="lectures-list vote">
 				<li>
@@ -30,44 +24,16 @@
 						<div class="item-content">
 							<h4 class="item-title"><a n:href="talksDetail, 'guid'=>$talk->guid">{$talk->title}</a></h4>
 							<div class="item-text">
-								{* <p>{$talk->annotation|breaklines}</p> *}
-								<p>{$talk->annotation}</p>
+								<p>{$talk->annotation|breaklines}</p>
 							</div>
 						</div>
 					</div>
 					<div class="voting">
 						<p>Počet hlasů: {$votes[$talk->id]}</p>
-						{* }{if $user->isLoggedIn()}
-						<label class="text" n:name="{$talk->id}">Hlasuj pro přednášku:</label>
-						<label class="control control-checkbox">
-							<input {if $p_voted[$talk->id] == true} checked {/if}type="checkbox" n:name="{$talk->id}"/>
-							<div class="control_indicator"></div>
-						</label>
-						{/if} *}
 					</div>
 				</li>
 
 			</ul>
 			{/foreach}
-            {* {if $user->isLoggedIn()}
-				<input class="tlacitko hlasovani" type="submit" value="Hlasovat">
-			{/if} *}
-		</form>
 	</div>
 </section>
-<script>
-	$(document).ready(function(){
-		var t = 1;
-		$(".hlas").click(function() {
-			$(".item-text").toggle();
-			if(t == 1) {
-				$(".tlactikohlasu").val("Rozbalit popisky");
-				t = 0;
-			}
-			else {
-				$(".tlactikohlasu").val("Sbalit popisky");
-				t = 1;
-			}
-		});
-	});
-</script>

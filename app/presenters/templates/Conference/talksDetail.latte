@@ -72,12 +72,14 @@
                 <span n:ifset="$speaker['facebook']"><a href="{$speaker['facebook']}" target="_blank">FB</a></span>
                 <span n:ifset="$speaker['linked']"><a href="{$speaker['linked']}" target="_blank">IN</a></span>
             </div>*}
-            <p class="bio"><strong>Bio:</strong> {$talk->participant->bio}</p>
+            {*
+                <p class="bio"><strong>Bio:</strong> {$talk->participant->bio}</p>
+            *}
 
-            <div class="voting-detail"
+            {*<div class="voting-detail"
                 data-id="{$talk['_id']}"
                 data-action-add="/prednasky?do=talks-addVote"
-                data-action-remove="/prednasky?do=talks-removeVote">
+                data-action-remove="/prednasky?do=talks-removeVote">*}
 
                 {*{if $isVoteShows}*}
                 {*<p>Stav hlasování: <span id="votes-count">{ifset $talk['votes_count']}{$talk['votes_count']}{else}0{/ifset}</span> hlasů</p>*}
@@ -93,7 +95,7 @@
                 {*{/if}*}
                 {*<span {if !@in_array($user->getId(), $talk['votes'])}style="display:none"{/if} class="border-tb voted">Dal jsi svůj hlas</span>*}{* // Stav pro zaškrtnutý checkbox - zahlasováno *}
                 {*{/if}*}
-            </div>
+            {*</div>*}
 
         </div>
         <div class="cleaner"></div>
