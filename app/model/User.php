@@ -21,14 +21,20 @@ class User
      * @var Database\Context
      */
     private $db;
+    /**
+     * @var Passwords
+     */
+    private $passwords;
 
 
     /**
      * @param Database\Context $db
+     * @param Passwords $passwords
      */
-    public function __construct(Database\Context $db)
+    public function __construct(Database\Context $db, Passwords $passwords)
     {
         $this->db = $db;
+        $this->passwords = $passwords;
     }
 
 
@@ -91,7 +97,7 @@ class User
     {
         $hash = $user[self::PASSWORD];
 
-        return Passwords::verify($password, $hash);
+        return $this->passwords->verify($password, $hash);
     }
 
     /**
@@ -104,7 +110,7 @@ class User
     public function createResetPasswordToken(ActiveRow $user): string
     {
         $token = Random::generate(20);
-        $tokenHash = Passwords::hash($token);
+        $tokenHash = $this->passwords->hash($token);
         $expire = new DateTime('+1 day');
 
         $user->update([
@@ -147,7 +153,7 @@ class User
         }
 
         // Check token hash
-        return Passwords::verify($token, $hash);
+        return $this->passwords->verify($token, $hash);
     }
 
 
@@ -158,7 +164,7 @@ class User
      */
     public function updatePassword(ActiveRow $user, string $password): void
     {
-        $hash = Passwords::hash($password);
+        $hash = $this->passwords->hash($password);
 
         $user->update([
             self::PASSWORD => $hash,
@@ -175,10 +181,19 @@ class User
         return $this->db->table(self::TABLE)->insert($data);
     }
 
-    public function setAttending($id, $attend) {
+
+    /**
+     * @param $id
+     * @param $attend
+     * @return bool
+     * @throws \Nette\InvalidStateException
+     */
+    public function setAttending($id, $attend): bool
+    {
         $row = $this->db->table(self::TABLE)->get($id);
-        if(is_null($row->attending)) {
-            return $this->db->table(self::TABLE)->get($id)->update(["attending" => $attend]);
+        if($row->attending === null) {
+            return $row->update(['attending' => $attend]);
         }
+        return false;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Model;
 
 use Nette\Security\AuthenticationException;
 use Nette\Security\IAuthenticator;
+use Nette\Security\IIdentity;
 
 class Authenticator implements IAuthenticator
 {
@@ -29,7 +30,7 @@ class Authenticator implements IAuthenticator
      * @throws AuthenticationException
      */
 
-    public function authenticate(array $credentials): Identity
+    public function authenticate(array $credentials): IIdentity
     {
         $email = $credentials[self::USERNAME];
 

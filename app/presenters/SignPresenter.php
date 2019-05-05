@@ -9,6 +9,7 @@ use App\Model\User;
 use Nette;
 use Nette\Application\UI;
 use Nette\Forms\Controls\HiddenField;
+use Nette\Security\Passwords;
 use Tracy\Debugger;
 
 
@@ -26,17 +27,23 @@ final class SignPresenter extends BasePresenter
      * @var Mail
      */
     private $mailModel;
+    /**
+     * @var Passwords
+     */
+    private $passwords;
 
 
     /**
      * @param User $user
      * @param Mail $mailModel
+     * @param Passwords $passwords
      */
-    public function __construct(User $user, Mail $mailModel)
+    public function __construct(User $user, Mail $mailModel, Passwords $passwords)
     {
         parent::__construct();
         $this->userModel = $user;
         $this->mailModel = $mailModel;
+        $this->passwords = $passwords;
     }
 
 

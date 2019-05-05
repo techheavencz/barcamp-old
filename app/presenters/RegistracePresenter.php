@@ -19,17 +19,23 @@ final class RegistracePresenter extends BasePresenter
      * @var Talk
      */
     private $talkModel;
+    /**
+     * @var Passwords
+     */
+    private $passwords;
 
 
     /**
      * @param User $userModel
      * @param Talk $talkModel
+     * @param Passwords $passwords
      */
-    public function __construct(User $userModel, Talk $talkModel)
+    public function __construct(User $userModel, Talk $talkModel, Passwords $passwords)
     {
         parent::__construct();
         $this->userModel = $userModel;
         $this->talkModel = $talkModel;
+        $this->passwords = $passwords;
     }
 
 
@@ -102,7 +108,7 @@ final class RegistracePresenter extends BasePresenter
             'ip_address' => $_SERVER['REMOTE_ADDR'],
             'created_at' => new DateTime(),
             'position' => $values->position,
-            'password' => Passwords::hash($values->pass),
+            'password' => $this->passwords->hash($values->pass),
             'job' => $values->job . '|||' . $values->job_desc,
 
         ];
