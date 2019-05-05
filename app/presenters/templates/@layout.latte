@@ -85,7 +85,7 @@
                     </ul>
                     <ul class="info-navigation">
                         {if !$user->isLoggedIn()}
-                            <li><a href="{link Registrace:default}" id="login-button" class="track-click">Zaregistrovat se</a></li>
+                            {*<li><a href="{link Registrace:default}" id="login-button" class="track-click">Zaregistrovat se</a></li>*}
                             <li><a href="{link Sign:in}" id="login-button" class="track-click">Přihlásit</a></li>
                         {/if}
                         {if $user->isLoggedIn()}
