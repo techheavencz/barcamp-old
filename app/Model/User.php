@@ -50,7 +50,7 @@ class User
     {
         $user = $this->db->table(self::TABLE)->get($id);
 
-        if ($user === false) {
+        if ($user === null) {
             throw new NotFoundException("Not found user with ID: $id");
         }
 
@@ -68,7 +68,7 @@ class User
     {
         $user = $this->db->table(self::TABLE)->where(self::EMAIL, $email)->fetch();
 
-        if ($user === false) {
+        if ($user === null) {
             throw new NotFoundException("Not found user with e-mail: $email");
         }
 

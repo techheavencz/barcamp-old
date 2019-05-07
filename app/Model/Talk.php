@@ -37,7 +37,7 @@ class Talk
     {
         $talk = $this->db->table(self::TABLE)->where('guid', $guid)->fetch();
 
-        if ($talk instanceof ActiveRow === false) {
+        if ($talk === null) {
             throw new NotFoundException('Not found Talk with GUID: ' . $guid);
         }
 
