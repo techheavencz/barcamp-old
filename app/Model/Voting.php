@@ -42,12 +42,12 @@ class Voting
      */
     public function votesAll(): array
     {
-        $votes = [];
-        foreach ($this->db->table('talks')->order('created DESC') as $talk) {
-            $talkId = $talk->id;
-            $votes[$talkId] = $this->db->table(self::TABLE)->where(self::TALK_ID, $talkId)->count();
-        }
-        return $votes;
+        return $this->db->query(sprintf(
+            'SELECT `%1$s` `id`, COUNT(`%2$s`) `count` FROM `%3$s` GROUP BY `%1$s`;',
+            self::TALK_ID,
+            self::PARTICIPANT_ID,
+            self::TABLE
+        ))->fetchPairs('id', 'count');
     }
 
 

@@ -2,82 +2,36 @@
 {block title}{block h1}Kontakt{/block} - Plzeňský Barcamp{/block}
 {block metaDescription}Plzeňský Barcamp by nevznikl bez promyšlené a pečlivé organizace a především díky skvělé spolupráci všech, kdo se na něm podíleli.{/block}
 {block metaKeywords}kontakt, organizátor, pořadatel, pomocník, fakturační údaje, pomoc, Barcamp, Plzeň, konference{/block}
+{block personDetail}
+    <div class="organizer">
+        <h3>{$person->full_name}</h3>
+        <img class="photo-pic" src="{$person->img|photosUrlize}" alt="{$person->full_name}" width="180" height="180">
+        <p n:ifset="$person->tel">Tel.: <strong><a href="tel:{$person->tel}">{$person->tel}</a></strong></p>
+        <ul class="networks">
+            <li n:ifset="$person->mail" class="email"><a href="mailto:{$person->mail}" title="{$person->mail}"><i>{$person->mail}</i></a></li>
+            <li n:ifset="$person->twitter" class="tw"><a href="https://twitter.com/{$person->twitter}" target="_blank" title="@{$person->twitter}"><i>@{$person->twitter}</i></a></li>
+            <li n:ifset="$person->facebook" class="fb"><a href="https://www.facebook.com/{$person->facebook}" target="_blank" title="{$person->facebook}"><i>{$person->facebook}</i></a></li>
+        </ul>
+    </div>
+{/block}
 {block content}
 
 <section class="main-content main-content-width">
     <div class="inner">
         <h2 id="organizatori">Organizátoří Plzeňského Barcampu</h2>
         <div class="organizers">
-            {foreach $organizators as $organizator}
-            <div class="organizer">
-                <h3>{$organizator->full_name}</h3>
-                <img class="photo-pic" {if strpos($organizator->img, ":")} src="{$organizator->img}" {else} src="{$basePath}/media/photos/{$organizator->img}" {/if} alt="{$organizator->full_name}" width="180" height="180">
-                <p>Tel.: <strong><a href="tel:{$organizator->tel}">{$organizator->tel}</a></strong></p>
-                <ul class="networks">
-                    <li n:if="$organizator->mail!=='NOT'" class="email"><a href="mailto:{$organizator->mail}" title="{$organizator->mail}"><i>{$organizator->mail}</i></a></li>
-                    <li n:if="$organizator->twitter!=='NOT'" class="tw"><a href="https://twitter.com/{$organizator->twitter}" target="_blank" title="@{$organizator->twitter}"><i>@{$organizator->twitter}</i></a></li>
-                    <li n:if="$organizator->facebook!=='NOT'" class="fb"><a href="https://www.facebook.com/{$organizator->facebook}" target="_blank" title="{$organizator->facebook}"><i>{$organizator->facebook}</i></a></li>
-                </ul>
-            </div>
+            {foreach $organizators as $person}
+                {include personDetail}
             {/foreach}
         </div>
 
         <h2 id="dekujeme">Naši pomocnící</h2>
         <div class="organizers">
-            {foreach $asistants as $asistant}
-            <div class="organizer">
-                <h3>{$asistant->full_name}</h3>
-                <img class="photo-pic" {if strpos($asistant->img, ":")} src="{$asistant->img}" {else} src="{$basePath}/media/photos/{$asistant->img}" {/if} alt="{$asistant->full_name}" width="180" height="180">
-                <p>Tel.: <strong><a href="tel:{$asistant->tel}">{$asistant->tel}</a></strong></p>
-                <ul class="networks">
-                    <li n:if="$asistant->mail!=='NOT'" class="email"><a href="mailto:{$asistant->mail}" title="{$asistant->mail}"><i>{$asistant->mail}</i></a></li>
-                    <li n:if="$asistant->twitter!=='NOT'" class="tw"><a href="https://twitter.com/{$asistant->twitter}" target="_blank" title="@{$asistant->twitter}"><i>@{$asistant->twitter}</i></a></li>
-                    <li n:if="$asistant->facebook!=='NOT'" class="fb"><a href="https://www.facebook.com/{$asistant->facebook}" target="_blank" title="{$asistant->facebook}"><i>{$asistant->facebook}</i></a></li>
-                </ul>
-            </div>
+            {foreach $asistants as $person}
+                {include personDetail}
             {/foreach}
         </div>
 
-
-{*
-        <h3 class="center">Na přípravách a organizaci se dále podíleli</h3>
-        <p class="center">
-            Martin Lávička<br>
-            Martin Ptáček<br>
-            Diana Filusová<br>
-            Michal Filus<br>
-            Tomáš Vytisk<br>
-            Monika Kovářová<br>
-            Kuba Vaněk<br>
-            Lukáš Frýdek<br>
-            Diana Študentová<br>
-            Barča Deutschová<br>
-            Michal Žák<br>
-            Václav Mára<br>
-            Zdeněk Kořán<br>
-            Jan Kalianko<br>
-            Swennia Toupalik<br>
-            Luboš Zdráhal<br>
-            Lenka Deutschová<br>
-            Miroslav Flax<br>
-            Patrik Fingr<br>
-            Míša Merglová<br>
-            Lukáše Neasi<br>
-            Lynda Phan<br>
-            Honza Strnad<br>
-            Simča Šiklová<br>
-            Tomáš Skuhravý<br>
-            Dominika Michálková<br>
-            Veronika Vanžurová<br>
-            Petra Halíková<br>
-            Hanka Grešlová<br>
-            Tereza Hanzlíková<br>
-            Roman Sterly<br>
-            Honza Černý<br>
-            Petra Čížková<br>
-            Terka Vodičková<br>
-        </p>
-*}
         <h2 id="logo" class="cleaner">Logo Plzeňského Barcampu</h2>
         <p>Chceš použít naše logo? <a href="https://drive.google.com/open?id=0B7trDZc0CuxXWmxfUy13MV9Ydk0" target="_blank">plzenskybarcamp.cz/logo</a></p>
 

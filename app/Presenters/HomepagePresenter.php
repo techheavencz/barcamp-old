@@ -24,5 +24,14 @@ final class HomepagePresenter extends BasePresenter
     {
         $this->template->organizators = $this->contactModel->findOrganisators();
         $this->template->asistants = $this->contactModel->findAsistents();
+
+        $this->template->addFilter('photosUrlize', function ($path) {
+            if (preg_match('~^https?://~', $path)) {
+                return $path;
+            }
+
+            $basePath = $this->getHttpRequest()->getUrl()->getBasePath();
+            return $basePath . 'media/photos/' . $path;
+        });
     }
 }
