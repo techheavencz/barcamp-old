@@ -5,6 +5,7 @@ namespace App\Model;
 
 use Nette\Database;
 use Nette\Database\Table\ActiveRow;
+use Nette\InvalidArgumentException;
 use Nette\Utils\Random;
 
 class Talk
@@ -57,7 +58,7 @@ class Talk
      * @param array $data
      * @param int $participantId
      * @return ActiveRow
-     * @throws \Nette\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function insert(array $data, int $participantId): ActiveRow
     {

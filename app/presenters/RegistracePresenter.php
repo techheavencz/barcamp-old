@@ -6,8 +6,11 @@ use App\Model\Talk;
 use App\Model\User;
 use DateTime;
 use Nette\Application\UI;
+use Nette\InvalidArgumentException;
+use Nette\InvalidStateException;
 use Nette\Security\Passwords;
 use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 
 final class RegistracePresenter extends BasePresenter
 {
@@ -40,7 +43,7 @@ final class RegistracePresenter extends BasePresenter
 
 
     /**
-     * @throws \Nette\InvalidStateException
+     * @throws InvalidStateException
      */
     public function renderDefault(): void
     {
@@ -87,7 +90,7 @@ final class RegistracePresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
-     * @throws \Nette\InvalidStateException
+     * @throws InvalidStateException
      */
     public function registrationFormSucceeded(UI\Form $form): void
     {
@@ -158,8 +161,8 @@ final class RegistracePresenter extends BasePresenter
 
     /**
      * @param UI\Form $form
-     * @throws \Nette\InvalidArgumentException
-     * @throws \Nette\Utils\JsonException
+     * @throws InvalidArgumentException
+     * @throws JsonException
      */
     public function newTalkFormSucceeded(UI\Form $form): void
     {

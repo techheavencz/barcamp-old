@@ -7,14 +7,19 @@ namespace App;
 
 use JakubBoucek\DebugEnabler\DebugEnabler;
 use Nette\Configurator;
+use Nette\InvalidArgumentException;
+use Nette\NotSupportedException;
 
 
 class Bootstrap
 {
+    /**
+     * @return Configurator
+     * @throws InvalidArgumentException
+     * @throws NotSupportedException
+     */
     public static function boot(): Configurator
     {
-
-
         $configurator = new Configurator;
 
         $configurator->setDebugMode(DebugEnabler::isDebugByEnv());

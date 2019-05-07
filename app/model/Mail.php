@@ -5,6 +5,7 @@ namespace App\Model;
 
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
+use Nette\Mail\SendException;
 
 class Mail
 {
@@ -31,7 +32,7 @@ class Mail
 
     /**
      * @param Message $message
-     * @throws \Nette\Mail\SendException
+     * @throws SendException
      */
     public function send(Message $message): void
     {

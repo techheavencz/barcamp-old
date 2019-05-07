@@ -6,10 +6,10 @@ use App\Model\Authenticator;
 use App\Model\Mail;
 use App\Model\NotFoundException;
 use App\Model\User;
+use Exception;
 use Nette;
 use Nette\Application\UI;
 use Nette\Forms\Controls\HiddenField;
-use Nette\Security\Passwords;
 use Tracy\Debugger;
 
 
@@ -27,23 +27,17 @@ final class SignPresenter extends BasePresenter
      * @var Mail
      */
     private $mailModel;
-    /**
-     * @var Passwords
-     */
-    private $passwords;
 
 
     /**
      * @param User $user
      * @param Mail $mailModel
-     * @param Passwords $passwords
      */
-    public function __construct(User $user, Mail $mailModel, Passwords $passwords)
+    public function __construct(User $user, Mail $mailModel)
     {
         parent::__construct();
         $this->userModel = $user;
         $this->mailModel = $mailModel;
-        $this->passwords = $passwords;
     }
 
 
@@ -91,9 +85,12 @@ final class SignPresenter extends BasePresenter
     }
 
 
+    /**
+     *
+     */
     public function renderIn(): void
     {
-        if($this->user->isLoggedIn()) {
+        if ($this->user->isLoggedIn()) {
             $this->flashMessage('Vy už jste přihlášeni', 'success');
             $this->redirect('Homepage:default');
         }
@@ -153,7 +150,6 @@ final class SignPresenter extends BasePresenter
      * @param string $email
      * @param string $token
      * @throws NotFoundException
-     * @throws \Exception
      */
     public function renderResetVerify(string $email, string $token): void
     {
@@ -262,7 +258,7 @@ final class SignPresenter extends BasePresenter
      * @param UI\Form $form
      * @throws Nette\InvalidStateException
      * @throws NotFoundException
-     * @throws \Exception
+     * @throws Exception
      */
     public function newPasswordFormSuccess(UI\Form $form): void
     {

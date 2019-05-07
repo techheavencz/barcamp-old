@@ -3,6 +3,7 @@
 namespace App\Presenters;
 
 use App\Model\ArchiveLoader;
+use Nette\Application\BadRequestException;
 use Nette\Application\Responses\TextResponse;
 use Nette\Http\IResponse;
 
@@ -31,7 +32,7 @@ final class ArchivePresenter extends BasePresenter
 
     /**
      * @param string|null $path
-     * @throws \Nette\Application\BadRequestException
+     * @throws BadRequestException
      */
     public function render2014(?string $path): void
     {
@@ -41,7 +42,7 @@ final class ArchivePresenter extends BasePresenter
 
     /**
      * @param string|null $path
-     * @throws \Nette\Application\BadRequestException
+     * @throws BadRequestException
      */
     public function render2015(?string $path): void
     {
@@ -51,7 +52,7 @@ final class ArchivePresenter extends BasePresenter
 
     /**
      * @param string|null $path
-     * @throws \Nette\Application\BadRequestException
+     * @throws BadRequestException
      */
     public function render2016(?string $path): void
     {
@@ -61,7 +62,7 @@ final class ArchivePresenter extends BasePresenter
 
     /**
      * @param string|null $path
-     * @throws \Nette\Application\BadRequestException
+     * @throws BadRequestException
      */
     public function render2017(?string $path): void
     {
@@ -71,7 +72,7 @@ final class ArchivePresenter extends BasePresenter
 
     /**
      * @param string|null $path
-     * @throws \Nette\Application\BadRequestException
+     * @throws BadRequestException
      */
     public function render2018(?string $path): void
     {
@@ -82,7 +83,7 @@ final class ArchivePresenter extends BasePresenter
     /**
      * @param int $year
      * @param string|null $path
-     * @throws \Nette\Application\BadRequestException
+     * @throws BadRequestException
      */
     protected function render(int $year, ?string $path): void
     {

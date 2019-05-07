@@ -5,6 +5,7 @@ namespace App\Model;
 
 use Nette\Database;
 use Nette\Database\Table\ActiveRow;
+use Nette\InvalidArgumentException;
 
 class Voting
 {
@@ -98,7 +99,7 @@ class Voting
      * @param int $participantId
      * @param int $talkId
      * @return ActiveRow
-     * @throws \Nette\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function insert(int $participantId, int $talkId): ActiveRow
     {
@@ -112,7 +113,7 @@ class Voting
 
     /**
      * @return bool
-     * @throws \Nette\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function updateVotes(): bool
     {

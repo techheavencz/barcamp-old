@@ -7,17 +7,26 @@ use Nette;
 
 final class Error4xxPresenter extends Nette\Application\UI\Presenter
 {
-	public function startup()
-	{
+    /**
+     * @throws Nette\Application\BadRequestException
+     */
+    public function startup(): void
+    {
 		parent::startup();
-		if (!$this->getRequest()->isMethod(Nette\Application\Request::FORWARD)) {
+
+        /** @var Nette\Application\Request $request */
+        $request = $this->getRequest();
+        if (!$request->isMethod(Nette\Application\Request::FORWARD)) {
 			$this->error();
 		}
 	}
 
 
-	public function renderDefault(Nette\Application\BadRequestException $exception)
-	{
+    /**
+     * @param Nette\Application\BadRequestException $exception
+     */
+    public function renderDefault(Nette\Application\BadRequestException $exception): void
+    {
         $parameters = $this->context->getParameters();
         $this->template->wwwDir = $parameters['wwwDir'];
 

@@ -3,9 +3,9 @@
 namespace App;
 
 use Nette;
-use Nette\Application\IRouter;
 use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
+use Nette\Routing\Router;
 
 
 final class RouterFactory
@@ -14,10 +14,10 @@ final class RouterFactory
 
 
     /**
-     * @return IRouter
+     * @return Router
      * @throws Nette\InvalidArgumentException
      */
-	public static function createRouter(): IRouter
+	public static function createRouter(): Router
     {
 		$router = new RouteList;
         $router[] = new Route('2014[/<path .+>]', 'Archive:2014');

@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Exception;
 use Nette\Database;
 use Nette\Database\Table\ActiveRow;
+use Nette\InvalidArgumentException;
+use Nette\InvalidStateException;
 use Nette\Security\Passwords;
 use Nette\Utils\DateTime;
 use Nette\Utils\Random;
@@ -55,6 +58,7 @@ class User
         return $user;
     }
 
+
     /**
      * @param string $email
      * @return ActiveRow
@@ -100,12 +104,12 @@ class User
         return $this->passwords->verify($password, $hash);
     }
 
+
     /**
      * @param ActiveRow $user
      * @return string
-     * @throws \Nette\InvalidArgumentException
-     * @throws \Nette\InvalidStateException
-     * @throws \Exception
+     * @throws InvalidArgumentException
+     * @throws InvalidStateException
      */
     public function createResetPasswordToken(ActiveRow $user): string
     {
@@ -124,7 +128,7 @@ class User
 
     /**
      * @param ActiveRow $user
-     * @throws \Nette\InvalidStateException
+     * @throws InvalidStateException
      */
     public function removeResetPasswordToken(ActiveRow $user): void
     {
@@ -139,17 +143,17 @@ class User
      * @param ActiveRow $user
      * @param string $token
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function verifyResetPasswordToken(ActiveRow $user, string $token): bool
     {
         $expire = $user[self::RESET_TOKEN_EXPIRE];
         $hash = $user[self::RESET_TOKEN];
-        
+
         // Check token expiration
         $now = new DateTime();
-        if($expire === null || $expire < $now) {
-                return false;
+        if ($expire === null || $expire < $now) {
+            return false;
         }
 
         // Check token hash
@@ -160,7 +164,7 @@ class User
     /**
      * @param ActiveRow $user
      * @param string $password
-     * @throws \Nette\InvalidStateException
+     * @throws InvalidStateException
      */
     public function updatePassword(ActiveRow $user, string $password): void
     {
@@ -186,13 +190,15 @@ class User
      * @param $id
      * @param $attend
      * @return bool
-     * @throws \Nette\InvalidStateException
+     * @throws NotFoundException
+     * @throws InvalidStateException
      */
     public function setAttending($id, $attend): bool
     {
-        $row = $this->db->table(self::TABLE)->get($id);
-        if($row->attending === null) {
-            return $row->update(['attending' => $attend]);
+        $user = $this->getById($id);
+
+        if ($user->attending === null) {
+            return $user->update(['attending' => $attend]);
         }
         return false;
     }

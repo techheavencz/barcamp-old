@@ -2,8 +2,6 @@
 
 namespace App\Presenters;
 
-use Nette;
-
 
 final class AdminPresenter extends BasePresenter
 {
