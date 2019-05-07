@@ -17,14 +17,19 @@ class Talk
      * @var Database\Context
      */
     private $db;
+    /**
+     * @var FeatureToggle
+     */
+    private $featureToggle;
 
 
     /**
      * @param Database\Context $db
      */
-    public function __construct(Database\Context $db)
+    public function __construct(Database\Context $db, FeatureToggleFactory $featureToggleFactory)
     {
         $this->db = $db;
+        $this->featureToggle = $featureToggleFactory->create('talk');
     }
 
 
@@ -42,6 +47,12 @@ class Talk
         }
 
         return $talk;
+    }
+
+
+    public function isAllowedShowMovies(): bool
+    {
+        return $this->featureToggle->isAllowed('movies');
     }
 
 

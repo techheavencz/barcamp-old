@@ -38,3 +38,5 @@ services:
 	- App\Model\Contact
 	- App\Model\Talk
 	- App\Model\Voting
+	- App\Model\Config
+	- App\Model\FeatureToggleFactory

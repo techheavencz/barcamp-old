@@ -14,9 +14,6 @@
             </p>
             <p>{$talk['annotation']|breaklines}</p>
 
-            {*<h3>Komu je přednáška určena?</h3>*}
-            {*<p>{$talk['purpose']|breaklines}</p>*}
-
             {*{if $publicPresentations}*}
             {*<h3>Podklady k přednášce</h3>*}
             {*<ul>*}
@@ -28,78 +25,20 @@
             {*</ul>*}
             {*{/if}*}
 
-            {*{if $publicMovies}*}
-            {*<h3>Záznam přednášky</h3>*}
-            {*<ul class="movies">*}
-                {*<li n:foreach="$publicMovies as $movie">*}
-                    {*{ifset $movie[ 'embed' ]}*}
-                        {*<h4>{$movie['title']}</h4>*}
-                        {*<iframe width="540" height="304" src="{$movie['embed']}" frameborder="0" allowfullscreen></iframe>*}
-                        {*<a href="{$movie['url']}" target="_blank" class="yt-link">*}
-                            {*Zobrazit na YouTube*}
-                        {*</a>*}
-                    {*{else}*}
-                        {*<a href="{$movie['url']}" target="_blank">*}
-                            {*{$movie['title']}*}
-                        {*</a>*}
-                    {*{/ifset}*}
-                {*</li>*}
-            {*</ul>*}
-            {*{/if}*}
-
+            {if $allowedMovies && $talk['movieUrl']}
+            <h3>Záznam přednášky</h3>
+            <ul class="movies">
+                <iframe width="540" height="304" src="{$talk['movieUrl']|embedizeYoutubeUrl}" frameborder="0" allowfullscreen></iframe>
+                <a href="{$talk['movieUrl']}" target="_blank" rel="noopener" class="yt-link">
+                    Zobrazit na YouTube
+                </a>
+            </ul>
+            {/if}
         </div>
 
         <div id="speaker-detail" class="clearfix">
             <p><strong>{$talk->participant->full_name}</strong></p>
-            {*<img class="user-pic user-pic-s180" n:ifset="$speaker['picture_url']" src="{block ogImage}{$speaker['picture_url']|biggerTwitterPicture}{/block}" alt="{$speaker['full_name']}">*}
-
-            <div>
-                <ul class="networks">
-                    {*<li n:if="@$speaker['facebook']" class="fb">*}
-                        {*<a href="{$speaker['facebook']}" target="_blank"><i>Facebook</i></a>*}
-                    {*</li>*}
-                    {*<li n:if="@$speaker['twitter']" class="tw">*}
-                        {*<a href="{$speaker['twitter']|twitterize:"https://twitter.com/"}" target="_blank" title="{block creatorTwitterUsername}{$speaker['twitter']|twitterize:"@"}{/block}"><i>Twitter</i></a>*}
-                    {*</li>*}
-                    {*<li n:if="@$speaker['linked']" class="ln">*}
-                        {*<a href="{$speaker['linked']}" target="_blank"><i>LinkedIn</i></a>*}
-                    {*</li>*}
-                </ul>
-            </div>
-
-            {*<div>
-                <span n:ifset="$speaker['twitter']"><a href="https://twitter.com/{$speaker['twitter']}" target="_blank">TW</a></span>
-                <span n:ifset="$speaker['facebook']"><a href="{$speaker['facebook']}" target="_blank">FB</a></span>
-                <span n:ifset="$speaker['linked']"><a href="{$speaker['linked']}" target="_blank">IN</a></span>
-            </div>*}
-            {*
-                <p class="bio"><strong>Bio:</strong> {$talk->participant->bio}</p>
-            *}
-
-            {*<div class="voting-detail"
-                data-id="{$talk['_id']}"
-                data-action-add="/prednasky?do=talks-addVote"
-                data-action-remove="/prednasky?do=talks-removeVote">*}
-
-                {*{if $isVoteShows}*}
-                {*<p>Stav hlasování: <span id="votes-count">{ifset $talk['votes_count']}{$talk['votes_count']}{else}0{/ifset}</span> hlasů</p>*}
-                {*{if $isVotingOpen && ! (isset($talk['disabled']) && $talk['disabled'])}*}
-                {*{if $user->isLoggedIn() && $user->getIdentity()->isRegistered()}*}
-                    {*<label for="vote">Hlasuj: </label>*}
-                    {*<input class="vote-detail" id="vote" type="checkbox" data-checked="{if @$talk['votes'] && in_array($user->getId(), $talk['votes'])}true{else}false{/if}" {if @$talk['votes'] && in_array($user->getId(), $talk['votes'])} checked {/if}>*}
-                {*{elseif $user->isLoggedIn()}*}
-                    {*<p>Hlasovat mohou jen registrovaní</p>*}
-                {*{else}*}
-                    {*<p><a href="/login">Přihlaš se</a> a&nbsp;hlasuj!</p>*}
-                {*{/if}*}
-                {*{/if}*}
-                {*<span {if !@in_array($user->getId(), $talk['votes'])}style="display:none"{/if} class="border-tb voted">Dal jsi svůj hlas</span>*}{* // Stav pro zaškrtnutý checkbox - zahlasováno *}
-                {*{/if}*}
-            {*</div>*}
-
         </div>
         <div class="cleaner"></div>
-
-        {*<div class="text-center" n:if="isset($speaker['id']) && $user->getId() == $speaker['id']"><a n:href="profil#talk-form" class="button">Upravit mojí přednášku</a></div>*}
     </div>
 </section>

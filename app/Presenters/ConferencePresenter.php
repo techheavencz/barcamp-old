@@ -64,10 +64,26 @@ final class ConferencePresenter extends BasePresenter
     public function renderTalksDetail(string $guid): void
     {
         try {
-            $this->template->talk = $this->talkModel->getByGuid($guid);
+            $talk = $this->talkModel->getByGuid($guid);
+
+            $this->template->allowedMovies = $this->talkModel->isAllowedShowMovies();
+            $this->template->talk = $talk;
+
+            $this->template->addFilter('embedizeYoutubeUrl', __CLASS__.'::embedizeYoutubeUrl');
+
+
         } catch (NotFoundException $e) {
             throw new BadRequestException();
         }
+    }
+
+
+    public static function embedizeYoutubeUrl($url)
+    {
+        if (preg_match('~youtu\\.?be(?:\\.com)?/(?:watch\\?v=)?([-_a-z0-9]{8,15})~i', $url, $matches)) {
+            return sprintf('https://www.youtube.com/embed/%s', $matches[1]);
+        }
+        return $url;
     }
 
 
