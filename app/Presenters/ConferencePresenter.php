@@ -67,6 +67,8 @@ final class ConferencePresenter extends BasePresenter
             $talk = $this->talkModel->getByGuid($guid);
 
             $this->template->allowedMovies = $this->talkModel->isAllowedShowMovies();
+            $this->template->allowedSlides = $this->talkModel->isAllowedShowSlides();
+            $this->template->slides = $this->talkModel->getSlides($talk);
             $this->template->talk = $talk;
 
             $this->template->addFilter('embedizeYoutubeUrl', __CLASS__.'::embedizeYoutubeUrl');

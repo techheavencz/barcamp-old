@@ -14,16 +14,20 @@
             </p>
             <p>{$talk['annotation']|breaklines}</p>
 
-            {*{if $publicPresentations}*}
-            {*<h3>Podklady k přednášce</h3>*}
-            {*<ul>*}
-                {*<li n:foreach="$publicPresentations as $prezentation">*}
-                    {*<a href="{$prezentation['url']}" target="_blank">*}
-                        {*{$prezentation['title']}*}
-                    {*</a>*}
-                {*</li>*}
-            {*</ul>*}
-            {*{/if}*}
+            {if $allowedSlides && $slides}
+            <h3>Podklady k přednášce</h3>
+            <ul>
+                <li n:foreach="$slides as $slideTitle => $slideUrl">
+                    <a href="{$slideUrl}" target="_blank" rel="noopener">
+                        {if is_string($slideTitle)}
+                            {$slideTitle}
+                        {else}
+                            Prezentace
+                        {/if}
+                    </a>
+                </li>
+            </ul>
+            {/if}
 
             {if $allowedMovies && $talk['movieUrl']}
             <h3>Záznam přednášky</h3>

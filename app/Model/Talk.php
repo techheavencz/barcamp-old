@@ -6,6 +6,8 @@ namespace App\Model;
 use Nette\Database;
 use Nette\Database\Table\ActiveRow;
 use Nette\InvalidArgumentException;
+use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 use Nette\Utils\Random;
 
 class Talk
@@ -25,6 +27,7 @@ class Talk
 
     /**
      * @param Database\Context $db
+     * @param FeatureToggleFactory $featureToggleFactory
      */
     public function __construct(Database\Context $db, FeatureToggleFactory $featureToggleFactory)
     {
@@ -53,6 +56,23 @@ class Talk
     public function isAllowedShowMovies(): bool
     {
         return $this->featureToggle->isAllowed('movies');
+    }
+
+
+    public function isAllowedShowSlides(): bool
+    {
+        return $this->featureToggle->isAllowed('slides');
+    }
+
+
+    public function getSlides(ActiveRow $talk): array
+    {
+        try {
+            $slides = Json::decode((string)$talk['slidesUrl']);
+            return (array)$slides;
+        } catch (JsonException $e) {
+            return [];
+        }
     }
 
 
